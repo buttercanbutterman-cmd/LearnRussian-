@@ -151,7 +151,7 @@ label.f{display:block;font-weight:600;margin:14px 0 6px}
    Everything runs on the phone. AI tutor is optional and
    only calls the Anthropic API with the key saved on-device.
    ========================================================= */
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.1.1';
 const MODEL = 'claude-haiku-5-5';
 const PRICE = { in: 0.10, out: 0.50, cacheRead: 0.01, cacheWrite: 0.125 }; // USD per million tokens
 const LS = 'govori.v1', LSKEY = 'govori.key';
@@ -311,6 +311,9 @@ const NUM = ['ноль','оди́н','два','три','четы́ре','пят�
 const hourWord = h => h === 1 ? 'час' : `${NUM[h]} ${h <= 4 ? 'часа́' : 'часо́в'}`;
 const DAYS = [['понеде́льник','в понеде́льник','Monday'],['вто́рник','во вто́рник','Tuesday'],['среда́','в сре́ду','Wednesday'],['четве́рг','в четве́рг','Thursday'],['пя́тница','в пя́тницу','Friday'],['суббо́та','в суббо́ту','Saturday'],['воскресе́нье','в воскресе́нье','Sunday']];
 const SUBJ = [['Я',0],['Ты',1],['Он',2],['Она́',2],['Ма́ша',2],['Мы',3],['Вы',4],['Они́',5],['Студе́нты',5]];
+const SUBJ_EN = {'Я':'I','Ты':'You','Он':'He','Она́':'She','Ма́ша':'Masha','Мы':'We','Вы':'You','Они́':'They','Студе́нты':'The students','он':'he','Ива́н':'Ivan','она́':'she','они́':'they','мы':'we','мои́ роди́тели':'my parents'};
+// whole Russian sentence with the answer filled in (hints in parentheses removed)
+const fillQ = it => { let t = it.q.replace('___', it.a.split('|')[0]), prev; do { prev = t; t = t.replace(/\s*\([^()]*\)/g, ''); } while (t !== prev); return t.replace(/\s+([.?!])/g, '$1').trim(); };
 function distinct3(answer, pool) {
   const seen = new Set([norm(answer)]), out = [];
   for (const p of shuffle(pool)) { const k = norm(p); if (!seen.has(k)) { seen.add(k); out.push(p); } if (out.length === 3) break; }
@@ -318,26 +321,27 @@ function distinct3(answer, pool) {
 }
 function genConj(v) {
   const [subj, i] = pick(SUBJ);
-  return { q: `${subj} ___. (${v.inf} — ${v.en})`, a: v.pres[i], opts: distinct3(v.pres[i], v.pres), why: `${v.inf}: ${v.pres.join(', ')}`, gen: 'conj' };
+  const form = i === 0 ? (v.e1 || v.eb) : i === 2 ? v.e3 : v.eb;
+  return { q: `${subj} ___. (${v.inf} — ${v.en})`, a: v.pres[i], opts: distinct3(v.pres[i], v.pres), why: `${v.inf}: ${v.pres.join(', ')}`, en: form ? `${SUBJ_EN[subj]} ${form}.` : '', gen: 'conj' };
 }
 function genPast(v) {
   if (!v.past || v.noPastDrill) return genConj(v);
   const P = [['он', 0], ['Ива́н', 0], ['она́', 1], ['Ма́ша', 1], ['они́', 3], ['мы', 3], ['мои́ роди́тели', 3]];
   const [subj, g] = pick(P);
-  return { q: `Ра́ньше ${subj} ___. (${v.inf}, past)`, a: v.past[g], opts: distinct3(v.past[g], v.past.concat(v.pres.slice(2, 3))), why: `Past of ${v.inf}: ${v.past.join(', ')} (-л he, -ла she, -ли they).`, gen: 'past' };
+  return { q: `Ра́ньше ${subj} ___. (${v.inf}, past)`, a: v.past[g], opts: distinct3(v.past[g], v.past.concat(v.pres.slice(2, 3))), why: `Past of ${v.inf}: ${v.past.join(', ')} (-л he, -ла she, -ли they).`, en: v.ep ? `Before, ${SUBJ_EN[subj]} ${v.ep}.` : '', gen: 'past' };
 }
 function genTime() {
   const h = 1 + rnd(12), at = Math.random() < 0.5;
   const a = hourWord(h);
   const wrong = h === 1 ? ['оди́н часа́', 'оди́н часо́в', 'одна́ час'] : [`${NUM[h]} час`, `${NUM[h]} часа́`, `${NUM[h]} часо́в`].filter(x => norm(x) !== norm(a)).concat([`${NUM[h === 12 ? 11 : h + 1]} ${h + 1 <= 4 ? 'часа́' : 'часо́в'}`]);
-  if (at) return { q: `Ру́сский у меня́ ___. (at ${h}:00)`, a: 'в ' + a, opts: distinct3('в ' + a, wrong.map(w => 'в ' + w)), why: '1 → час, 2–4 → часа́, 5–12 → часо́в. “At” = в.', gen: 'time' };
-  return { q: `Ско́лько сейча́с вре́мени? — Сейча́с ___. (${h}:00)`, a, opts: distinct3(a, wrong), why: '1 → час, 2–4 → часа́, 5–12 → часо́в.', gen: 'time' };
+  if (at) return { q: `Ру́сский у меня́ ___. (at ${h}:00)`, a: 'в ' + a, opts: distinct3('в ' + a, wrong.map(w => 'в ' + w)), why: '1 → час, 2–4 → часа́, 5–12 → часо́в. “At” = в.', en: `I have Russian at ${h === 1 ? 'one' : h} o'clock.`, gen: 'time' };
+  return { q: `Ско́лько сейча́с вре́мени? — Сейча́с ___. (${h}:00)`, a, opts: distinct3(a, wrong), why: '1 → час, 2–4 → часа́, 5–12 → часо́в.', en: `What time is it now? — It's ${h === 1 ? 'one' : h} o'clock.`, gen: 'time' };
 }
 function genDay() {
   const i = rnd(7), [nom, on, en] = DAYS[i];
-  if (Math.random() < 0.35) return { q: `Како́й сего́дня день? — Сего́дня ___. (${en})`, a: nom, opts: distinct3(nom, [on, on.replace(/^во? /, ''), DAYS[(i + 1) % 7][0], DAYS[(i + 3) % 7][0]]), why: '“Today is…” uses the plain (nominative) form.', gen: 'day' };
+  if (Math.random() < 0.35) return { q: `Како́й сего́дня день? — Сего́дня ___. (${en})`, a: nom, opts: distinct3(nom, [on, on.replace(/^во? /, ''), DAYS[(i + 1) % 7][0], DAYS[(i + 3) % 7][0]]), why: '“Today is…” uses the plain (nominative) form.', en: `What day is it today? — Today is ${en}.`, gen: 'day' };
   const wrong = [nom, 'в ' + nom, i === 1 ? 'в вто́рник' : (i === 2 || i === 4 || i === 5) ? 'в ' + nom.replace(/а́?$/, 'е') : 'во ' + nom, DAYS[(i + 2) % 7][1]];
-  return { q: `___ у меня́ ру́сский. (on ${en})`, a: on, opts: distinct3(on, wrong), why: '“On [day]” = в + accusative: в сре́ду, в пя́тницу, в суббо́ту; во вто́рник.', gen: 'day' };
+  return { q: `___ у меня́ ру́сский. (on ${en})`, a: on, opts: distinct3(on, wrong), why: '“On [day]” = в + accusative: в сре́ду, в пя́тницу, в суббо́ту; во вто́рник.', en: `I have Russian on ${en}.`, gen: 'day' };
 }
 function drillPool(ids = selUnits(), n = 15) {
   const stat = [];
@@ -491,7 +495,13 @@ function questionHTML(item, { typing, idx, total, title, showOpts }) {
 function feedbackHTML(item, ok, given) {
   return `<div class="fb ${ok ? 'good' : 'bad'}">${ok ? '✓ Right' : `✗ You wrote: <b>${esc(given || '—')}</b>`}<br>Answer: <b class="ru" lang="ru">${esc(item.a.split('|')[0])}</b>
     <button class="linkbtn" data-say="${esc(item.a.split('|')[0])}" aria-label="Hear the answer">🔊</button><br><span>${esc(item.why || '')}</span>
-    ${!ok ? `<div><button class="linkbtn" id="explain">Explain this to me (AI)</button><div id="exp"></div></div>` : ''}</div>`;
+    ${!ok ? `<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--line)"><b lang="ru">${esc(fillQ(item))}</b> <button class="linkbtn" data-say="${esc(fillQ(item))}" aria-label="Hear the sentence">🔊</button><br>${item.en ? `<span>${esc(item.en)}</span>` : `<button class="linkbtn" id="aitr">Translate (AI)</button><span id="aitrout"></span>`}</div>
+      <div><button class="linkbtn" id="explain">Explain this to me (AI)</button><div id="exp"></div></div>` : ''}</div>`;
+}
+async function aiTranslate(item, box) {
+  box.textContent = ' Translating…';
+  try { box.textContent = ' ' + await askClaude([{ role: 'user', content: 'Translate into natural English: ' + fillQ(item) }], { maxTokens: 60, system: 'You translate Russian to English. Reply with only the English translation.', cacheKey: 'tr:' + norm(fillQ(item)) }); }
+  catch (e) { box.textContent = ' ' + aiErrorText(e); }
 }
 async function explainMistake(item, given, box) {
   box.innerHTML = '<p class="hint">Thinking…</p>';
@@ -533,6 +543,7 @@ VIEWS.drill = () => {
     const fb = app.querySelector('#fb');
     fb.innerHTML = feedbackHTML(item, ok, given) + `<button class="btn block" id="next">${idx + 1 < items.length ? 'Next' : 'Finish'}</button>`;
     const ex = fb.querySelector('#explain'); if (ex) ex.onclick = () => { ex.remove(); explainMistake(item, given, fb.querySelector('#exp')); };
+    const at = fb.querySelector('#aitr'); if (at) at.onclick = () => { at.remove(); aiTranslate(item, fb.querySelector('#aitrout')); };
     fb.querySelector('#next').onclick = () => { idx++; idx < items.length ? draw() : finish(); };
     ['#check', '#showopts'].forEach(s => { const b = app.querySelector(s); if (b) b.remove(); });
     fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -585,7 +596,7 @@ VIEWS.test = (arg) => {
       ${misses.length ? `<button class="btn block" id="retry">Retry the ${misses.length} I missed</button>` : '<p class="center">Perfect. Отли́чно!</p>'}</div>
       <h2>Review</h2><div class="card">${rows.map(r => `<div class="review"><div lang="ru">${r.ok ? '✓' : '✗'} ${esc(r.it.q)}</div>
       <div>${r.ok ? '' : `You: <b>${esc(r.given)}</b> · `}Answer: <b class="ru" lang="ru">${esc(r.it.a.split('|')[0])}</b>${r.it._hinted ? ' <span class="hint">(used options)</span>' : ''}</div>
-      ${r.ok ? '' : `<div class="hint">${esc(r.it.why || '')}</div>`}</div>`).join('')}</div>
+      ${r.ok ? '' : `<div class="hint">${esc(r.it.why || '')}</div><div class="hint" lang="ru">${esc(fillQ(r.it))}${r.it.en ? ' — ' + esc(r.it.en) : ''}</div>`}</div>`).join('')}</div>
       <div style="height:12px"></div><button class="btn block ghost" data-go="test">New test</button>`;
     const rt = app.querySelector('#retry'); if (rt) rt.onclick = () => { items.splice(0, items.length, ...shuffle(misses.map(m => ({ ...m.it, _hinted: false })))); answers.length = 0; idx = 0; draw(); };
   }

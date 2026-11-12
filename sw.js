@@ -1,6 +1,6 @@
 // Говори service worker: network-first so updates show up right away,
 // with a cached copy so the app still opens offline.
-const CACHE = 'govori-v3';
+const CACHE = 'govori-v4';
 const CORE = ['./', './index.html', './content.json', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {

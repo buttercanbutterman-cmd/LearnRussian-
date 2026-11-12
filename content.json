@@ -1,5 +1,5 @@
 {
- "version": "2026-11-12b",
+ "version": "2026-11-12c",
  "course": "RUSS 1110 · Golosa Book 1",
  "currentUnit": 5,
  "units": [
@@ -116,7 +116,8 @@
       "приве́т",
       "здра́вствуйте"
      ],
-     "why": "До свида́ния is formal. Пока́ is only for friends."
+     "why": "До свида́ния is formal. Пока́ is only for friends.",
+     "en": "Formal way to say goodbye."
     },
     {
      "q": "— Кто э́то? — Э́то ___. (professor)",
@@ -126,7 +127,8 @@
       "кот",
       "маши́на"
      ],
-     "why": "Кто? is for people and animals. A professor is a person."
+     "why": "Кто? is for people and animals. A professor is a person.",
+     "en": "— Who is this? — This is a professor."
     },
     {
      "q": "— ___ э́то? — Э́то дом.",
@@ -136,7 +138,8 @@
       "Где",
       "Чей"
      ],
-     "why": "Что? is for things. Кто? is for people and animals."
+     "why": "Что? is for things. Кто? is for people and animals.",
+     "en": "— What is this? — This is a house."
     },
     {
      "q": "— ___ э́то? — Э́то кот.",
@@ -146,7 +149,8 @@
       "Где",
       "Как"
      ],
-     "why": "Animals take Кто?, just like people."
+     "why": "Animals take Кто?, just like people.",
+     "en": "— Who is this? — This is a cat."
     },
     {
      "q": "— Как дела́? — ___! (excellent)",
@@ -156,7 +160,8 @@
       "Пока́",
       "Спаси́бо"
      ],
-     "why": "Отли́чно = excellent."
+     "why": "Отли́чно = excellent.",
+     "en": "— How are you? — Excellent!"
     }
    ]
   },
@@ -373,7 +378,8 @@
       "Бо́стони",
       "Бо́стону"
      ],
-     "why": "Location = prepositional. Hard masculine nouns add -е."
+     "why": "Location = prepositional. Hard masculine nouns add -е.",
+     "en": "I live in Boston."
     },
     {
      "q": "Мэ́ри живёт в ___. (Ло́ндон)",
@@ -383,7 +389,8 @@
       "Ло́ндони",
       "Ло́ндона"
      ],
-     "why": "Ло́ндон is hard masculine, so it adds -е."
+     "why": "Ло́ндон is hard masculine, so it adds -е.",
+     "en": "Mary lives in London."
     },
     {
      "q": "Ка́тя живёт в ___. (Росси́я)",
@@ -393,7 +400,8 @@
       "Росси́я",
       "Росси́ю"
      ],
-     "why": "Nouns in -ия end in -ии in the prepositional."
+     "why": "Nouns in -ия end in -ии in the prepositional.",
+     "en": "Katya lives in Russia."
     },
     {
      "q": "Пе́тя живёт в ___. (Москва́)",
@@ -403,7 +411,8 @@
       "Москви́",
       "Москву́"
      ],
-     "why": "-а swaps to -е."
+     "why": "-а swaps to -е.",
+     "en": "Petya lives in Moscow."
     },
     {
      "q": "Джулье́тта живёт в ___. (Пари́ж)",
@@ -413,7 +422,8 @@
       "Пари́жи",
       "Пари́жу"
      ],
-     "why": "Masculine noun, add -е."
+     "why": "Masculine noun, add -е.",
+     "en": "Juliet lives in Paris."
     },
     {
      "q": "Майк живёт в ___. (Чика́го)",
@@ -423,7 +433,8 @@
       "Чика́гу",
       "Чика́ги"
      ],
-     "why": "Foreign names ending in -о never change."
+     "why": "Foreign names ending in -о never change.",
+     "en": "Mike lives in Chicago."
     },
     {
      "q": "Я живу́ в ___. (Миссиси́пи)",
@@ -433,7 +444,8 @@
       "Миссиси́пу",
       "Миссиси́пии"
      ],
-     "why": "Foreign names ending in -и don't change."
+     "why": "Foreign names ending in -и don't change.",
+     "en": "I live in Mississippi."
     },
     {
      "q": "Макс живёт в ___. (Сидне́й)",
@@ -443,7 +455,8 @@
       "Сидне́и",
       "Сидне́ю"
      ],
-     "why": "-й swaps to -е."
+     "why": "-й swaps to -е.",
+     "en": "Max lives in Sydney."
     },
     {
      "q": "Мои́ роди́тели живу́т ___ Фра́нции.",
@@ -453,7 +466,8 @@
       "на",
       "о"
      ],
-     "why": "в becomes во before Ф/В + another consonant: во Фра́нции, во Флори́де."
+     "why": "в becomes во before Ф/В + another consonant: во Фра́нции, во Флори́де.",
+     "en": "My parents live in France."
     },
     {
      "q": "Ма́рко живёт в ___. (Калифо́рния)",
@@ -463,7 +477,8 @@
       "Калифо́рнию",
       "Калифо́рния"
      ],
-     "why": "-ия → -ии."
+     "why": "-ия → -ии.",
+     "en": "Marco lives in California."
     },
     {
      "q": "___ па́па (my)",
@@ -473,7 +488,8 @@
       "моё",
       "мои́"
      ],
-     "why": "па́па ends in -а but it's a man, so it's masculine: мой."
+     "why": "па́па ends in -а but it's a man, so it's masculine: мой.",
+     "en": "my dad"
     },
     {
      "q": "___ сестра́ (my)",
@@ -483,7 +499,8 @@
       "моё",
       "мои́"
      ],
-     "why": "Feminine noun → моя́."
+     "why": "Feminine noun → моя́.",
+     "en": "my sister"
     },
     {
      "q": "___ письмо́ (my)",
@@ -493,7 +510,8 @@
       "моя́",
       "мои́"
      ],
-     "why": "Neuter (-о) → моё."
+     "why": "Neuter (-о) → моё.",
+     "en": "my letter"
     },
     {
      "q": "___ роди́тели (my)",
@@ -503,7 +521,8 @@
       "моя́",
       "моё"
      ],
-     "why": "Plural → мои́."
+     "why": "Plural → мои́.",
+     "en": "my parents"
     },
     {
      "q": "Здра́вствуйте, О́льга Ви́кторовна! Как ___ зову́т?",
@@ -513,7 +532,8 @@
       "ты",
       "меня́"
      ],
-     "why": "You use вы with a teacher, so it's Как вас зову́т?"
+     "why": "You use вы with a teacher, so it's Как вас зову́т?",
+     "en": "Hello, Olga Viktorovna! What is your name? (formal)"
     },
     {
      "q": "Приве́т, Ма́ша! Как ___ зову́т? (your friend's friend, informal)",
@@ -523,7 +543,8 @@
       "вы",
       "его́"
      ],
-     "why": "Informal → тебя́."
+     "why": "Informal → тебя́.",
+     "en": "Hi, Masha! What's your name? (informal)"
     },
     {
      "q": "Её па́па — Серге́й. Её о́тчество: ___",
@@ -533,7 +554,8 @@
       "Серге́евич",
       "Серге́овна"
      ],
-     "why": "Daughter → -овна/-евна. й changes to е: Серге́евна."
+     "why": "Daughter → -овна/-евна. й changes to е: Серге́евна.",
+     "en": "Her dad is Sergei. Her patronymic means “daughter of Sergei.”"
     },
     {
      "q": "Его́ па́па — Ива́н. Его́ о́тчество: ___",
@@ -543,7 +565,8 @@
       "Ива́невич",
       "Ива́нов"
      ],
-     "why": "Son → -ович."
+     "why": "Son → -ович.",
+     "en": "His dad is Ivan. His patronymic means “son of Ivan.”"
     },
     {
      "q": "Mixed class: Linda is ___ (American, f)",
@@ -553,7 +576,8 @@
       "америка́нцы",
       "америка́нский"
      ],
-     "why": "Female → америка́нка."
+     "why": "Female → америка́нка.",
+     "en": "Linda is American (a woman)."
     }
    ]
   },
@@ -822,7 +846,8 @@
       "оно́",
       "они́"
      ],
-     "why": "слова́рь is one of the masculine -ь words."
+     "why": "слова́рь is one of the masculine -ь words.",
+     "en": "Where is my dictionary? — Here it is!"
     },
     {
      "q": "Где моя́ тетра́дь? — Вот ___!",
@@ -832,7 +857,8 @@
       "оно́",
       "они́"
      ],
-     "why": "тетра́дь is one of the feminine -ь words."
+     "why": "тетра́дь is one of the feminine -ь words.",
+     "en": "Where is my notebook? — Here it is!"
     },
     {
      "q": "Где моё письмо́? — Вот ___!",
@@ -842,7 +868,8 @@
       "она́",
       "они́"
      ],
-     "why": "-о → neuter."
+     "why": "-о → neuter.",
+     "en": "Where is my letter? — Here it is!"
     },
     {
      "q": "Где джи́нсы? — Вот ___!",
@@ -852,7 +879,8 @@
       "она́",
       "оно́"
      ],
-     "why": "джи́нсы only exists in the plural."
+     "why": "джи́нсы only exists in the plural.",
+     "en": "Where are the jeans? — Here they are!"
     },
     {
      "q": "Где ра́дио? — Вот ___!",
@@ -862,7 +890,8 @@
       "она́",
       "они́"
      ],
-     "why": "Ends in -о → neuter."
+     "why": "Ends in -о → neuter.",
+     "en": "Where is the radio? — Here it is!"
     },
     {
      "q": "Где часы́? — Вот ___!",
@@ -872,7 +901,8 @@
       "она́",
       "оно́"
      ],
-     "why": "часы́ is always plural."
+     "why": "часы́ is always plural.",
+     "en": "Where is the watch? — Here it is! (часы́ is plural in Russian)"
     },
     {
      "q": "Где па́па? — Вот ___!",
@@ -882,7 +912,8 @@
       "оно́",
       "они́"
      ],
-     "why": "Ends in -а but it's a man → он."
+     "why": "Ends in -а but it's a man → он.",
+     "en": "Where is Dad? — Here he is!"
     },
     {
      "q": "Plural: журна́л → ___",
@@ -892,7 +923,8 @@
       "журна́ла",
       "журна́лов"
      ],
-     "why": "Hard masculine → -ы."
+     "why": "Hard masculine → -ы.",
+     "en": "magazine → magazines"
     },
     {
      "q": "Plural: кни́га → ___",
@@ -902,7 +934,8 @@
       "кни́га",
       "кни́гов"
      ],
-     "why": "7-letter rule: no ы after г."
+     "why": "7-letter rule: no ы after г.",
+     "en": "book → books"
     },
     {
      "q": "Plural: каранда́ш → ___",
@@ -912,7 +945,8 @@
       "карандаша́",
       "каранда́шей"
      ],
-     "why": "7-letter rule: no ы after ш."
+     "why": "7-letter rule: no ы after ш.",
+     "en": "pencil → pencils"
     },
     {
      "q": "Plural: письмо́ → ___",
@@ -922,7 +956,8 @@
       "письмо́",
       "пи́сем"
      ],
-     "why": "Neuter -о → -а (and the stress moves)."
+     "why": "Neuter -о → -а (and the stress moves).",
+     "en": "letter → letters"
     },
     {
      "q": "Plural: слова́рь → ___",
@@ -932,7 +967,8 @@
       "слова́рей",
       "словаря́"
      ],
-     "why": "Soft -ь → -и."
+     "why": "Soft -ь → -и.",
+     "en": "dictionary → dictionaries"
     },
     {
      "q": "Plural: пла́тье → ___",
@@ -942,7 +978,8 @@
       "пла́тье",
       "пла́тьа"
      ],
-     "why": "Neuter -е → -я."
+     "why": "Neuter -е → -я.",
+     "en": "dress → dresses"
     },
     {
      "q": "Plural: дом → ___",
@@ -952,7 +989,8 @@
       "до́ми",
       "дом"
      ],
-     "why": "Irregular: дома́."
+     "why": "Irregular: дома́.",
+     "en": "house → houses"
     },
     {
      "q": "Plural: па́спорт → ___",
@@ -962,7 +1000,8 @@
       "па́спорти",
       "па́спорт"
      ],
-     "why": "Irregular: паспорта́."
+     "why": "Irregular: паспорта́.",
+     "en": "passport → passports"
     },
     {
      "q": "Plural: америка́нец → ___",
@@ -972,7 +1011,8 @@
       "америка́нци",
       "америка́нца"
      ],
-     "why": "Fleeting vowel: the е drops out."
+     "why": "Fleeting vowel: the е drops out.",
+     "en": "American → Americans"
     },
     {
      "q": "Plural: фами́лия → ___",
@@ -982,7 +1022,8 @@
       "фами́лиы",
       "фами́лие"
      ],
-     "why": "-я → -и."
+     "why": "-я → -и.",
+     "en": "last name → last names"
     },
     {
      "q": "___ кни́га? (whose)",
@@ -992,7 +1033,8 @@
       "Чьё",
       "Чьи"
      ],
-     "why": "кни́га is feminine → Чья."
+     "why": "кни́га is feminine → Чья.",
+     "en": "Whose book?"
     },
     {
      "q": "___ компью́тер? (whose)",
@@ -1002,7 +1044,8 @@
       "Чьё",
       "Чьи"
      ],
-     "why": "Masculine → Чей."
+     "why": "Masculine → Чей.",
+     "en": "Whose computer?"
     },
     {
      "q": "___ пальто́? (whose)",
@@ -1012,7 +1055,8 @@
       "Чья",
       "Чьи"
      ],
-     "why": "пальто́ is neuter → Чьё."
+     "why": "пальто́ is neuter → Чьё.",
+     "en": "Whose coat?"
     },
     {
      "q": "___ брю́ки? (whose)",
@@ -1022,7 +1066,8 @@
       "Чья",
       "Чьё"
      ],
-     "why": "Plural → Чьи."
+     "why": "Plural → Чьи.",
+     "en": "Whose pants?"
     },
     {
      "q": "Э́то ___ дом. (our)",
@@ -1032,7 +1077,8 @@
       "на́ше",
       "на́ши"
      ],
-     "why": "дом is masculine → наш."
+     "why": "дом is masculine → наш.",
+     "en": "This is our house."
     },
     {
      "q": "Э́то ___ су́мка? (your, formal)",
@@ -1042,7 +1088,8 @@
       "ва́ше",
       "ва́ши"
      ],
-     "why": "су́мка is feminine → ва́ша."
+     "why": "су́мка is feminine → ва́ша.",
+     "en": "Is this your bag? (formal)"
     },
     {
      "q": "Э́то ___ кни́ги. (their)",
@@ -1052,7 +1099,8 @@
       "они́",
       "его́"
      ],
-     "why": "их never changes."
+     "why": "их never changes.",
+     "en": "These are their books."
     },
     {
      "q": "Э́то ___ пла́тье. (your, informal)",
@@ -1062,7 +1110,8 @@
       "твоя́",
       "твои́"
      ],
-     "why": "Neuter → твоё."
+     "why": "Neuter → твоё.",
+     "en": "This is your dress. (informal)"
     },
     {
      "q": "___ есть компью́тер? (Do you have — formal)",
@@ -1072,7 +1121,8 @@
       "Вы",
       "У меня́"
      ],
-     "why": "Formal “do you have” = У вас есть…?"
+     "why": "Formal “do you have” = У вас есть…?",
+     "en": "Do you have a computer? (formal)"
     }
    ]
   },
@@ -1365,7 +1415,8 @@
       "ру́сская",
       "ру́сски"
      ],
-     "why": "знать + язы́к takes the adjective ру́сский."
+     "why": "знать + язы́к takes the adjective ру́сский.",
+     "en": "I know the Russian language."
     },
     {
      "q": "Мы говори́м ___. (in Russian)",
@@ -1375,7 +1426,8 @@
       "ру́сский",
       "ру́сские"
      ],
-     "why": "говори́ть takes the adverb по-ру́сски."
+     "why": "говори́ть takes the adverb по-ру́сски.",
+     "en": "We speak Russian."
     },
     {
      "q": "Пе́дро живёт в Мадри́де. Он ___.",
@@ -1385,7 +1437,8 @@
       "испа́нцы",
       "испа́нский"
      ],
-     "why": "Man → испа́нец."
+     "why": "Man → испа́нец.",
+     "en": "Pedro lives in Madrid. He is Spanish."
     },
     {
      "q": "Мари́я живёт в Испа́нии. Она́ ___.",
@@ -1395,7 +1448,8 @@
       "испа́нская",
       "испа́нцы"
      ],
-     "why": "Woman → испа́нка."
+     "why": "Woman → испа́нка.",
+     "en": "Maria lives in Spain. She is Spanish."
     },
     {
      "q": "А́ня и Серге́й живу́т в Росси́и. Они́ ___.",
@@ -1405,7 +1459,8 @@
       "ру́сская",
       "ру́сски"
      ],
-     "why": "Plural → ру́сские."
+     "why": "Plural → ру́сские.",
+     "en": "Anya and Sergei live in Russia. They are Russian."
     },
     {
      "q": "Они́ живу́т в О́ксфорде, Миссиси́пи. Они́ ___.",
@@ -1415,7 +1470,8 @@
       "америка́нка",
       "америка́нские"
      ],
-     "why": "Plural nationality → америка́нцы."
+     "why": "Plural nationality → америка́нцы.",
+     "en": "They live in Oxford, Mississippi. They are American."
     },
     {
      "q": "Ма́ша ра́ньше ___ в Москве́. (жить, past)",
@@ -1425,7 +1481,8 @@
       "жи́ли",
       "живёт"
      ],
-     "why": "Ма́ша is a woman → -ла. Note the stress: жила́."
+     "why": "Ма́ша is a woman → -ла. Note the stress: жила́.",
+     "en": "Masha used to live in Moscow."
     },
     {
      "q": "Студе́нты ме́дленно ___ по-ру́сски. (говори́ть, past)",
@@ -1435,7 +1492,8 @@
       "говори́ла",
       "говоря́т"
      ],
-     "why": "Plural subject → -ли."
+     "why": "Plural subject → -ли.",
+     "en": "The students spoke Russian slowly."
     },
     {
      "q": "Джон ра́ньше пло́хо ___ по-кита́йски. (понима́ть, past)",
@@ -1445,7 +1503,8 @@
       "понима́ли",
       "понима́ет"
      ],
-     "why": "Man → -л."
+     "why": "Man → -л.",
+     "en": "John used to understand Chinese poorly."
     },
     {
      "q": "Мэ́ри бы́стро ___ по-неме́цки. (писа́ть, past)",
@@ -1455,7 +1514,8 @@
       "пи́шет",
       "писа́ли"
      ],
-     "why": "Woman → -ла. The past uses the infinitive stem писа-."
+     "why": "Woman → -ла. The past uses the infinitive stem писа-.",
+     "en": "Mary wrote quickly in German."
     },
     {
      "q": "Ви́ктор ___ в Кана́де. (учи́ться, past)",
@@ -1465,7 +1525,8 @@
       "учи́лись",
       "у́чится"
      ],
-     "why": "Man → -лся."
+     "why": "Man → -лся.",
+     "en": "Viktor went to school in Canada."
     },
     {
      "q": "О́льга ___ в Петербу́рге. (учи́ться, past)",
@@ -1475,7 +1536,8 @@
       "учи́лись",
       "у́чится"
      ],
-     "why": "Woman → -лась."
+     "why": "Woman → -лась.",
+     "en": "Olga went to school in St. Petersburg."
     },
     {
      "q": "Где ра́ньше ___ ва́ши роди́тели? (жить, past)",
@@ -1485,7 +1547,8 @@
       "жила́",
       "живу́т"
      ],
-     "why": "Plural → -ли."
+     "why": "Plural → -ли.",
+     "en": "Where did your parents live before?"
     },
     {
      "q": "___ мой рюкза́к. (This is)",
@@ -1495,7 +1558,8 @@
       "Э́та",
       "Э́ти"
      ],
-     "why": "“This is…” is always Э́то."
+     "why": "“This is…” is always Э́то.",
+     "en": "This is my backpack."
     },
     {
      "q": "___ рюкза́к мой. (This backpack)",
@@ -1505,7 +1569,8 @@
       "Э́та",
       "Э́ти"
      ],
-     "why": "“This [masc. noun]” → э́тот."
+     "why": "“This [masc. noun]” → э́тот.",
+     "en": "This backpack is mine."
     },
     {
      "q": "___ кни́га твоя́. (This book)",
@@ -1515,7 +1580,8 @@
       "Э́тот",
       "Э́ти"
      ],
-     "why": "Feminine → э́та."
+     "why": "Feminine → э́та.",
+     "en": "This book is yours."
     },
     {
      "q": "___ журна́лы интере́сные. (These magazines)",
@@ -1525,7 +1591,8 @@
       "Э́тот",
       "Э́та"
      ],
-     "why": "Plural → э́ти."
+     "why": "Plural → э́ти.",
+     "en": "These magazines are interesting."
     },
     {
      "q": "У меня́ есть ___ футбо́лка. (бе́лый)",
@@ -1535,7 +1602,8 @@
       "бе́лое",
       "бе́лые"
      ],
-     "why": "футбо́лка is feminine → -ая."
+     "why": "футбо́лка is feminine → -ая.",
+     "en": "I have a white T-shirt."
     },
     {
      "q": "У меня́ есть ___ шо́рты. (си́ний)",
@@ -1545,7 +1613,8 @@
       "си́няя",
       "си́ные"
      ],
-     "why": "Plural, soft adjective → -ие."
+     "why": "Plural, soft adjective → -ие.",
+     "en": "I have blue shorts."
     },
     {
      "q": "У меня́ есть ___ кроссо́вки. (чёрный)",
@@ -1555,7 +1624,8 @@
       "чёрная",
       "чёрное"
      ],
-     "why": "Plural → -ые."
+     "why": "Plural → -ые.",
+     "en": "I have black sneakers."
     },
     {
      "q": "У меня́ есть ___ пла́тье. (краси́вый)",
@@ -1565,7 +1635,8 @@
       "краси́вая",
       "краси́вые"
      ],
-     "why": "Neuter → -ое."
+     "why": "Neuter → -ое.",
+     "en": "I have a beautiful dress."
     },
     {
      "q": "У меня́ есть ___ часы́. (ста́рый)",
@@ -1575,7 +1646,8 @@
       "ста́рое",
       "ста́рая"
      ],
-     "why": "часы́ is plural → -ые."
+     "why": "часы́ is plural → -ые.",
+     "en": "I have an old watch."
     },
     {
      "q": "Я ___ ру́сский язы́к. (to study, I)",
@@ -1585,7 +1657,8 @@
       "занима́юсь",
       "изуча́ет"
      ],
-     "why": "изуча́ть + a subject."
+     "why": "изуча́ть + a subject.",
+     "en": "I study the Russian language."
     }
    ]
   },
@@ -1790,7 +1863,8 @@
       "но",
       "и́ли"
      ],
-     "why": "Two similar things joined → и."
+     "why": "Two similar things joined → и.",
+     "en": "Masha and Kostya are Russian."
     },
     {
      "q": "Ма́ша изуча́ет францу́зский, ___ Ко́стя изуча́ет англи́йский.",
@@ -1800,7 +1874,8 @@
       "но",
       "что"
      ],
-     "why": "Two different people contrasted → а."
+     "why": "Two different people contrasted → а.",
+     "en": "Masha studies French, and (whereas) Kostya studies English."
     },
     {
      "q": "Ма́ша зна́ет францу́зский, ___ чита́ет ме́дленно.",
@@ -1810,7 +1885,8 @@
       "и",
       "что"
      ],
-     "why": "Same person, unexpected contrast → но."
+     "why": "Same person, unexpected contrast → но.",
+     "en": "Masha knows French, but she reads slowly."
     },
     {
      "q": "Ко́стя зна́ет не испа́нский, ___ англи́йский.",
@@ -1820,7 +1896,8 @@
       "и",
       "и́ли"
      ],
-     "why": "Not X but rather Y → а."
+     "why": "Not X but rather Y → а.",
+     "en": "Kostya knows not Spanish, but English."
     },
     {
      "q": "Я живу́ в Ту́пело, ___ учу́сь в О́ксфорде.",
@@ -1830,7 +1907,8 @@
       "и",
       "что"
      ],
-     "why": "Same person (я), contrast → но."
+     "why": "Same person (я), contrast → но.",
+     "en": "I live in Tupelo, but I go to school in Oxford."
     },
     {
      "q": "Меня́ зову́т О́ля. ___ как тебя́ зову́т?",
@@ -1840,7 +1918,8 @@
       "И",
       "Что"
      ],
-     "why": "А starts a follow-up question: “And what's your name?”"
+     "why": "А starts a follow-up question: “And what's your name?”",
+     "en": "My name is Olya. And what's your name?"
     },
     {
      "q": "А́лла ___ в Моско́вском университе́те.",
@@ -1850,7 +1929,8 @@
       "занима́ется",
       "у́чит"
      ],
-     "why": "Being a student somewhere → учи́ться."
+     "why": "Being a student somewhere → учи́ться.",
+     "en": "Alla is a student at Moscow University."
     },
     {
      "q": "Она́ ___ фина́нсы.",
@@ -1860,7 +1940,8 @@
       "занима́ется",
       "лю́бится"
      ],
-     "why": "Studying a subject → изуча́ть + accusative."
+     "why": "Studying a subject → изуча́ть + accusative.",
+     "en": "She studies finance."
     },
     {
      "q": "Она́ мно́го ___ в библиоте́ке.",
@@ -1870,7 +1951,8 @@
       "у́чится",
       "рабо́тает"
      ],
-     "why": "Doing homework somewhere → занима́ться."
+     "why": "Doing homework somewhere → занима́ться.",
+     "en": "She does a lot of homework in the library."
     },
     {
      "q": "Где вы ___? (do your homework)",
@@ -1880,7 +1962,8 @@
       "у́читесь",
       "занима́ете"
      ],
-     "why": "Homework → занима́ться, вы form: занима́етесь."
+     "why": "Homework → занима́ться, вы form: занима́етесь.",
+     "en": "Where do you do your homework?"
     },
     {
      "q": "Макс хорошо́ ___. (does well in school)",
@@ -1890,7 +1973,8 @@
       "занима́ет",
       "зна́ет"
      ],
-     "why": "Doing well or badly in school → учи́ться."
+     "why": "Doing well or badly in school → учи́ться.",
+     "en": "Max does well in school."
     },
     {
      "q": "Ва́ня живёт в ___. (ста́рый краси́вый го́род)",
@@ -1900,7 +1984,8 @@
       "ста́рой краси́вой го́роде",
       "ста́рых краси́вых го́роде"
      ],
-     "why": "Masculine prepositional: adjectives -ом, noun -е."
+     "why": "Masculine prepositional: adjectives -ом, noun -е.",
+     "en": "Vanya lives in an old, beautiful city."
     },
     {
      "q": "Са́ра живёт в ___. (ма́ленькая ста́рая кварти́ра)",
@@ -1910,7 +1995,8 @@
       "ма́леньком ста́ром кварти́ре",
       "ма́ленькую ста́рую кварти́ру"
      ],
-     "why": "Feminine prepositional: adjectives -ой, noun -е."
+     "why": "Feminine prepositional: adjectives -ой, noun -е.",
+     "en": "Sarah lives in a small, old apartment."
     },
     {
      "q": "И́горь живёт в ___. (большо́й но́вый дом)",
@@ -1920,7 +2006,8 @@
       "большо́й но́вой до́ме",
       "больши́х но́вых до́ме"
      ],
-     "why": "Masculine prepositional: -ом, -ом, -е."
+     "why": "Masculine prepositional: -ом, -ом, -е.",
+     "en": "Igor lives in a big new house."
     },
     {
      "q": "Па́вел и Бори́с живу́т в ___. (но́вые дома́)",
@@ -1930,7 +2017,8 @@
       "но́вом до́ме",
       "но́вых до́ме"
      ],
-     "why": "Plural prepositional: adjective -ых, noun -ах."
+     "why": "Plural prepositional: adjective -ых, noun -ах.",
+     "en": "Pavel and Boris live in new houses."
     },
     {
      "q": "Ма́ша живёт в ___. (э́тот большо́й го́род)",
@@ -1940,7 +2028,8 @@
       "э́той большо́й го́роде",
       "э́тих больши́х го́роде"
      ],
-     "why": "э́тот → э́том in the prepositional."
+     "why": "э́тот → э́том in the prepositional.",
+     "en": "Masha lives in this big city."
     },
     {
      "q": "Ди́ма живёт в ___. (э́та хоро́шая кварти́ра)",
@@ -1950,7 +2039,8 @@
       "э́том хоро́шем кварти́ре",
       "э́ту хоро́шую кварти́ру"
      ],
-     "why": "Feminine prepositional: э́той, -ей (7-letter rule after ш), -е."
+     "why": "Feminine prepositional: э́той, -ей (7-letter rule after ш), -е.",
+     "en": "Dima lives in this nice apartment."
     },
     {
      "q": "Ру́сские студе́нты говоря́т ___ Аме́рике.",
@@ -1960,7 +2050,8 @@
       "в",
       "на"
      ],
-     "why": "Аме́рика starts with a vowel → об."
+     "why": "Аме́рика starts with a vowel → об.",
+     "en": "The Russian students are talking about America."
     },
     {
      "q": "Я говорю́ ___ Москве́.",
@@ -1970,7 +2061,8 @@
       "в",
       "на"
      ],
-     "why": "Starts with a consonant → о."
+     "why": "Starts with a consonant → о.",
+     "en": "I'm talking about Moscow."
     },
     {
      "q": "Профе́ссор говори́т ___ э́том студе́нте.",
@@ -1980,7 +2072,8 @@
       "на",
       "в"
      ],
-     "why": "э́том starts with a vowel → об."
+     "why": "э́том starts with a vowel → об.",
+     "en": "The professor is talking about this student."
     },
     {
      "q": "Мы говори́м ___ интере́сной ле́кции.",
@@ -1990,7 +2083,8 @@
       "на",
       "в"
      ],
-     "why": "интере́сной starts with a vowel → об."
+     "why": "интере́сной starts with a vowel → об.",
+     "en": "We're talking about an interesting lecture."
     },
     {
      "q": "Ма́ша говори́т о но́вом фи́льме. = Ма́ша говори́т о ___.",
@@ -2000,7 +2094,8 @@
       "них",
       "он"
      ],
-     "why": "фильм is masculine → о нём."
+     "why": "фильм is masculine → о нём.",
+     "en": "Masha is talking about a new movie. = Masha is talking about it."
     },
     {
      "q": "Я говорю́ о подру́ге. = Я говорю́ о ___.",
@@ -2010,7 +2105,8 @@
       "них",
       "она́"
      ],
-     "why": "Feminine → о ней."
+     "why": "Feminine → о ней.",
+     "en": "I'm talking about my friend. = I'm talking about her."
     },
     {
      "q": "Мы говори́м о ру́сских студе́нтах. = Мы говори́м о ___.",
@@ -2020,7 +2116,8 @@
       "ней",
       "они́"
      ],
-     "why": "Plural → о них."
+     "why": "Plural → о них.",
+     "en": "We're talking about the Russian students. = We're talking about them."
     },
     {
      "q": "Я учу́сь ___ пе́рвом ку́рсе.",
@@ -2030,7 +2127,8 @@
       "о",
       "во"
      ],
-     "why": "курс always takes на."
+     "why": "курс always takes на.",
+     "en": "I'm a first-year student (freshman)."
     },
     {
      "q": "Он сейча́с ___ ле́кции.",
@@ -2040,7 +2138,8 @@
       "о",
       "об"
      ],
-     "why": "Events and activities take на."
+     "why": "Events and activities take на.",
+     "en": "He's at a lecture right now."
     },
     {
      "q": "Я живу́ ___ общежи́тии.",
@@ -2050,7 +2149,8 @@
       "о",
       "об"
      ],
-     "why": "A building → в."
+     "why": "A building → в.",
+     "en": "I live in a dorm."
     },
     {
      "q": "Мои́ кни́ги ___ столе́.",
@@ -2060,7 +2160,8 @@
       "о",
       "об"
      ],
-     "why": "On a surface → на."
+     "why": "On a surface → на.",
+     "en": "My books are on the table."
     },
     {
      "q": "Он сейча́с чита́ет ___. (ру́сская газе́та)",
@@ -2070,7 +2171,8 @@
       "ру́сской газе́те",
       "ру́сскую газе́та"
      ],
-     "why": "Direct object, feminine → -ую, -у."
+     "why": "Direct object, feminine → -ую, -у.",
+     "en": "He's reading a Russian newspaper right now."
     },
     {
      "q": "Я люблю́ ___. (му́зыка)",
@@ -2080,7 +2182,8 @@
       "му́зыке",
       "му́зыки"
      ],
-     "why": "люби́ть takes the accusative: -а → -у."
+     "why": "люби́ть takes the accusative: -а → -у.",
+     "en": "I love music."
     },
     {
      "q": "Я люблю́ ___. (моя́ ко́шка)",
@@ -2090,7 +2193,8 @@
       "мое́й ко́шке",
       "мою́ ко́шка"
      ],
-     "why": "Feminine accusative: моя́ → мою́, -а → -у."
+     "why": "Feminine accusative: моя́ → мою́, -а → -у.",
+     "en": "I love my cat."
     },
     {
      "q": "Ба́бушка чита́ет ___. (журна́л)",
@@ -2100,7 +2204,8 @@
       "журна́лу",
       "журна́ле"
      ],
-     "why": "Masculine things don't change in the accusative."
+     "why": "Masculine things don't change in the accusative.",
+     "en": "Grandma is reading a magazine."
     },
     {
      "q": "А́нна изуча́ет ___. (эконо́мика)",
@@ -2110,7 +2215,8 @@
       "эконо́мике",
       "эконо́мики"
      ],
-     "why": "изуча́ть + accusative: -а → -у."
+     "why": "изуча́ть + accusative: -а → -у.",
+     "en": "Anna studies economics."
     },
     {
      "q": "Я не люблю́ ___. (ру́сская грамма́тика)",
@@ -2120,7 +2226,8 @@
       "ру́сской грамма́тике",
       "ру́сскую грамма́тика"
      ],
-     "why": "Feminine accusative: -ую, -у."
+     "why": "Feminine accusative: -ую, -у.",
+     "en": "I don't like Russian grammar."
     },
     {
      "q": "А́нна говори́т по-англи́йски. Ви́ктор ___ говори́т по-англи́йски.",
@@ -2130,7 +2237,8 @@
       "но",
       "а"
      ],
-     "why": "A new person doing the same thing → то́же."
+     "why": "A new person doing the same thing → то́же.",
+     "en": "Anna speaks English. Viktor also speaks English."
     },
     {
      "q": "А́нна говори́т по-англи́йски. Она́ ___ говори́т по-ру́сски.",
@@ -2140,7 +2248,8 @@
       "но",
       "а"
      ],
-     "why": "Same person, another action → та́кже."
+     "why": "Same person, another action → та́кже.",
+     "en": "Anna speaks English. She also speaks Russian."
     },
     {
      "q": "Ка́тя в ___. (жёлтая футбо́лка)",
@@ -2150,7 +2259,8 @@
       "жёлтую футбо́лку",
       "жёлтом футбо́лке"
      ],
-     "why": "Wearing = в + prepositional: feminine -ой, -е."
+     "why": "Wearing = в + prepositional: feminine -ой, -е.",
+     "en": "Katya is wearing a yellow T-shirt."
     },
     {
      "q": "Почему́ вы изуча́ете ру́сский? — ___ я люблю́ ру́сскую литерату́ру.",
@@ -2160,7 +2270,8 @@
       "Что",
       "Но"
      ],
-     "why": "Answering why → потому́ что."
+     "why": "Answering why → потому́ что.",
+     "en": "Why do you study Russian? — Because I love Russian literature."
     }
    ]
   },
@@ -2605,7 +2716,8 @@
       "Когда́",
       "Что"
      ],
-     "why": "The answer is a direction (в + accusative), so the question is Куда́."
+     "why": "The answer is a direction (в + accusative), so the question is Куда́.",
+     "en": "Where are you going? — To the library."
     },
     {
      "q": "___ ты живёшь? — В О́ксфорде.",
@@ -2615,7 +2727,8 @@
       "Когда́",
       "Как"
      ],
-     "why": "Location (prepositional) → Где."
+     "why": "Location (prepositional) → Где.",
+     "en": "Where do you live? — In Oxford."
     },
     {
      "q": "___ рабо́тает Окса́на? — В библиоте́ке.",
@@ -2625,7 +2738,8 @@
       "Когда́",
       "Чей"
      ],
-     "why": "в библиоте́ке is prepositional (location) → Где."
+     "why": "в библиоте́ке is prepositional (location) → Где.",
+     "en": "Where does Oksana work? — At the library."
     },
     {
      "q": "___ е́дет Пу́тин? — В Петербу́рг.",
@@ -2635,7 +2749,8 @@
       "Когда́",
       "Кто"
      ],
-     "why": "Direction → Куда́."
+     "why": "Direction → Куда́.",
+     "en": "Where is Putin going? — To St. Petersburg."
     },
     {
      "q": "Окса́на идёт в ___. (библиоте́ка)",
@@ -2645,7 +2760,8 @@
       "библиоте́ка",
       "библиоте́ки"
      ],
-     "why": "Direction = accusative: -а → -у."
+     "why": "Direction = accusative: -а → -у.",
+     "en": "Oksana is going to the library."
     },
     {
      "q": "Окса́на рабо́тает в ___. (библиоте́ка)",
@@ -2655,7 +2771,8 @@
       "библиоте́ка",
       "библиоте́ки"
      ],
-     "why": "Location = prepositional: -е."
+     "why": "Location = prepositional: -е.",
+     "en": "Oksana works at the library."
     },
     {
      "q": "Ва́ня идёт в ___. (шко́ла)",
@@ -2665,7 +2782,8 @@
       "шко́ла",
       "шко́лы"
      ],
-     "why": "Direction → accusative -у."
+     "why": "Direction → accusative -у.",
+     "en": "Vanya is going to school."
     },
     {
      "q": "Студе́нтка идёт на ___. (ле́кция)",
@@ -2675,7 +2793,8 @@
       "ле́кция",
       "ле́кцие"
      ],
-     "why": "Direction → accusative: -я → -ю."
+     "why": "Direction → accusative: -я → -ю.",
+     "en": "The student is going to a lecture."
     },
     {
      "q": "Майкл е́дет в ___. (Росси́я)",
@@ -2685,7 +2804,8 @@
       "Росси́я",
       "Росси́е"
      ],
-     "why": "Direction → accusative: -я → -ю."
+     "why": "Direction → accusative: -я → -ю.",
+     "en": "Michael is going to Russia."
     },
     {
      "q": "Серге́й жил в ___. (Росси́я)",
@@ -2695,7 +2815,8 @@
       "Росси́я",
       "Росси́е"
      ],
-     "why": "Location → prepositional -ии."
+     "why": "Location → prepositional -ии.",
+     "en": "Sergei lived in Russia."
     },
     {
      "q": "Мы е́дем в ___. (Вашингто́н)",
@@ -2705,7 +2826,8 @@
       "Вашингто́на",
       "Вашингто́ну"
      ],
-     "why": "Masculine thing in the accusative doesn't change."
+     "why": "Masculine thing in the accusative doesn't change.",
+     "en": "We're going to Washington."
     },
     {
      "q": "Он е́дет во ___. (Флори́да)",
@@ -2715,7 +2837,8 @@
       "Флори́да",
       "Флори́ды"
      ],
-     "why": "Direction → accusative -у."
+     "why": "Direction → accusative -у.",
+     "en": "He's going to Florida."
     },
     {
      "q": "Он идёт ___. (home)",
@@ -2725,7 +2848,8 @@
       "в дом",
       "до́му"
      ],
-     "why": "Going home = домо́й. Being at home = до́ма."
+     "why": "Going home = домо́й. Being at home = до́ма.",
+     "en": "He's going home."
     },
     {
      "q": "Я сейча́с ___. (at home)",
@@ -2735,7 +2859,8 @@
       "в до́ме",
       "дом"
      ],
-     "why": "Location at home = до́ма."
+     "why": "Location at home = до́ма.",
+     "en": "I'm at home now."
     },
     {
      "q": "Я иду́ ___ конце́рт.",
@@ -2745,7 +2870,8 @@
       "во",
       "о"
      ],
-     "why": "Events take на."
+     "why": "Events take на.",
+     "en": "I'm going to a concert."
     },
     {
      "q": "Я иду́ ___ музе́й.",
@@ -2755,7 +2881,8 @@
       "о",
       "об"
      ],
-     "why": "A building/institution → в."
+     "why": "A building/institution → в.",
+     "en": "I'm going to the museum."
     },
     {
      "q": "Кто ___ на стадио́н? (on foot)",
@@ -2765,7 +2892,8 @@
       "иду́т",
       "е́дут"
      ],
-     "why": "In town, on foot → идти́. Кто takes the он form."
+     "why": "In town, on foot → идти́. Кто takes the он form.",
+     "en": "Who is going to the stadium?"
     },
     {
      "q": "Кто ___ в Брази́лию?",
@@ -2775,7 +2903,8 @@
       "е́дут",
       "иду́т"
      ],
-     "why": "Another country → е́хать. Кто takes the он form."
+     "why": "Another country → е́хать. Кто takes the он form.",
+     "en": "Who is going to Brazil?"
     },
     {
      "q": "Да́ша сейча́с ___ в библиоте́ку.",
@@ -2785,7 +2914,8 @@
       "иду́т",
       "е́ду"
      ],
-     "why": "Within town → идти́."
+     "why": "Within town → идти́.",
+     "en": "Dasha is going to the library now."
     },
     {
      "q": "На Но́вый год я ___ во Флори́ду.",
@@ -2795,7 +2925,8 @@
       "е́дет",
       "идёт"
      ],
-     "why": "Another state → е́хать, я form: е́ду."
+     "why": "Another state → е́хать, я form: е́ду.",
+     "en": "For New Year's I'm going to Florida."
     },
     {
      "q": "Мы ___ в Балтимо́р в пя́тницу.",
@@ -2805,7 +2936,8 @@
       "е́дут",
       "е́дете"
      ],
-     "why": "Another city → е́хать, мы form: е́дем."
+     "why": "Another city → е́хать, мы form: е́дем.",
+     "en": "We're going to Baltimore on Friday."
     },
     {
      "q": "Окса́на е́дет на рабо́ту ___. (by metro)",
@@ -2815,7 +2947,8 @@
       "метро́",
       "пешко́м"
      ],
-     "why": "By vehicle = на + vehicle."
+     "why": "By vehicle = на + vehicle.",
+     "en": "Oksana goes to work by metro."
     },
     {
      "q": "9:00 a.m. → ___",
@@ -2825,7 +2958,8 @@
       "ве́чером",
       "но́чью"
      ],
-     "why": "Morning → у́тром."
+     "why": "Morning → у́тром.",
+     "en": "9 a.m. → in the morning"
     },
     {
      "q": "2:00 p.m. → ___",
@@ -2835,7 +2969,8 @@
       "ве́чером",
       "но́чью"
      ],
-     "why": "Afternoon → днём."
+     "why": "Afternoon → днём.",
+     "en": "2 p.m. → in the afternoon"
     },
     {
      "q": "8:00 p.m. → ___",
@@ -2845,7 +2980,8 @@
       "у́тром",
       "но́чью"
      ],
-     "why": "Evening → ве́чером."
+     "why": "Evening → ве́чером.",
+     "en": "8 p.m. → in the evening"
     },
     {
      "q": "1:00 a.m. → ___",
@@ -2855,7 +2991,8 @@
       "днём",
       "ве́чером"
      ],
-     "why": "Night → но́чью."
+     "why": "Night → но́чью.",
+     "en": "1 a.m. → at night"
     },
     {
      "q": "Во ско́лько ты обы́чно ___? (встава́ть)",
@@ -2865,7 +3002,8 @@
       "встаю́",
       "встаёт"
      ],
-     "why": "встава́ть drops -ва- in the present: встаю́, встаёшь."
+     "why": "встава́ть drops -ва- in the present: встаю́, встаёшь.",
+     "en": "What time do you usually get up?"
     },
     {
      "q": "Я ___ спать в оди́ннадцать часо́в. (ложи́ться)",
@@ -2875,7 +3013,8 @@
       "ложи́шься",
       "ложу́"
      ],
-     "why": "я → ложу́сь (keep the -сь!)."
+     "why": "я → ложу́сь (keep the -сь!).",
+     "en": "I go to bed at eleven o'clock."
     },
     {
      "q": "Ты ___ телеви́зор ве́чером? (смотре́ть)",
@@ -2885,7 +3024,8 @@
       "смо́трит",
       "смотрю́"
      ],
-     "why": "2nd conjugation; stress moves back after the я form: смотрю́, смо́тришь."
+     "why": "2nd conjugation; stress moves back after the я form: смотрю́, смо́тришь.",
+     "en": "Do you watch TV in the evening?"
     },
     {
      "q": "Сего́дня ___. (Wednesday)",
@@ -2895,7 +3035,8 @@
       "в сре́ду",
       "среды́"
      ],
-     "why": "“Today is…” uses the plain form."
+     "why": "“Today is…” uses the plain form.",
+     "en": "Today is Wednesday."
     },
     {
      "q": "В како́й день у нас хи́мия? — ___. (Tuesday)",
@@ -2905,7 +3046,8 @@
       "Вто́рник",
       "Во вто́рнику"
      ],
-     "why": "“On Tuesday” = во вто́рник."
+     "why": "“On Tuesday” = во вто́рник.",
+     "en": "What day do we have chemistry? — On Tuesday."
     },
     {
      "q": "В каки́е дни мы отдыха́ем? — В ___ и воскресе́нье.",
@@ -2915,7 +3057,8 @@
       "суббо́те",
       "суббо́ты"
      ],
-     "why": "в + accusative: суббо́та → суббо́ту."
+     "why": "в + accusative: суббо́та → суббо́ту.",
+     "en": "What days do we relax? — On Saturday and Sunday."
     },
     {
      "q": "Я ___ не чита́ю газе́ты. (never)",
@@ -2925,7 +3068,8 @@
       "ре́дко",
       "ча́сто"
      ],
-     "why": "никогда́ always comes with не before the verb."
+     "why": "никогда́ always comes with не before the verb.",
+     "en": "I never read newspapers."
     },
     {
      "q": "Я ___ встаю́ в шесть часо́в утра́. (often)",
@@ -2935,7 +3079,8 @@
       "иногда́",
       "всегда́"
      ],
-     "why": "often = ча́сто."
+     "why": "often = ча́сто.",
+     "en": "I often get up at six in the morning."
     },
     {
      "q": "Он ___ у́жинает в рестора́не. (rarely)",
@@ -2945,7 +3090,8 @@
       "всегда́",
       "никогда́"
      ],
-     "why": "rarely = ре́дко."
+     "why": "rarely = ре́дко.",
+     "en": "He rarely eats dinner at a restaurant."
     },
     {
      "q": "Мы ___ занима́емся в библиоте́ке. (sometimes)",
@@ -2955,7 +3101,8 @@
       "всегда́",
       "ре́дко"
      ],
-     "why": "sometimes = иногда́."
+     "why": "sometimes = иногда́.",
+     "en": "We sometimes study in the library."
     },
     {
      "q": "Она́ говори́т по-ру́сски ___. (every day)",
@@ -2965,7 +3112,8 @@
       "всегда́",
       "иногда́"
      ],
-     "why": "every day = ка́ждый день."
+     "why": "every day = ка́ждый день.",
+     "en": "She speaks Russian every day."
     },
     {
      "q": "Ми́ша ___ ложи́ться спать в оди́ннадцать часо́в.",
@@ -2975,7 +3123,8 @@
       "должны́",
       "должно́"
      ],
-     "why": "Ми́ша is a man → до́лжен."
+     "why": "Ми́ша is a man → до́лжен.",
+     "en": "Misha has to go to bed at eleven o'clock."
     },
     {
      "q": "Нет, извини́те, я ___ занима́ться. (a woman speaking)",
@@ -2985,7 +3134,8 @@
       "должны́",
       "должно́"
      ],
-     "why": "A woman → должна́."
+     "why": "A woman → должна́.",
+     "en": "No, sorry, I have to study."
     },
     {
      "q": "Мы ___ писа́ть эссе́.",
@@ -2995,7 +3145,8 @@
       "должна́",
       "должно́"
      ],
-     "why": "мы / вы / они́ → должны́."
+     "why": "мы / вы / они́ → должны́.",
+     "en": "We have to write an essay."
     },
     {
      "q": "Студе́нты ___ мно́го чита́ть.",
@@ -3005,7 +3156,8 @@
       "должна́",
       "должно́"
      ],
-     "why": "Plural → должны́."
+     "why": "Plural → должны́.",
+     "en": "Students have to read a lot."
     },
     {
      "q": "А́нна ___ рабо́тать в суббо́ту.",
@@ -3015,7 +3167,8 @@
       "должны́",
       "должно́"
      ],
-     "why": "A woman → должна́."
+     "why": "A woman → должна́.",
+     "en": "Anna has to work on Saturday."
     },
     {
      "q": "Ми́ша до́лжен ___ в семь часо́в. (to get up)",
@@ -3025,7 +3178,8 @@
       "встаю́",
       "встава́л"
      ],
-     "why": "After до́лжен the verb stays in the infinitive."
+     "why": "After до́лжен the verb stays in the infinitive.",
+     "en": "Misha has to get up at seven o'clock."
     },
     {
      "q": "Да! В воскресе́нье я отдыха́ю. Я ___ в два часа́. (a woman)",
@@ -3035,7 +3189,8 @@
       "свобо́дны",
       "должна́"
      ],
-     "why": "A woman → свобо́дна."
+     "why": "A woman → свобо́дна.",
+     "en": "Yes! On Sunday I'm relaxing. I'm free at two o'clock."
     },
     {
      "q": "Ты ___ ве́чером? (asking a man)",
@@ -3045,7 +3200,8 @@
       "свобо́дны",
       "до́лжен"
      ],
-     "why": "A man → свобо́ден."
+     "why": "A man → свобо́ден.",
+     "en": "Are you free this evening?"
     },
     {
      "q": "В суббо́ту я обы́чно ___ в клуб.",
@@ -3055,7 +3211,8 @@
       "хо́дит",
       "идёт"
      ],
-     "why": "обы́чно = a habit → ходи́ть."
+     "why": "обы́чно = a habit → ходи́ть.",
+     "en": "On Saturdays I usually go to the club."
     },
     {
      "q": "— Куда́ ты ___? — Я иду́ домо́й.",
@@ -3065,7 +3222,8 @@
       "идёт",
       "хожу́"
      ],
-     "why": "Right now, one direction → идти́."
+     "why": "Right now, one direction → идти́.",
+     "en": "— Where are you going? — I'm going home."
     },
     {
      "q": "Мы всегда́ ___ в теа́тр вме́сте.",
@@ -3075,7 +3233,8 @@
       "хо́дят",
       "иду́т"
      ],
-     "why": "всегда́ = a habit → ходи́ть."
+     "why": "всегда́ = a habit → ходи́ть.",
+     "en": "We always go to the theater together."
     },
     {
      "q": "Моя́ подру́га ___ в музе́й ка́ждое воскресе́нье.",
@@ -3085,7 +3244,8 @@
       "хо́дишь",
       "иду́т"
      ],
-     "why": "ка́ждое воскресе́нье = a habit → ходи́ть."
+     "why": "ка́ждое воскресе́нье = a habit → ходи́ть.",
+     "en": "My friend goes to the museum every Sunday."
     },
     {
      "q": "Сейча́с мы ___ в парк, а пото́м в кафе́.",
@@ -3095,7 +3255,8 @@
       "иду́т",
       "хожу́"
      ],
-     "why": "сейча́с = right now → идти́."
+     "why": "сейча́с = right now → идти́.",
+     "en": "Right now we're going to the park, and then to a café."
     },
     {
      "q": "Я ка́ждый день ___ на рабо́ту.",
@@ -3105,7 +3266,8 @@
       "хо́дит",
       "идёт"
      ],
-     "why": "ка́ждый день = a habit → ходи́ть."
+     "why": "ка́ждый день = a habit → ходи́ть.",
+     "en": "I go to work every day."
     },
     {
      "q": "Мы ча́сто ___ в парк ле́том.",
@@ -3115,7 +3277,8 @@
       "хо́дят",
       "хожу́"
      ],
-     "why": "ча́сто = a habit → ходи́ть."
+     "why": "ча́сто = a habit → ходи́ть.",
+     "en": "We often go to the park in summer."
     },
     {
      "q": "Влади́мир в метро́. Он ___ на рабо́ту.",
@@ -3125,7 +3288,8 @@
       "е́дут",
       "е́зжу"
      ],
-     "why": "He's on the metro right now → е́хать."
+     "why": "He's on the metro right now → е́хать.",
+     "en": "Vladimir is on the metro. He's going to work."
     },
     {
      "q": "Обы́чно он ___ на рабо́ту на маши́не.",
@@ -3135,7 +3299,8 @@
       "е́здят",
       "е́ду"
      ],
-     "why": "обы́чно = a habit → е́здить."
+     "why": "обы́чно = a habit → е́здить.",
+     "en": "He usually drives to work."
     },
     {
      "q": "Ка́ждое ле́то мы ___ на мо́ре.",
@@ -3145,7 +3310,8 @@
       "е́здят",
       "е́дут"
      ],
-     "why": "Every summer = a habit → е́здить."
+     "why": "Every summer = a habit → е́здить.",
+     "en": "Every summer we go to the sea."
     },
     {
      "q": "Смотри́, вот ___ твой друг на но́вой маши́не!",
@@ -3155,7 +3321,8 @@
       "е́дут",
       "е́зжу"
      ],
-     "why": "Happening right now → е́хать."
+     "why": "Happening right now → е́хать.",
+     "en": "Look, there goes your friend in a new car!"
     },
     {
      "q": "Сейча́с они́ ___ в но́вый рестора́н.",
@@ -3165,7 +3332,8 @@
       "е́дет",
       "е́здим"
      ],
-     "why": "сейча́с → е́хать, они́ form."
+     "why": "сейча́с → е́хать, они́ form.",
+     "en": "They're driving to a new restaurant right now."
     },
     {
      "q": "Вы ча́сто ___ в Санкт-Петербу́рг?",
@@ -3175,7 +3343,8 @@
       "е́здят",
       "е́дет"
      ],
-     "why": "ча́сто = a habit → е́здить, вы form."
+     "why": "ча́сто = a habit → е́здить, вы form.",
+     "en": "Do you often go to St. Petersburg?"
     },
     {
      "q": "Я ра́ньше никогда́ не ___ на метро́. (a man)",
@@ -3185,7 +3354,8 @@
       "е́здила",
       "е́здит"
      ],
-     "why": "никогда́ (never, as a habit) → е́здить. Man → е́здил."
+     "why": "никогда́ (never, as a habit) → е́здить. Man → е́здил.",
+     "en": "I had never ridden the metro before."
     },
     {
      "q": "В суббо́ту я ___ в кино́. (a woman; went and came back)",
@@ -3195,7 +3365,8 @@
       "ходи́л",
       "хожу́"
      ],
-     "why": "A finished round trip in the past → ходи́ть."
+     "why": "A finished round trip in the past → ходи́ть.",
+     "en": "On Saturday I went to the movies (and came back)."
     },
     {
      "q": "Вчера́ я ___ в Ме́мфис. (a woman; by car, round trip)",
@@ -3205,7 +3376,8 @@
       "е́здил",
       "е́зжу"
      ],
-     "why": "Round trip by car in the past → е́здить."
+     "why": "Round trip by car in the past → е́здить.",
+     "en": "Yesterday I went to Memphis (and came back)."
     },
     {
      "q": "Я рабо́таю ___. (here)",
@@ -3215,7 +3387,8 @@
       "туда́",
       "домо́й"
      ],
-     "why": "Location (где?) → здесь."
+     "why": "Location (где?) → здесь.",
+     "en": "I work here."
     },
     {
      "q": "Я иду́ ___. (to here)",
@@ -3225,7 +3398,8 @@
       "там",
       "до́ма"
      ],
-     "why": "Direction (куда́?) → сюда́."
+     "why": "Direction (куда́?) → сюда́.",
+     "en": "I'm coming here."
     },
     {
      "q": "Мой брат живёт там, и я е́ду ___.",
@@ -3235,7 +3409,8 @@
       "здесь",
       "сюда́"
      ],
-     "why": "Direction (куда́?) → туда́."
+     "why": "Direction (куда́?) → туда́.",
+     "en": "My brother lives there, and I'm going there."
     },
     {
      "q": "В суббо́ту мы е́дем ___. (to the dacha)",
@@ -3245,7 +3420,8 @@
       "в да́чу",
       "на да́ча"
      ],
-     "why": "Direction → на + accusative: на да́чу."
+     "why": "Direction → на + accusative: на да́чу.",
+     "en": "On Saturday we're going to the dacha."
     },
     {
      "q": "Ле́том мы отдыха́ем ___. (at the dacha)",
@@ -3255,7 +3431,8 @@
       "в да́че",
       "на да́ча"
      ],
-     "why": "Location → на + prepositional: на да́че."
+     "why": "Location → на + prepositional: на да́че.",
+     "en": "In summer we relax at the dacha."
     }
    ]
   }
@@ -3278,7 +3455,10 @@
     "зна́ла",
     "зна́ло",
     "зна́ли"
-   ]
+   ],
+   "eb": "know",
+   "e3": "knows",
+   "ep": "knew"
   },
   {
    "inf": "чита́ть",
@@ -3297,7 +3477,10 @@
     "чита́ла",
     "чита́ло",
     "чита́ли"
-   ]
+   ],
+   "eb": "read",
+   "e3": "reads",
+   "ep": "read"
   },
   {
    "inf": "понима́ть",
@@ -3316,7 +3499,10 @@
     "понима́ла",
     "понима́ло",
     "понима́ли"
-   ]
+   ],
+   "eb": "understand",
+   "e3": "understands",
+   "ep": "understood"
   },
   {
    "inf": "изуча́ть",
@@ -3335,7 +3521,10 @@
     "изуча́ла",
     "изуча́ло",
     "изуча́ли"
-   ]
+   ],
+   "eb": "study",
+   "e3": "studies",
+   "ep": "studied"
   },
   {
    "inf": "де́лать",
@@ -3354,7 +3543,10 @@
     "де́лала",
     "де́лало",
     "де́лали"
-   ]
+   ],
+   "eb": "do",
+   "e3": "does",
+   "ep": "did"
   },
   {
    "inf": "писа́ть",
@@ -3373,7 +3565,10 @@
     "писа́ла",
     "писа́ло",
     "писа́ли"
-   ]
+   ],
+   "eb": "write",
+   "e3": "writes",
+   "ep": "wrote"
   },
   {
    "inf": "говори́ть",
@@ -3392,7 +3587,10 @@
     "говори́ла",
     "говори́ло",
     "говори́ли"
-   ]
+   ],
+   "eb": "speak",
+   "e3": "speaks",
+   "ep": "spoke"
   },
   {
    "inf": "жить",
@@ -3411,7 +3609,10 @@
     "жила́",
     "жи́ло",
     "жи́ли"
-   ]
+   ],
+   "eb": "live",
+   "e3": "lives",
+   "ep": "lived"
   },
   {
    "inf": "рабо́тать",
@@ -3430,7 +3631,10 @@
     "рабо́тала",
     "рабо́тало",
     "рабо́тали"
-   ]
+   ],
+   "eb": "work",
+   "e3": "works",
+   "ep": "worked"
   },
   {
    "inf": "учи́ться",
@@ -3449,7 +3653,10 @@
     "учи́лась",
     "учи́лось",
     "учи́лись"
-   ]
+   ],
+   "eb": "go to school",
+   "e3": "goes to school",
+   "ep": "went to school"
   },
   {
    "inf": "занима́ться",
@@ -3468,7 +3675,10 @@
     "занима́лась",
     "занима́лось",
     "занима́лись"
-   ]
+   ],
+   "eb": "do homework",
+   "e3": "does homework",
+   "ep": "did homework"
   },
   {
    "inf": "люби́ть",
@@ -3487,7 +3697,10 @@
     "люби́ла",
     "люби́ло",
     "люби́ли"
-   ]
+   ],
+   "eb": "love",
+   "e3": "loves",
+   "ep": "loved"
   },
   {
    "inf": "ду́мать",
@@ -3506,7 +3719,10 @@
     "ду́мала",
     "ду́мало",
     "ду́мали"
-   ]
+   ],
+   "eb": "think",
+   "e3": "thinks",
+   "ep": "thought"
   },
   {
    "inf": "встава́ть",
@@ -3525,7 +3741,10 @@
     "встава́ла",
     "встава́ло",
     "встава́ли"
-   ]
+   ],
+   "eb": "get up",
+   "e3": "gets up",
+   "ep": "got up"
   },
   {
    "inf": "одева́ться",
@@ -3544,7 +3763,10 @@
     "одева́лась",
     "одева́лось",
     "одева́лись"
-   ]
+   ],
+   "eb": "get dressed",
+   "e3": "gets dressed",
+   "ep": "got dressed"
   },
   {
    "inf": "за́втракать",
@@ -3563,7 +3785,10 @@
     "за́втракала",
     "за́втракало",
     "за́втракали"
-   ]
+   ],
+   "eb": "eat breakfast",
+   "e3": "eats breakfast",
+   "ep": "ate breakfast"
   },
   {
    "inf": "обе́дать",
@@ -3582,7 +3807,10 @@
     "обе́дала",
     "обе́дало",
     "обе́дали"
-   ]
+   ],
+   "eb": "eat lunch",
+   "e3": "eats lunch",
+   "ep": "ate lunch"
   },
   {
    "inf": "у́жинать",
@@ -3601,7 +3829,10 @@
     "у́жинала",
     "у́жинало",
     "у́жинали"
-   ]
+   ],
+   "eb": "eat dinner",
+   "e3": "eats dinner",
+   "ep": "ate dinner"
   },
   {
    "inf": "смотре́ть",
@@ -3620,7 +3851,10 @@
     "смотре́ла",
     "смотре́ло",
     "смотре́ли"
-   ]
+   ],
+   "eb": "watch",
+   "e3": "watches",
+   "ep": "watched"
   },
   {
    "inf": "ложи́ться",
@@ -3639,7 +3873,10 @@
     "ложи́лась",
     "ложи́лось",
     "ложи́лись"
-   ]
+   ],
+   "eb": "go to bed",
+   "e3": "goes to bed",
+   "ep": "went to bed"
   },
   {
    "inf": "отдыха́ть",
@@ -3658,7 +3895,10 @@
     "отдыха́ла",
     "отдыха́ло",
     "отдыха́ли"
-   ]
+   ],
+   "eb": "relax",
+   "e3": "relaxes",
+   "ep": "relaxed"
   },
   {
    "inf": "идти́",
@@ -3678,7 +3918,11 @@
     "шло",
     "шли"
    ],
-   "noPastDrill": true
+   "noPastDrill": true,
+   "eb": "are going (on foot, right now)",
+   "e3": "is going (on foot, right now)",
+   "ep": "was going (on foot)",
+   "e1": "am going (on foot, right now)"
   },
   {
    "inf": "е́хать",
@@ -3698,7 +3942,11 @@
     "е́хало",
     "е́хали"
    ],
-   "noPastDrill": true
+   "noPastDrill": true,
+   "eb": "are going (by vehicle, right now)",
+   "e3": "is going (by vehicle, right now)",
+   "ep": "was going (by vehicle)",
+   "e1": "am going (by vehicle, right now)"
   },
   {
    "inf": "ходи́ть",
@@ -3717,7 +3965,10 @@
     "ходи́ла",
     "ходи́ло",
     "ходи́ли"
-   ]
+   ],
+   "eb": "go (on foot, regularly)",
+   "e3": "goes (on foot, regularly)",
+   "ep": "went (and came back)"
   },
   {
    "inf": "е́здить",
@@ -3736,7 +3987,10 @@
     "е́здила",
     "е́здило",
     "е́здили"
-   ]
+   ],
+   "eb": "go (by vehicle, regularly)",
+   "e3": "goes (by vehicle, regularly)",
+   "ep": "went (by vehicle, and came back)"
   },
   {
    "inf": "игра́ть",
@@ -3755,7 +4009,10 @@
     "игра́ла",
     "игра́ло",
     "игра́ли"
-   ]
+   ],
+   "eb": "play",
+   "e3": "plays",
+   "ep": "played"
   },
   {
    "inf": "убира́ть",
@@ -3774,7 +4031,10 @@
     "убира́ла",
     "убира́ло",
     "убира́ли"
-   ]
+   ],
+   "eb": "clean",
+   "e3": "cleans",
+   "ep": "cleaned"
   },
   {
    "inf": "слу́шать",
@@ -3793,7 +4053,10 @@
     "слу́шала",
     "слу́шало",
     "слу́шали"
-   ]
+   ],
+   "eb": "listen",
+   "e3": "listens",
+   "ep": "listened"
   },
   {
    "inf": "спра́шивать",
@@ -3812,7 +4075,10 @@
     "спра́шивала",
     "спра́шивало",
     "спра́шивали"
-   ]
+   ],
+   "eb": "ask",
+   "e3": "asks",
+   "ep": "asked"
   }
  ],
  "dictations": [
