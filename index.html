@@ -50,7 +50,7 @@ h2{font-size:18px;margin:18px 0 8px}
 .mode b{font-size:16px}
 .mode .ru{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.01em}
 .mode small{color:var(--muted);font-size:13px;line-height:1.3}
-.mode.wide{grid-column:1/-1;min-height:auto;flex-direction:row;align-items:center;gap:12px}
+.mode.wide{width:100%;grid-column:1/-1;min-height:auto;flex-direction:row;align-items:center;gap:12px}
 .stats{display:flex;gap:10px;margin:0 0 14px}
 .stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
 .stat b{display:block;font-size:22px}
@@ -119,6 +119,21 @@ label.f{display:block;font-weight:600;margin:14px 0 6px}
 .mic{width:96px;height:96px;border-radius:50%;border:none;background:var(--accent);color:#fff;display:grid;place-items:center;margin:8px auto;box-shadow:0 6px 18px rgba(200,55,45,.35)}
 .mic.on{animation:pulse 1.2s infinite}
 .mic svg{width:40px;height:40px}
+.call{display:flex;flex-direction:column;min-height:calc(100dvh - 100px)}
+.avatar{width:132px;height:132px;border-radius:50%;margin:14px auto 6px;display:grid;place-items:center;font-size:58px;font-weight:800;color:#fff;background:linear-gradient(135deg,#C8372D,#7A1F19);transition:opacity .3s}
+.avatar.speaking{animation:pulse 1.2s infinite}
+.avatar.listening{animation:pulseB 1.3s infinite;background:linear-gradient(135deg,#2F5D8A,#1B3A5C)}
+.avatar.thinking{opacity:.65}
+@keyframes pulseB{0%{box-shadow:0 0 0 0 rgba(47,93,138,.55)}70%{box-shadow:0 0 0 26px rgba(47,93,138,0)}100%{box-shadow:0 0 0 0 rgba(47,93,138,0)}}
+.status{text-align:center;color:var(--muted);font-size:14px;min-height:22px;padding:0 10px}
+.caps{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;margin:12px 0;max-height:42vh}
+.callbar{display:flex;gap:22px;justify-content:center;align-items:center;padding:10px 0 4px}
+.round{width:62px;height:62px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:var(--card);color:var(--ink);font-weight:800}
+.round svg{width:30px;height:30px}
+.round.big{width:84px;height:84px;background:var(--blue);color:#fff;border:none}
+.round.big.on{animation:pulseB 1.3s infinite}
+.round.end{background:#D93025;color:#fff;border:none}
+.fix{background:var(--good-bg);border:1px solid var(--good);border-radius:10px;padding:5px 9px;font-size:14px;margin-bottom:6px}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(200,55,45,.5)}70%{box-shadow:0 0 0 22px rgba(200,55,45,0)}100%{box-shadow:0 0 0 0 rgba(200,55,45,0)}}
 .center{text-align:center}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;z-index:50;max-width:90vw}
@@ -136,7 +151,7 @@ label.f{display:block;font-weight:600;margin:14px 0 6px}
    Everything runs on the phone. AI tutor is optional and
    only calls the Anthropic API with the key saved on-device.
    ========================================================= */
-const APP_VERSION = '1.0.1';
+const APP_VERSION = '1.1.0';
 const MODEL = 'claude-haiku-5-5';
 const PRICE = { in: 0.10, out: 0.50, cacheRead: 0.01, cacheWrite: 0.125 }; // USD per million tokens
 const LS = 'govori.v1', LSKEY = 'govori.key';
@@ -224,7 +239,8 @@ const TTS = {
       const u = new SpeechSynthesisUtterance(noStress(text).replace(/\//g, ','));
       u.lang = 'ru-RU'; const v = this.voice(); if (v) u.voice = v;
       u.rate = slow ? Math.max(0.5, S.settings.rate - 0.3) : S.settings.rate;
-      u.onend = u.onerror = () => res(); speechSynthesis.speak(u);
+      let done = false; const fin = () => { if (!done) { done = true; res(); } };
+      u.onend = u.onerror = fin; setTimeout(fin, 2500 + noStress(text).length * 110 / u.rate); speechSynthesis.speak(u);
     });
   }
 };
@@ -381,6 +397,7 @@ VIEWS.home = () => {
     <div class="stat"><b>${streak()}</b><span>day streak</span></div>
   </div>
   <div class="grid">
+    <button class="mode wide" data-go="call" style="background:linear-gradient(135deg,var(--accent),#8E241D);color:#fff;border:none"><span style="font-size:30px">📞</span><div><span class="ru" style="color:#FFE3DF">Позвони́ть</span><br><b>Call А́ня</b><br><small style="color:#FFE3DF">Talk out loud in Russian, she talks back</small></div></button>
     <button class="mode" data-go="flash"><span class="ru">Ка́рточки</span><b>Flashcards</b><small>${due} due · ${newC} new</small></button>
     <button class="mode" data-go="drill"><span class="ru">Грамма́тика</span><b>Grammar drills</b><small>Fill-in-the-blank, test style</small></button>
     <button class="mode" data-go="listen"><span class="ru">Слу́шать</span><b>Listening</b><small>Hear it, pick the meaning</small></button>
@@ -713,6 +730,7 @@ VIEWS.tutor = () => {
     app.innerHTML = `${topbar('Учи́тель', { right: chat.length ? '<button class="iconbtn" id="clear" aria-label="New chat">New</button>' : '' })}
       ${!key ? `<div class="card"><h2 style="margin-top:0">Add your API key</h2><p>The tutor runs on Claude Haiku 5.5 using your own Anthropic API key. Everything else in the app works without it.</p><button class="btn block" data-go="settings">Open Settings</button></div>` : ''}
       <div class="meter">${esc(MODEL)} · spent ${money(S.usage.cost)} total · ${money(S.usage.day === today() ? S.usage.dayCost : 0)} today</div>
+      <button class="btn block" data-go="call" style="margin:4px 0 12px">📞 Call instead (voice)</button>
       ${!chat.length ? `<p class="sub">Pick a starter or type anything (Russian or English).</p><div class="chips">${starters.map(([l, p], i) => `<button class="chip" data-s="${i}">${esc(l)}</button>`).join('')}</div>` : ''}
       <div class="chat" id="chat">${chat.map((m, i) => `<div class="msg ${m.role === 'user' ? 'me' : 'ai'}" lang="ru">${esc(m.content)}${m.role === 'assistant' ? `<div class="tools"><button class="linkbtn" data-sayi="${i}">🔊 Read the Russian</button></div>` : ''}</div>`).join('')}</div>
       <div class="composer">
@@ -748,6 +766,165 @@ VIEWS.tutor = () => {
     if (ru && S.settings.autoRead) TTS.say(ru);
   }
   draw();
+};
+
+/* ----- Call mode: talk out loud, Аня talks back (Pingo-style) ----- */
+const SCEN = [
+  { id: 'free', t: 'Free talk', ru: 'Свобо́дный разгово́р', d: 'Chat about anything you know how to say.', p: 'Free conversation about everyday things. Start by greeting them and asking how they are.' },
+  { id: 'day', t: 'My day', ru: 'Мой день', d: 'When you get up, eat, go to class, go to bed.', p: "Talk about the student's daily routine and schedule: what time they get up, eat breakfast/lunch/dinner, go to class and go to bed, which days they have Russian, and how often they do things." },
+  { id: 'plans', t: 'Making plans', ru: 'Дава́й пойдём!', d: 'Invite and get invited. до́лжен, свобо́ден.', p: 'You are a classmate making weekend plans. Invite them somewhere (кино, театр, концерт, ресторан, парк) on a specific day and time. They accept with свобо́ден/свобо́дна or decline with до́лжен/должна́ + infinitive. Negotiate another time if they decline.' },
+  { id: 'meet', t: 'Meeting someone', ru: 'Знако́мство', d: 'Names, where you live, nationality, languages.', p: 'You just met the student at a party in Moscow. Ask their name, where they live and study, their nationality, and what languages they speak, read and understand.' },
+  { id: 'uni', t: 'At university', ru: 'Университе́т', d: 'Your year, major, classes, likes and dislikes.', p: 'Talk about university: where they study, what year (курс), their major (специа́льность), what they study (изуча́ть), where they do homework (занима́ться), which subjects they like or dislike and why (потому́ что).' },
+  { id: 'go', t: 'Where are you going?', ru: 'Куда́ ты идёшь?', d: 'идти́/ходи́ть, е́хать/е́здить, где/куда́.', p: 'You bump into the student on campus. Ask where they are going right now, where they usually go on weekends, how often they go to the library, store or pool, and whether they go home by car. Practice идти/ходить, ехать/ездить and где/куда.' }
+];
+function callSystem(sc) {
+  return `You are А́ня, a friendly young Russian woman on a phone call with an American college student who is a beginner (first semester, textbook Golosa Book 1, Units 0–${C.currentUnit}: greetings, names, nationalities and languages, clothes, university and studies, time and days of the week, daily routine, идти/е́хать, ходи́ть/е́здить, до́лжен, свобо́ден, how often).
+Scenario: ${sc.p}
+Rules:
+- Talk like a real phone call: 1–2 short, simple sentences (under 20 words). Use only grammar and words from those units.
+- Ask one question every turn so the student keeps talking.
+- The student's words come from speech recognition, so ignore spelling and small recognition errors. If they made a real grammar mistake, put the corrected version of their sentence in "fix" and keep the conversation going without lecturing.
+- If they speak English or seem stuck, answer in very simple Russian and help in "en".
+Return ONLY this JSON and nothing else:
+{"say":"what you say out loud, in Russian with stress marks","en":"English translation of say","fix":"the student's sentence corrected, in Russian with stress marks, or empty string","hints":["two short replies the student could say next, in Russian with stress marks"]}`;
+}
+function parseCall(t) {
+  try { const m = t.match(/\{[\s\S]*\}/); const o = JSON.parse(m[0]);
+    return { say: String(o.say || ''), en: String(o.en || ''), fix: String(o.fix || ''), hints: Array.isArray(o.hints) ? o.hints.slice(0, 3).map(String) : [] };
+  } catch (e) { return { say: t, en: '', fix: '', hints: [] }; }
+}
+VIEWS.call = (arg) => {
+  if (!arg) {
+    app.innerHTML = `${topbar('Позвони́ть')}
+      <h1>Call А́ня</h1><p class="sub">Talk out loud in Russian. She answers out loud, then listens again. Hands-free, like a phone call.</p>
+      ${!getKey() ? `<div class="banner"><div>📞 Calls use the AI, so add your API key in <b>Settings</b> first.</div></div>` : ''}
+      ${SCEN.map(s => `<button class="mode wide" data-go="call" data-arg="${s.id}" style="margin-bottom:10px"><div><span class="ru">${s.ru}</span><br><b>${esc(s.t)}</b><br><small>${esc(s.d)}</small></div></button>`).join('')}
+      <div class="toggle card" style="margin-top:6px;padding:4px 16px"><span>Hands-free (she listens automatically after talking)</span><input type="checkbox" class="switch" id="auto" ${S.settings.callAuto !== false ? 'checked' : ''}></div>
+      <p class="hint">Each turn costs about $0.0001. A 10-minute call is well under a cent. Headphones work best.</p>`;
+    app.querySelector('#auto').onchange = e => { S.settings.callAuto = e.target.checked; save(); };
+    return;
+  }
+  const sc = SCEN.find(s => s.id === arg) || SCEN[0];
+  if (!getKey()) { go('settings'); toast('Add your API key first'); return; }
+  const auto = S.settings.callAuto !== false;
+  let hist = [], lines = [], state = 'idle', ended = false, lang = 'ru-RU', misses = 0, turns = 0, wake = null;
+  const t0 = Date.now();
+  app.innerHTML = `${topbar('Звоно́к', { backTo: 'call' })}
+    <div class="call">
+      <div class="hint center">${esc(sc.ru)} · <span id="tm">0:00</span></div>
+      <div class="avatar" id="av">А</div>
+      <div class="center"><b>А́ня</b></div>
+      <div class="status" id="st">Connecting…</div>
+      <div class="caps" id="caps"></div>
+      <div class="chips" id="hints" style="justify-content:center"></div>
+      <div id="typebox"></div>
+      <div class="callbar">
+        <button class="round" id="lang" aria-label="Switch language for your next turn">RU</button>
+        <button class="round big" id="talk" aria-label="Talk">${ICON.mic}</button>
+        <button class="round end" id="end" aria-label="Hang up"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08a.996.996 0 0 1 0-1.41C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28a11.27 11.27 0 0 0-2.67-1.85.996.996 0 0 1-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></svg></button>
+      </div>
+      <p class="hint center">RU/EN switches what language she listens for on your next turn. Tap the mic to interrupt or to talk.</p>
+    </div>`;
+  const $id = id => app.querySelector('#' + id);
+  const timer = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); const el = $id('tm'); if (el) el.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }, 1000);
+  try { navigator.wakeLock && navigator.wakeLock.request('screen').then(w => wake = w).catch(() => {}); } catch (e) {}
+  cleanup = () => { ended = true; clearInterval(timer); try { speechSynthesis.cancel(); } catch (e) {} try { listen.current && listen.current.abort(); } catch (e) {} try { wake && wake.release(); } catch (e) {} };
+  function setState(s, msg) {
+    state = s; const av = $id('av'); if (!av) return;
+    av.className = 'avatar ' + s;
+    $id('st').textContent = msg || { listening: 'Listening… speak now', thinking: 'А́ня is thinking…', speaking: 'А́ня is talking', tap: 'Tap the mic to talk', type: 'Type your reply below' }[s] || '';
+    $id('talk').classList.toggle('on', s === 'listening');
+  }
+  function renderCaps() {
+    const box = $id('caps'); if (!box) return;
+    box.innerHTML = lines.slice(-8).map((l, k) => {
+      const i = lines.length - Math.min(8, lines.length) + k;
+      if (l.who === 'me') return `<div class="msg me" lang="ru">${esc(l.ru)}</div>`;
+      return `<div class="msg ai" lang="ru">${l.fix ? `<div class="fix">✓ ${esc(l.fix)}</div>` : ''}${esc(l.ru)}
+        ${l.en ? (l.showEn ? `<div class="hint" style="margin-top:4px">${esc(l.en)}</div>` : `<div class="tools"><button class="linkbtn" data-en="${i}">Translate</button> <button class="linkbtn" data-rep="${i}">🔊 Again</button></div>`) : ''}</div>`;
+    }).join('');
+    box.querySelectorAll('[data-en]').forEach(b => b.onclick = () => { lines[+b.dataset.en].showEn = true; renderCaps(); });
+    box.querySelectorAll('[data-rep]').forEach(b => b.onclick = () => TTS.say(lines[+b.dataset.rep].ru, true));
+    box.scrollTop = box.scrollHeight;
+  }
+  function renderHints(h) {
+    const el = $id('hints'); if (!el) return;
+    el.innerHTML = h.length ? `<span class="hint" style="width:100%;text-align:center">Stuck? Tap to hear, then say it:</span>` + h.map((x, i) => `<button class="chip" data-h="${i}" lang="ru">${esc(x)}</button>`).join('') : '';
+    el.querySelectorAll('[data-h]').forEach(b => b.onclick = () => { try { listen.current && listen.current.abort(); } catch (e) {} TTS.say(h[+b.dataset.h], true).then(() => { if (!ended && auto) listenTurn(); }); setState('speaking', 'Listen, then say it'); });
+  }
+  async function aiTurn(userText, opener) {
+    if (ended) return;
+    setState('thinking');
+    hist.push({ role: 'user', content: userText });
+    hist = hist.slice(-12); while (hist.length && hist[0].role !== 'user') hist.shift();
+    let r;
+    try { r = parseCall(await askClaude(hist, { system: callSystem(sc), maxTokens: 230 })); }
+    catch (e) { hist.pop(); setState('tap', aiErrorText(e)); return; }
+    if (ended) return;
+    const lastMe = lines.slice().reverse().find(l => l.who === 'me');
+    if (r.fix && lastMe && norm(r.fix) === norm(lastMe.ru)) r.fix = ''; // it was already right
+    hist.push({ role: 'assistant', content: r.say });
+    turns++; lines.push({ who: 'ai', ru: r.say, en: r.en, fix: r.fix }); renderCaps(); renderHints(r.hints);
+    setState('speaking');
+    if (opener) await opener;
+    await TTS.say((r.fix ? r.fix + ' … ' : '') + r.say);
+    if (ended) return;
+    if (auto) setTimeout(() => { if (!ended && state === 'speaking') listenTurn(); }, 250); else setState('tap');
+  }
+  async function listenTurn() {
+    if (ended) return;
+    if (!SRClass) { setState('type'); showType(); return; }
+    setState('listening');
+    try {
+      const r = await listen({ lang, onPartial: t => { const st = $id('st'); if (st) st.textContent = '🎙 ' + t; } });
+      if (ended) return;
+      const text = (r.text || '').trim();
+      if (!text) { misses++; if (auto && misses < 2) return listenTurn(); setState('tap', "Didn't catch that. Tap the mic to talk."); return; }
+      misses = 0; lines.push({ who: 'me', ru: text }); renderCaps(); renderHints([]);
+      const sent = lang === 'ru-RU' ? text : `(said in English) ${text}`;
+      if (lang !== 'ru-RU') { lang = 'ru-RU'; $id('lang').textContent = 'RU'; }
+      aiTurn(sent);
+    } catch (e) {
+      if (ended || e.message === 'aborted') return;
+      if (e.message === 'not-allowed' || e.message === 'service-not-allowed') { if (state !== 'tap') setState('tap', 'Tap the mic to talk (if it keeps failing, allow the microphone in iPhone Settings → Safari).'); }
+      else if (e.message === 'no-speech') setState('tap', "Didn't hear anything. Tap the mic to talk.");
+      else if (e.message === 'unsupported') { setState('type'); showType(); }
+      else setState('tap', 'Mic problem (' + e.message + '). Tap to try again, or type.');
+    }
+  }
+  function showType() {
+    const tb = $id('typebox'); if (!tb || tb.innerHTML) return;
+    tb.innerHTML = `<div class="composer" style="position:static"><textarea class="ans" id="ctxt" rows="1" placeholder="Напиши́ по-ру́сски…"></textarea><button class="iconbtn" id="csend" aria-label="Send">${ICON.send}</button></div>`;
+    const t = $id('ctxt'); const send = () => { const v = t.value.trim(); if (!v || state === 'thinking') return; t.value = ''; lines.push({ who: 'me', ru: v }); renderCaps(); aiTurn(v); };
+    $id('csend').onclick = send; t.onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } };
+  }
+  $id('talk').onclick = () => {
+    if (state === 'listening') { try { listen.current.stop(); } catch (e) {} return; }
+    if (state === 'thinking') return;
+    try { speechSynthesis.cancel(); } catch (e) {}
+    listenTurn();
+  };
+  $id('lang').onclick = () => { lang = lang === 'ru-RU' ? 'en-US' : 'ru-RU'; $id('lang').textContent = lang === 'ru-RU' ? 'RU' : 'EN'; toast(lang === 'ru-RU' ? 'Next turn: Russian' : 'Next turn: you can ask in English'); };
+  $id('end').onclick = () => { const secs = Math.round((Date.now() - t0) / 1000); cleanup(); cleanup = null; summary(secs); };
+  function summary(secs) {
+    const me = lines.filter(l => l.who === 'me').length, fixes = lines.filter(l => l.fix);
+    app.innerHTML = `${topbar('Звоно́к', { backTo: 'call' })}
+      <div class="card center"><div class="score">${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}</div><p class="muted">You said ${me} thing${me === 1 ? '' : 's'} in Russian${fixes.length ? ` · ${fixes.length} correction${fixes.length === 1 ? '' : 's'}` : ''}</p>
+      <button class="btn block" id="fbk">Get feedback on this call</button><div id="fbout" style="text-align:left"></div>
+      <div style="height:8px"></div><div class="row"><button class="btn ghost" data-go="call" data-arg="${sc.id}">Call again</button><button class="btn ghost" data-go="home">Home</button></div></div>
+      ${fixes.length ? `<h2>Corrections</h2><div class="card">${fixes.map(f => `<div class="review" lang="ru">✓ ${esc(f.fix)} <button class="linkbtn" data-say="${esc(f.fix)}">🔊</button></div>`).join('')}</div>` : ''}
+      <h2>Transcript</h2><div class="card">${lines.map(l => `<div class="review" lang="ru"><b>${l.who === 'me' ? 'You' : 'А́ня'}:</b> ${esc(l.ru)}${l.en ? `<div class="hint">${esc(l.en)}</div>` : ''}</div>`).join('') || '<p class="hint">Nothing was said.</p>'}</div>`;
+    const fb = app.querySelector('#fbk');
+    fb.onclick = async () => {
+      fb.disabled = true; const out = app.querySelector('#fbout'); out.innerHTML = '<p class="hint">Thinking…</p>';
+      const tr = lines.slice(-24).map(l => `${l.who === 'me' ? 'Student' : 'Anya'}: ${l.ru}`).join('\n');
+      try { const t = await askClaude([{ role: 'user', content: `Transcript of a short Russian practice call (student lines come from speech recognition):\n${tr}\n\nGive the student 3 short, specific tips about their mistakes, each with the corrected Russian (stress marks). If they made no mistakes, tell them what to practice next. Under 90 words. No intro.` }], { maxTokens: 230, system: tutorSystem() }); out.innerHTML = `<p style="white-space:pre-wrap">${esc(t)}</p>`; }
+      catch (e) { out.innerHTML = `<p class="hint">${esc(aiErrorText(e))}</p>`; fb.disabled = false; }
+    };
+  }
+  // start: "Алло́!" plays inside the tap (unlocks iPhone audio) while the opener loads
+  const hello = TTS.say('Алло́!');
+  aiTurn(`(The call just connected. Greet me and start the scenario. Keep it short.)`, hello);
 };
 
 /* ----- Settings ----- */
