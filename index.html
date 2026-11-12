@@ -136,7 +136,7 @@ label.f{display:block;font-weight:600;margin:14px 0 6px}
    Everything runs on the phone. AI tutor is optional and
    only calls the Anthropic API with the key saved on-device.
    ========================================================= */
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.0.1';
 const MODEL = 'claude-haiku-5-5';
 const PRICE = { in: 0.10, out: 0.50, cacheRead: 0.01, cacheWrite: 0.125 }; // USD per million tokens
 const LS = 'govori.v1', LSKEY = 'govori.key';
@@ -305,7 +305,7 @@ function genConj(v) {
   return { q: `${subj} ___. (${v.inf} — ${v.en})`, a: v.pres[i], opts: distinct3(v.pres[i], v.pres), why: `${v.inf}: ${v.pres.join(', ')}`, gen: 'conj' };
 }
 function genPast(v) {
-  if (!v.past) return genConj(v);
+  if (!v.past || v.noPastDrill) return genConj(v);
   const P = [['он', 0], ['Ива́н', 0], ['она́', 1], ['Ма́ша', 1], ['они́', 3], ['мы', 3], ['мои́ роди́тели', 3]];
   const [subj, g] = pick(P);
   return { q: `Ра́ньше ${subj} ___. (${v.inf}, past)`, a: v.past[g], opts: distinct3(v.past[g], v.past.concat(v.pres.slice(2, 3))), why: `Past of ${v.inf}: ${v.past.join(', ')} (-л he, -ла she, -ли they).`, gen: 'past' };
