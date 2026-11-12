@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Говори — Russian practice</title>
-<meta name="theme-color" content="#F7F4EF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14161B" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F9FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13171C" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -14,131 +14,264 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
 <style>
+/* ---------- Fonts (self-hosted so they work offline) ---------- */
+@font-face{font-family:"Golos";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Golos";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Pen";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/marck-script-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Pen";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/marck-script-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+
+/* ---------- Tokens: a Russian school notebook (тетрадь в клетку) ---------- */
 :root{
-  --bg:#F7F4EF; --card:#FFFFFF; --ink:#1D2433; --muted:#6B6F7A; --line:#E6E0D6;
-  --accent:#C8372D; --accent-ink:#FFFFFF; --blue:#2F5D8A; --good:#2E7D4F; --bad:#B3261E;
-  --good-bg:#E6F3EB; --bad-bg:#FBE9E7; --soft:#EFEAE2; --shadow:0 1px 2px rgba(29,36,51,.06),0 4px 14px rgba(29,36,51,.06);
-  --r:16px;
+  --paper:#F7F9FA;      /* notebook page, cool white */
+  --cell:#D5E1EC;       /* the pale blue graph-paper grid */
+  --margin:#E59AA0;     /* the red margin line */
+  --text:#23262C;       /* graphite */
+  --muted:#69707B;
+  --ink:#2343B0;        /* ballpoint ink: your answers, actions */
+  --ink-soft:#E7ECFA;
+  --ink-fill:#2343B0;   /* ink as a fill behind white text */
+  --pen:#CF2A31;        /* teacher's red pen: corrections, grades */
+  --pen-soft:#FBE8E9;
+  --cover:#2E6A55;      /* green notebook cover */
+  --cover-ink:#F4F7F2;
+  --slip:#FFFFFF;       /* a loose paper slip */
+  --rule:#DCE3EA;
+  --ok:#23704B;
+  --shadow:0 1px 0 rgba(35,38,44,.06),0 6px 18px -10px rgba(35,38,44,.25);
+  --cellsize:22px;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#14161B; --card:#1E2128; --ink:#ECEAE6; --muted:#9A9DA6; --line:#2C3039;
-    --accent:#E2574C; --blue:#7FA7D1; --good:#5BBF85; --bad:#F2867D; --good-bg:#1D3227; --bad-bg:#3A2220; --soft:#262A32;
-    --shadow:0 1px 2px rgba(0,0,0,.3); }
+  :root{ --paper:#13171C; --cell:rgba(130,160,195,.12); --margin:rgba(229,120,128,.45); --text:#E7E9EC; --muted:#9AA2AD;
+    --ink:#8DA6FF; --ink-soft:#1E2741; --ink-fill:#3653C4; --pen:#FF7077; --pen-soft:#3A1D20; --cover:#1F4A3B; --cover-ink:#E9F0EA;
+    --slip:#1A1F26; --rule:#28303A; --ok:#6CCB97; --shadow:0 1px 0 rgba(0,0,0,.3); }
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;background:var(--bg);color:var(--ink)}
-body{font:16px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  min-height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+html{background:var(--paper)}
+body{margin:0;color:var(--text);font:17px/1.5 "Golos",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;min-height:100dvh;
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--cell) 1px,transparent 1px),linear-gradient(90deg,var(--cell) 1px,transparent 1px);
+  background-size:var(--cellsize) var(--cellsize);background-position:-1px -1px;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 button{font:inherit;color:inherit;cursor:pointer}
-.wrap{max-width:560px;margin:0 auto;padding:12px 16px 40px}
-header.top{display:flex;align-items:center;gap:10px;padding:6px 0 12px;position:sticky;top:0;background:var(--bg);z-index:5}
-.brand{font-weight:800;font-size:22px;letter-spacing:-.02em}
-.brand span{color:var(--accent)}
+:focus-visible{outline:2.5px solid var(--ink);outline-offset:2px;border-radius:6px}
+.hand{font-family:"Pen","Snell Roundhand",cursive;font-weight:400}
+
+/* page with the red margin line */
+.wrap{position:relative;max-width:580px;margin:0 auto;padding:0 18px 48px 54px;min-height:100dvh}
+.wrap::before{content:"";position:absolute;top:0;bottom:0;left:40px;width:1.5px;background:var(--margin)}
+
+/* header */
+header.top{display:flex;align-items:center;gap:10px;margin:0 -18px 6px -54px;padding:8px 18px 10px 14px;position:sticky;top:0;z-index:5;
+  background:var(--paper);background:color-mix(in srgb,var(--paper) 92%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.brand{font-weight:700;font-size:20px;letter-spacing:-.01em}
+.brand.hand{font-size:30px;font-weight:400;color:var(--ink);letter-spacing:0;line-height:1}
 .spacer{flex:1}
-.iconbtn{border:1px solid var(--line);background:var(--card);border-radius:12px;min-width:44px;height:44px;display:inline-grid;place-items:center;padding:0 10px}
+.iconbtn{border:1.5px solid var(--rule);background:var(--slip);border-radius:10px;min-width:44px;height:44px;display:inline-grid;place-items:center;padding:0 10px;font-weight:600;font-size:15px}
 .iconbtn svg{width:20px;height:20px}
-.back{font-weight:600}
-h1{font-size:24px;margin:4px 0 2px;letter-spacing:-.02em}
-h2{font-size:18px;margin:18px 0 8px}
-.sub{color:var(--muted);font-size:14px;margin:0 0 14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:16px}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
-.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;min-height:38px}
-.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.mode{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:14px;min-height:96px;box-shadow:var(--shadow)}
-.mode b{font-size:16px}
-.mode .ru{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.01em}
-.mode small{color:var(--muted);font-size:13px;line-height:1.3}
-.mode.wide{width:100%;grid-column:1/-1;min-height:auto;flex-direction:row;align-items:center;gap:12px}
-.stats{display:flex;gap:10px;margin:0 0 14px}
-.stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
-.stat b{display:block;font-size:22px}
-.stat span{font-size:12px;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:14px;padding:14px 18px;font-weight:700;min-height:50px;background:var(--accent);color:var(--accent-ink)}
+.back{border-color:transparent;background:transparent}
+
+h1{font-size:26px;line-height:1.2;margin:10px 0 4px;letter-spacing:-.015em;font-weight:700}
+h2{font-size:19px;margin:26px 0 10px;font-weight:700}
+.sub{color:var(--muted);font-size:15px;margin:0 0 16px}
+.muted{color:var(--muted)}
+.hint{font-size:14px;color:var(--muted);line-height:1.45}
+.center{text-align:center}
+.ru{font-weight:600}
+
+/* loose paper slip: the one surface that floats above the page */
+.card{background:var(--slip);border:1px solid var(--rule);border-radius:4px;box-shadow:var(--shadow);padding:18px}
+
+/* ---------- Home: the notebook cover ---------- */
+.cover{position:relative;margin:4px 0 18px -14px;background:var(--cover);color:var(--cover-ink);border-radius:6px 14px 14px 6px;padding:18px 18px 18px 26px;
+  box-shadow:inset 8px 0 0 rgba(0,0,0,.14),0 10px 24px -14px rgba(20,40,30,.6);overflow:hidden}
+.cover::after{content:"";position:absolute;inset:7px 7px 7px 15px;border:1px solid rgba(255,255,255,.28);border-radius:3px 9px 9px 3px;pointer-events:none}
+.label{position:relative;background:#FBFCF8;color:#23262C;border-radius:3px;padding:12px 16px 14px;box-shadow:0 1px 0 rgba(0,0,0,.15)}
+.label .t{font-family:"Pen",cursive;font-size:40px;line-height:1;color:#23262C}
+.label .s{font-size:15px;margin-top:2px}
+.label .line{margin-top:10px;border-bottom:1px solid #9AA5B1;padding:0 0 2px;font-size:15px;display:flex;justify-content:space-between;gap:8px}
+.label .line b{font-family:"Pen",cursive;font-weight:400;font-size:22px;color:var(--ink);line-height:1}
+@media (prefers-color-scheme: dark){ .label .line b{color:#2343B0} }
+
+/* unit tabs */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+.chip{border:1.5px solid var(--text);background:var(--slip);border-radius:6px;padding:7px 12px;font-size:15px;font-weight:600;min-height:40px}
+.chip.on{background:var(--ink-fill);border-color:var(--ink-fill);color:#fff}
+
+/* margin notes in red pen */
+.note-pen{position:relative;font-family:"Pen",cursive;color:var(--pen);font-size:22px;line-height:1.2;margin:0 0 14px;display:flex;flex-wrap:wrap;gap:4px 18px}
+.note-pen::before{content:"";position:absolute;left:-26px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--pen)}
+
+/* table of contents (оглавление) */
+.toc{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--text)}
+.toc button{all:unset;box-sizing:border-box;display:flex;align-items:baseline;gap:10px;width:100%;padding:12px 2px;border-bottom:1px solid var(--rule);cursor:pointer}
+.toc button:focus-visible{outline:2.5px solid var(--ink);outline-offset:-2px}
+.toc .n{font-size:20px;font-weight:600;color:var(--text)}
+.toc .e{font-size:14px;color:var(--muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toc .c{font-family:"Pen",cursive;color:var(--pen);font-size:20px;white-space:nowrap}
+.toc button:active{background:var(--ink-soft)}
+.callrow{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;margin:2px 0 18px;padding:14px 16px;border-radius:12px;background:var(--ink-fill);color:#fff;cursor:pointer;box-shadow:0 10px 22px -14px rgba(35,67,176,.9)}
+.callrow:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+.callrow .ph{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none}
+.callrow .ph svg{width:24px;height:24px}
+.callrow b{display:block;font-size:19px}
+.callrow small{display:block;font-size:14px;opacity:.85}
+
+/* list rows reused by pickers (test types, call topics) */
+.grid{display:block}
+.mode{all:unset;box-sizing:border-box;display:block;width:100%;padding:14px 2px;border-bottom:1px solid var(--rule);cursor:pointer}
+.mode:first-of-type{border-top:1.5px solid var(--text)}
+.mode .ru{display:block;font-size:19px;color:var(--text)}
+.mode b{font-weight:500;font-size:15px;color:var(--muted)}
+.mode small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.mode.wide{margin:0}
+.mode:active{background:var(--ink-soft)}
+.mode:focus-visible{outline:2.5px solid var(--ink);outline-offset:-2px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--ink-fill);border-radius:10px;padding:13px 18px;font-weight:600;min-height:52px;background:var(--ink-fill);color:#fff;font-size:17px}
 .btn.block{width:100%}
-.btn.ghost{background:var(--soft);color:var(--ink)}
-.btn.good{background:var(--good);color:#fff}
-.btn.bad{background:var(--bad);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.good{background:var(--ink-fill);border-color:var(--ink-fill);color:#fff}
+.btn.bad{background:transparent;border-color:var(--pen);color:var(--pen)}
 .btn:disabled{opacity:.45}
+.btn:active{transform:translateY(1px)}
 .row{display:flex;gap:10px}
 .row>*{flex:1}
-.progress{height:6px;background:var(--soft);border-radius:99px;overflow:hidden;margin:2px 0 14px}
-.progress i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .25s}
-.flash{min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;user-select:none}
-.big{font-size:32px;font-weight:700;letter-spacing:-.01em;line-height:1.2;word-break:break-word}
-.mid{font-size:22px;font-weight:600}
-.muted{color:var(--muted)}
-.hint{font-size:13px;color:var(--muted)}
-.speak{border:1px solid var(--line);background:var(--soft);border-radius:999px;height:44px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px}
-.speak svg{width:18px;height:18px}
-.q{font-size:20px;font-weight:600;line-height:1.35;margin:4px 0 14px;word-break:break-word}
-.q .blank{display:inline-block;min-width:56px;border-bottom:2px solid var(--accent);margin:0 2px}
-input.ans,textarea.ans{font-family:inherit;width:100%;font-size:20px;padding:14px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);outline:none}
-input.ans:focus,textarea.ans:focus{border-color:var(--blue)}
+.linkbtn{background:none;border:none;color:var(--ink);font-weight:600;padding:8px 0;font-size:15px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+/* progress: a line drawn across the page */
+.progress{height:4px;background:var(--rule);border-radius:2px;overflow:hidden;margin:4px 0 16px}
+.progress i{display:block;height:100%;background:var(--ink);transition:width .3s}
+
+/* stats */
+.stats{display:flex;gap:10px;margin:0 0 14px}
+.stat{flex:1}
+.stat b{display:block;font-size:22px}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* ---------- Exercises ---------- */
+.qsheet{position:relative;padding:4px 0 0}
+.qno{position:absolute;left:-46px;top:6px;width:32px;text-align:right;font-family:"Pen",cursive;font-size:20px;color:var(--muted)}
+.q{font-size:22px;font-weight:500;line-height:1.45;margin:2px 0 18px;word-break:break-word}
+.q .blank{display:inline-block;min-width:64px;border-bottom:2px solid var(--ink);margin:0 3px;transform:translateY(-3px)}
+input.ans,textarea.ans{font-family:inherit;width:100%;font-size:22px;padding:10px 4px 8px;border:none;border-bottom:2px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);outline:none;font-weight:500}
+input.ans::placeholder,textarea.ans::placeholder{color:var(--muted);font-weight:400}
+input.ans:focus,textarea.ans:focus{border-bottom-width:3px}
+input.ans:disabled{opacity:1;color:var(--ink)}
 .opts{display:grid;gap:8px}
-.opt{text-align:left;border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:14px 16px;font-size:18px;font-weight:600;min-height:54px}
-.opt.right{border-color:var(--good);background:var(--good-bg)}
-.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
-.fb{border-radius:14px;padding:12px 14px;margin:12px 0;font-size:15px}
-.fb.good{background:var(--good-bg);color:var(--ink);border:1px solid var(--good)}
-.fb.bad{background:var(--bad-bg);color:var(--ink);border:1px solid var(--bad)}
+.opt{position:relative;text-align:left;border:1.5px solid var(--rule);background:var(--slip);border-radius:8px;padding:13px 14px 13px 48px;font-size:19px;font-weight:500;min-height:54px}
+.opt::before{content:"";position:absolute;left:14px;top:50%;width:20px;height:20px;margin-top:-10px;border:1.5px solid var(--muted);border-radius:3px}
+.opt.right{border-color:var(--ink)}
+.opt.right::before{border-color:var(--pen);background:linear-gradient(transparent,transparent)}
+.opt.right::after{content:"✓";position:absolute;left:14px;top:50%;transform:translateY(-58%);font-family:"Pen",cursive;font-size:28px;color:var(--pen);line-height:1}
+.opt.wrong{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--pen);text-decoration-thickness:2px}
+.opt.wrong::after{content:"✗";position:absolute;left:15px;top:50%;transform:translateY(-55%);font-family:"Pen",cursive;font-size:26px;color:var(--pen);line-height:1}
+
+/* teacher's red-pen feedback */
+.fb{margin:16px 0 14px;font-size:16px}
+.fb .verdict{font-family:"Pen",cursive;font-size:30px;line-height:1.1;color:var(--pen)}
+.fb .yours{color:var(--muted)}
+.fb .yours s{text-decoration-color:var(--pen);text-decoration-thickness:2px;color:var(--ink)}
+.fb .corr{font-size:26px;font-weight:600;color:var(--pen);line-height:1.25}
+.fb .why{margin:6px 0 0;padding-left:12px;border-left:2px solid var(--pen)}
+.fb .full{margin-top:12px;padding-top:10px;border-top:1px dashed var(--rule)}
+.fb .full b{font-weight:600}
 .fb b.ru{font-size:18px}
-.linkbtn{background:none;border:none;color:var(--blue);font-weight:600;padding:8px 0;font-size:15px}
-.note{border-left:3px solid var(--accent);padding:2px 0 2px 12px;margin:12px 0}
-.note h3{margin:0 0 4px;font-size:16px}
-.note p{margin:0;font-size:15px}
-table.vt{width:100%;border-collapse:collapse;font-size:15px}
-table.vt td{padding:6px 4px;border-bottom:1px solid var(--line)}
+.mark{position:absolute;left:-48px;top:34px;width:40px;height:40px;fill:none;stroke:var(--pen);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.mark path{stroke-dasharray:70;stroke-dashoffset:70;animation:draw .45s ease-out forwards}
+.mark path+path{animation-delay:.18s}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* grades */
+.score{font-family:"Pen",cursive;font-weight:400;font-size:64px;line-height:1;color:var(--pen);text-align:center;margin:6px 0 0}
+.grade{position:relative;width:132px;height:120px;margin:0 auto}
+.grade svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--pen);stroke-width:2.5;stroke-linecap:round}
+.grade svg path{stroke-dasharray:420;stroke-dashoffset:420;animation:draw .8s .25s ease-out forwards}
+.grade span{position:absolute;inset:0;display:grid;place-items:center;font-family:"Pen",cursive;font-size:96px;color:var(--pen);line-height:1;padding-bottom:6px}
+.gradeword{font-family:"Pen",cursive;color:var(--pen);font-size:30px;text-align:center;line-height:1.1}
+.review{border-top:1px solid var(--rule);padding:12px 0}
+.review:first-child{border-top:none}
+
+/* flashcards */
+.flash{min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;user-select:none;-webkit-user-select:none}
+.big{font-size:36px;font-weight:600;letter-spacing:-.01em;line-height:1.2;word-break:break-word}
+.mid{font-size:22px;font-weight:500}
+.speak{border:1.5px solid var(--rule);background:transparent;border-radius:999px;height:44px;padding:0 16px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:15px;color:var(--ink)}
+.speak svg{width:18px;height:18px}
+
+/* notes */
+.note{margin:14px 0}
+.note h3{margin:0 0 4px;font-size:17px}
+.note p{margin:0;font-size:16px}
+.note b{color:var(--ink);font-weight:600}
+table.vt{width:100%;border-collapse:collapse;font-size:16px}
+table.vt td{padding:7px 4px;border-bottom:1px solid var(--rule)}
 table.vt td:first-child{color:var(--muted);width:30%}
-details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin:8px 0;padding:0 14px}
-details summary{padding:14px 0;font-weight:700;list-style:none;cursor:pointer}
+details{border-bottom:1px solid var(--rule);margin:0}
+details:first-of-type{border-top:1.5px solid var(--text)}
+details summary{padding:13px 2px;font-weight:600;font-size:18px;list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:8px}
+details summary::after{content:"+";color:var(--ink);font-weight:400}
+details[open] summary::after{content:"–"}
 details summary::-webkit-details-marker{display:none}
-details[open] summary{border-bottom:1px solid var(--line)}
+
+/* chat */
 .chat{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
-.msg{max-width:88%;padding:10px 14px;border-radius:18px;font-size:16px;white-space:pre-wrap;word-break:break-word}
-.msg.me{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:6px}
-.msg.ai{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-bottom-left-radius:6px}
-.msg .tools{margin-top:6px}
-.composer{position:sticky;bottom:0;background:var(--bg);padding:8px 0 calc(8px + env(safe-area-inset-bottom));display:flex;gap:8px;align-items:flex-end}
-.composer textarea{flex:1;min-height:50px;max-height:140px;resize:none;font-size:17px}
-.meter{font-size:12px;color:var(--muted);text-align:right}
-.banner{background:var(--soft);border-radius:14px;padding:12px 14px;font-size:14px;margin:0 0 12px;display:flex;gap:10px;align-items:flex-start}
-.banner .x{margin-left:auto;background:none;border:none;font-size:18px;line-height:1;padding:0 4px;color:var(--muted)}
-label.f{display:block;font-weight:600;margin:14px 0 6px}
-.field{font-family:inherit;width:100%;font-size:16px;padding:12px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
-.toggle{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);gap:12px}
+.msg{max-width:88%;padding:10px 14px;border-radius:14px;font-size:17px;white-space:pre-wrap;word-break:break-word}
+.msg.me{align-self:flex-end;background:var(--ink-fill);color:#fff;border-bottom-right-radius:4px}
+.msg.ai{align-self:flex-start;background:var(--slip);border:1px solid var(--rule);border-bottom-left-radius:4px;box-shadow:var(--shadow)}
+.msg .tools{margin-top:4px}
+.composer{position:sticky;bottom:0;background:var(--paper);background:color-mix(in srgb,var(--paper) 94%,transparent);padding:8px 0 calc(8px + env(safe-area-inset-bottom));display:flex;gap:8px;align-items:flex-end}
+.composer textarea{flex:1;min-height:50px;max-height:140px;resize:none;font-size:18px;border:1.5px solid var(--rule);border-radius:10px;padding:12px;background:var(--slip)}
+.meter{font-size:13px;color:var(--muted);text-align:right}
+
+/* banners, forms */
+.banner{position:relative;border:1.5px dashed var(--muted);border-radius:8px;padding:12px 40px 12px 14px;font-size:15px;margin:0 0 14px;background:var(--slip)}
+.banner .x{position:absolute;right:6px;top:6px;background:none;border:none;font-size:22px;line-height:1;padding:6px 8px;color:var(--muted)}
+label.f{display:block;font-weight:600;margin:16px 0 6px}
+.field{font-family:inherit;width:100%;font-size:17px;padding:12px;border-radius:8px;border:1.5px solid var(--rule);background:var(--slip);color:var(--text)}
+.toggle{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule);gap:12px}
 .toggle:last-child{border-bottom:none}
-.switch{appearance:none;width:52px;height:32px;border-radius:99px;background:var(--line);position:relative;flex:none;transition:.2s;cursor:pointer}
-.switch:checked{background:var(--good)}
+.switch{appearance:none;-webkit-appearance:none;width:52px;height:32px;border-radius:99px;background:var(--rule);position:relative;flex:none;transition:.2s;cursor:pointer}
+.switch:checked{background:var(--ink-fill)}
 .switch::after{content:"";position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
 .switch:checked::after{left:23px}
-.score{font-size:56px;font-weight:800;text-align:center;letter-spacing:-.03em;margin:10px 0 0}
-.review{border-top:1px solid var(--line);padding:12px 0}
-.review:first-child{border-top:none}
-.mic{width:96px;height:96px;border-radius:50%;border:none;background:var(--accent);color:#fff;display:grid;place-items:center;margin:8px auto;box-shadow:0 6px 18px rgba(200,55,45,.35)}
-.mic.on{animation:pulse 1.2s infinite}
+.kbd{display:inline-block;border:1px solid var(--rule);border-radius:5px;padding:0 6px;font-size:14px;background:var(--slip)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--text);color:var(--paper);padding:10px 16px;border-radius:10px;font-size:15px;z-index:50;max-width:90vw}
+
+/* speaking mic */
+.mic{width:96px;height:96px;border-radius:50%;border:none;background:var(--ink-fill);color:#fff;display:grid;place-items:center;margin:10px auto;box-shadow:0 10px 24px -10px rgba(35,67,176,.8)}
+.mic.on{animation:pulseB 1.3s infinite}
 .mic svg{width:40px;height:40px}
+
+/* ---------- Call ---------- */
 .call{display:flex;flex-direction:column;min-height:calc(100dvh - 100px)}
-.avatar{width:132px;height:132px;border-radius:50%;margin:14px auto 6px;display:grid;place-items:center;font-size:58px;font-weight:800;color:#fff;background:linear-gradient(135deg,#C8372D,#7A1F19);transition:opacity .3s}
-.avatar.speaking{animation:pulse 1.2s infinite}
-.avatar.listening{animation:pulseB 1.3s infinite;background:linear-gradient(135deg,#2F5D8A,#1B3A5C)}
-.avatar.thinking{opacity:.65}
-@keyframes pulseB{0%{box-shadow:0 0 0 0 rgba(47,93,138,.55)}70%{box-shadow:0 0 0 26px rgba(47,93,138,0)}100%{box-shadow:0 0 0 0 rgba(47,93,138,0)}}
-.status{text-align:center;color:var(--muted);font-size:14px;min-height:22px;padding:0 10px}
+.avatar{width:124px;height:124px;border-radius:50%;margin:12px auto 4px;display:grid;place-items:center;font-family:"Pen",cursive;font-size:76px;color:#fff;background:var(--ink-fill);transition:opacity .3s;line-height:1;padding-bottom:6px}
+.avatar.speaking{animation:pulseB 1.2s infinite}
+.avatar.listening{background:var(--pen);animation:pulseR 1.3s infinite}
+.avatar.thinking{opacity:.6}
+@keyframes pulseB{0%{box-shadow:0 0 0 0 rgba(35,67,176,.5)}70%{box-shadow:0 0 0 24px rgba(35,67,176,0)}100%{box-shadow:0 0 0 0 rgba(35,67,176,0)}}
+@keyframes pulseR{0%{box-shadow:0 0 0 0 rgba(207,42,49,.45)}70%{box-shadow:0 0 0 24px rgba(207,42,49,0)}100%{box-shadow:0 0 0 0 rgba(207,42,49,0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(207,42,49,.45)}70%{box-shadow:0 0 0 22px rgba(207,42,49,0)}100%{box-shadow:0 0 0 0 rgba(207,42,49,0)}}
+.status{text-align:center;color:var(--muted);font-size:15px;min-height:22px;padding:0 10px}
 .caps{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;margin:12px 0;max-height:42vh}
 .callbar{display:flex;gap:22px;justify-content:center;align-items:center;padding:10px 0 4px}
-.round{width:62px;height:62px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:var(--card);color:var(--ink);font-weight:800}
+.round{width:62px;height:62px;border-radius:50%;border:1.5px solid var(--rule);display:grid;place-items:center;background:var(--slip);color:var(--text);font-weight:700}
 .round svg{width:30px;height:30px}
-.round.big{width:84px;height:84px;background:var(--blue);color:#fff;border:none}
-.round.big.on{animation:pulseB 1.3s infinite}
+.round.big{width:84px;height:84px;background:var(--ink-fill);color:#fff;border:none}
+.round.big.on{background:var(--pen);animation:pulseR 1.3s infinite}
 .round.end{background:#D93025;color:#fff;border:none}
-.fix{background:var(--good-bg);border:1px solid var(--good);border-radius:10px;padding:5px 9px;font-size:14px;margin-bottom:6px}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(200,55,45,.5)}70%{box-shadow:0 0 0 22px rgba(200,55,45,0)}100%{box-shadow:0 0 0 0 rgba(200,55,45,0)}}
-.center{text-align:center}
-.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;z-index:50;max-width:90vw}
-.kbd{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:0 6px;font-size:13px;background:var(--soft)}
-.ru{font-weight:600}
+.fix{color:var(--pen);font-size:16px;font-weight:600;line-height:1.3;margin-bottom:6px}
+
+@media (prefers-reduced-motion: reduce){ *,*::before,*::after{animation:none!important;transition:none!important} .mark path,.grade svg path{stroke-dashoffset:0} }
+input.ans.struck{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--pen);text-decoration-thickness:2px}
+.mode br{display:none}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 </head>
@@ -151,7 +284,7 @@ label.f{display:block;font-weight:600;margin:14px 0 6px}
    Everything runs on the phone. AI tutor is optional and
    only calls the Anthropic API with the key saved on-device.
    ========================================================= */
-const APP_VERSION = '1.1.1';
+const APP_VERSION = '1.2.0';
 const MODEL = 'claude-haiku-5-5';
 const PRICE = { in: 0.10, out: 0.50, cacheRead: 0.01, cacheWrite: 0.125 }; // USD per million tokens
 const LS = 'govori.v1', LSKEY = 'govori.key';
@@ -371,8 +504,8 @@ function go(view, arg) {
   window.scrollTo(0, 0);
   (VIEWS[view] || VIEWS.home)(arg);
 }
-function topbar(title, { backTo = 'home', right = '' } = {}) {
-  return `<header class="top">${backTo ? `<button class="iconbtn back" data-go="${backTo}" aria-label="Back">${ICON.back}</button>` : ''}<div class="brand">${title}</div><div class="spacer"></div>${right}</header>`;
+function topbar(title, { backTo = 'home', right = '', hand = false } = {}) {
+  return `<header class="top">${backTo ? `<button class="iconbtn back" data-go="${backTo}" aria-label="Back">${ICON.back}</button>` : ''}<div class="brand${hand ? ' hand' : ''}">${title}</div><div class="spacer"></div>${right}</header>`;
 }
 app.addEventListener('click', e => {
   const g = e.target.closest('[data-go]'); if (g) { go(g.dataset.go, g.dataset.arg); return; }
@@ -387,31 +520,40 @@ VIEWS.home = () => {
   const newC = vocabPool().filter(v => !S.srs[v.id]).length;
   const d = S.log[today()] || { n: 0, ok: 0 };
   const standalone = window.navigator.standalone || matchMedia('(display-mode: standalone)').matches;
+  const cu = unitById(C.currentUnit) || {};
+  const topic = (cu.title || '').split(' · ')[1] || cu.en || '';
+  const rows = [
+    ['flash', 'Ка́рточки', 'Flashcards', due ? `${due} due` : newC ? `${newC} new` : ''],
+    ['drill', 'Грамма́тика', 'Grammar drills', ''],
+    ['listen', 'Слу́шать', 'Listening', ''],
+    ['dictation', 'Дикта́нт', 'Dictation', ''],
+    ['speak', 'Говори́ть', 'Speaking', ''],
+    ['test', 'Тест', 'Friday-style test', ''],
+    ['notes', 'Шпарга́лка', 'Rules and verb tables', ''],
+    ['tutor', 'Учи́тель', 'AI tutor chat', getKey() ? '' : 'needs key']
+  ];
   app.innerHTML = `
-  ${topbar('Говори<span>!</span>', { backTo: '', right: `<button class="iconbtn" data-go="settings" aria-label="Settings">${ICON.gear}</button>` })}
-  ${!standalone && S.settings.a2hsTip ? `<div class="banner"><div>📲 <b>Install it:</b> in Safari tap <span class="kbd">Share</span> → <b>Add to Home Screen</b>. Then open it from the icon.</div><button class="x" data-tip="a2hsTip" aria-label="Dismiss">×</button></div>` : ''}
-  <p class="sub">${esc(C.course)} · class is on Unit ${C.currentUnit}</p>
+  ${topbar('Говори!', { backTo: '', hand: true, right: `<button class="iconbtn" data-go="settings" aria-label="Settings">${ICON.gear}</button>` })}
+  ${!standalone && S.settings.a2hsTip ? `<div class="banner">Install it: in Safari tap <span class="kbd">Share</span>, then <b>Add to Home Screen</b>, and open it from the icon.<button class="x" data-tip="a2hsTip" aria-label="Dismiss">×</button></div>` : ''}
+  <section class="cover" aria-label="Course">
+    <div class="label">
+      <div class="t" lang="ru">Тетрадь</div>
+      <div class="s" lang="ru">по ру́сскому языку́</div>
+      <div class="line"><span>Course</span><b>RUSS 1110</b></div>
+      <div class="line"><span>Class is on</span><b lang="ru">Урок ${C.currentUnit}, ${esc(noStress(topic))}</b></div>
+    </div>
+  </section>
+  <p class="hint" style="margin:0">Practice from</p>
   <div class="chips" id="units">
-    ${units().map(u => `<button class="chip ${selUnits().includes(u.id) ? 'on' : ''}" data-u="${u.id}">${u.id === 0 ? 'Алфави́т' : 'Уро́к ' + u.id}</button>`).join('')}
-    <button class="chip" data-u="all">All (final)</button>
+    ${units().map(u => `<button class="chip ${selUnits().includes(u.id) ? 'on' : ''}" data-u="${u.id}" aria-pressed="${selUnits().includes(u.id)}">${u.id === 0 ? 'Алфави́т' : 'Уро́к ' + u.id}</button>`).join('')}
+    <button class="chip" data-u="all">All units</button>
   </div>
-  <div class="stats">
-    <div class="stat"><b>${due}</b><span>cards due</span></div>
-    <div class="stat"><b>${d.n}</b><span>answered today</span></div>
-    <div class="stat"><b>${streak()}</b><span>day streak</span></div>
-  </div>
-  <div class="grid">
-    <button class="mode wide" data-go="call" style="background:linear-gradient(135deg,var(--accent),#8E241D);color:#fff;border:none"><span style="font-size:30px">📞</span><div><span class="ru" style="color:#FFE3DF">Позвони́ть</span><br><b>Call А́ня</b><br><small style="color:#FFE3DF">Talk out loud in Russian, she talks back</small></div></button>
-    <button class="mode" data-go="flash"><span class="ru">Ка́рточки</span><b>Flashcards</b><small>${due} due · ${newC} new</small></button>
-    <button class="mode" data-go="drill"><span class="ru">Грамма́тика</span><b>Grammar drills</b><small>Fill-in-the-blank, test style</small></button>
-    <button class="mode" data-go="listen"><span class="ru">Слу́шать</span><b>Listening</b><small>Hear it, pick the meaning</small></button>
-    <button class="mode" data-go="dictation"><span class="ru">Дикта́нт</span><b>Dictation</b><small>Hear it, write it</small></button>
-    <button class="mode" data-go="speak"><span class="ru">Говори́ть</span><b>Speaking</b><small>Say it, the phone checks</small></button>
-    <button class="mode" data-go="test"><span class="ru">Тест</span><b>Friday test</b><small>20 questions, graded at the end</small></button>
-    <button class="mode" data-go="notes"><span class="ru">Шпарга́лка</span><b>Grammar notes</b><small>Rules + verb tables</small></button>
-    <button class="mode" data-go="tutor"><span class="ru">Учи́тель</span><b>AI tutor</b><small>${getKey() ? 'Chat in Russian' : 'Needs API key'}</small></button>
-  </div>
-  <p class="hint center" style="margin-top:18px">Content updated ${esc(C.version)} · app v${APP_VERSION}</p>`;
+  <div class="note-pen"><span>${due} cards due</span><span>${d.n} answered today</span><span>${streak()} day streak</span></div>
+  <button class="callrow" data-go="call"><span class="ph"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></span><span><b lang="ru">Позвони́ть А́не</b><small>Call Anya. Talk out loud, she talks back.</small></span></button>
+  <ul class="toc">
+    ${rows.map(([g, ru, en, c]) => `<li><button data-go="${g}"><span class="n" lang="ru">${ru}</span><span class="e">${en}</span>${c ? `<span class="c">${c}</span>` : ''}</button></li>`).join('')}
+  </ul>
+  <p class="hint" style="margin-top:22px">Lessons updated ${esc(C.version)}. App version ${APP_VERSION}.</p>`;
   app.querySelector('#units').addEventListener('click', e => {
     const b = e.target.closest('[data-u]'); if (!b) return;
     if (b.dataset.u === 'all') S.units = units().map(u => u.id);
@@ -451,7 +593,7 @@ VIEWS.flash = () => {
       <div class="progress"><i style="width:${(done / total) * 100}%"></i></div>
       <div class="card flash" id="fc">
         ${front}
-        ${flipped ? `<hr style="width:60%;border:none;border-top:1px solid var(--line)">${back}` : '<div class="hint">Tap the card to flip</div>'}
+        ${flipped ? `<hr style="width:60%;border:none;border-top:1px solid var(--rule)">${back}` : '<div class="hint">Tap the card to flip</div>'}
         <div class="row" style="flex:none;gap:8px"><button class="speak" data-say="${esc(card.ru)}">${ICON.spk} Hear</button><button class="speak" data-say="${esc(card.ru)}" data-slow="1">Slow</button></div>
       </div>
       <div style="height:12px"></div>
@@ -482,21 +624,30 @@ function questionHTML(item, { typing, idx, total, title, showOpts }) {
   return `${topbar(title)}
     <div class="progress"><i style="width:${(idx / total) * 100}%"></i></div>
     ${typing && S.settings.kbTip ? `<div class="banner"><div>⌨️ Add the Russian keyboard once: <b>Settings → General → Keyboard → Keyboards → Add New Keyboard → Russian</b>. Tap 🌐 to switch.</div><button class="x" id="kbx" aria-label="Dismiss">×</button></div>` : ''}
-    <div class="card">
-      <div class="hint">${idx + 1} / ${total}${item.unit != null ? ' · Уро́к ' + item.unit : ''}</div>
+    <div class="qsheet">
+      <div class="qno" aria-label="Question ${idx + 1} of ${total}">${idx + 1}.</div>
+      <div class="hint">${idx + 1} of ${total}${item.unit != null ? ', Уро́к ' + item.unit : ''}</div>
       <div class="q" lang="ru">${q}</div>
       ${typing && !showOpts
         ? `<input class="ans" id="ans" lang="ru" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type in Russian…" enterkeyhint="done">
-           <div class="row" style="margin-top:10px"><button class="btn ghost" id="showopts">Show options</button><button class="btn" id="check">Check</button></div>`
+           <div class="row" style="margin-top:16px"><button class="btn ghost" id="showopts">Show options</button><button class="btn" id="check">Check</button></div>`
         : `<div class="opts" id="opts">${shuffle([item.a].concat(item.opts)).map(o => `<button class="opt" data-o="${esc(o)}" lang="ru">${esc(o)}</button>`).join('')}</div>`}
       <div id="fb"></div>
     </div>`;
 }
+const PRAISE = ['Правильно!', 'Молодец!', 'Отлично!', 'Верно!'];
+const markSVG = ok => ok
+  ? '<svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M7 21 L16 31 L34 8"/></svg>'
+  : '<svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M10 9 L31 31"/><path d="M31 9 L10 31"/></svg>';
 function feedbackHTML(item, ok, given) {
-  return `<div class="fb ${ok ? 'good' : 'bad'}">${ok ? '✓ Right' : `✗ You wrote: <b>${esc(given || '—')}</b>`}<br>Answer: <b class="ru" lang="ru">${esc(item.a.split('|')[0])}</b>
-    <button class="linkbtn" data-say="${esc(item.a.split('|')[0])}" aria-label="Hear the answer">🔊</button><br><span>${esc(item.why || '')}</span>
-    ${!ok ? `<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--line)"><b lang="ru">${esc(fillQ(item))}</b> <button class="linkbtn" data-say="${esc(fillQ(item))}" aria-label="Hear the sentence">🔊</button><br>${item.en ? `<span>${esc(item.en)}</span>` : `<button class="linkbtn" id="aitr">Translate (AI)</button><span id="aitrout"></span>`}</div>
-      <div><button class="linkbtn" id="explain">Explain this to me (AI)</button><div id="exp"></div></div>` : ''}</div>`;
+  const ans = item.a.split('|')[0];
+  if (ok) return `<div class="fb" role="status"><div class="verdict" lang="ru">${pick(PRAISE)}</div>${item.why ? `<p class="why">${esc(item.why)}</p>` : ''}</div>`;
+  return `<div class="fb" role="status">
+    <div class="corr" lang="ru">${esc(ans)} <button class="linkbtn" data-say="${esc(ans)}" aria-label="Hear the answer" style="text-decoration:none">🔊</button></div>
+    <div class="yours">You wrote <s lang="ru">${esc(given || '—')}</s></div>
+    ${item.why ? `<p class="why">${esc(item.why)}</p>` : ''}
+    <div class="full"><b lang="ru">${esc(fillQ(item))}</b> <button class="linkbtn" data-say="${esc(fillQ(item))}" aria-label="Hear the sentence" style="text-decoration:none">🔊</button><br>${item.en ? `<span class="muted">${esc(item.en)}</span>` : `<button class="linkbtn" id="aitr">Translate (AI)</button><span id="aitrout"></span>`}</div>
+    <div><button class="linkbtn" id="explain">Explain this to me (AI)</button><div id="exp"></div></div></div>`;
 }
 async function aiTranslate(item, box) {
   box.textContent = ' Translating…';
@@ -539,7 +690,8 @@ VIEWS.drill = () => {
     if (!ok && items.filter(x => x === item).length < 2) items.splice(Math.min(idx + 4, items.length), 0, item); // hammer it in
     save();
     app.querySelectorAll('.opt').forEach(o => { if (isRight(o.dataset.o, item.a)) o.classList.add('right'); else if (o === btn) o.classList.add('wrong'); o.disabled = true; });
-    const inp = app.querySelector('#ans'); if (inp) inp.disabled = true;
+    const inp = app.querySelector('#ans'); if (inp) { inp.disabled = true; if (!ok) inp.classList.add('struck'); }
+    const sheet = app.querySelector('.qsheet'); if (sheet) sheet.insertAdjacentHTML('beforeend', markSVG(ok));
     const fb = app.querySelector('#fb');
     fb.innerHTML = feedbackHTML(item, ok, given) + `<button class="btn block" id="next">${idx + 1 < items.length ? 'Next' : 'Finish'}</button>`;
     const ex = fb.querySelector('#explain'); if (ex) ex.onclick = () => { ex.remove(); explainMistake(item, given, fb.querySelector('#exp')); };
@@ -592,9 +744,11 @@ VIEWS.test = (arg) => {
     save();
     const pct = Math.round(right / items.length * 100);
     const misses = rows.filter(r => !r.ok);
-    app.innerHTML = `${topbar('Тест')}<div class="card"><div class="score">${pct}%</div><p class="center muted">${right} of ${items.length} right</p>
+    const g = pct >= 90 ? 5 : pct >= 75 ? 4 : pct >= 60 ? 3 : 2;
+    const gw = { 5: 'Отлично', 4: 'Хорошо', 3: 'Удовлетворительно', 2: 'Плохо' }[g];
+    app.innerHTML = `${topbar('Тест')}<div class="card center"><div class="grade" aria-label="Grade ${g} of 5"><svg viewBox="0 0 132 120" aria-hidden="true"><path d="M74 12 C 34 8, 10 38, 14 68 C 18 100, 64 116, 100 98 C 126 84, 128 40, 100 20 C 88 11, 74 9, 58 13"/></svg><span>${g}</span></div><div class="gradeword" lang="ru">${gw}</div><p class="center muted">${right} of ${items.length} right (${pct}%). Russian schools grade on a 5-point scale.</p>
       ${misses.length ? `<button class="btn block" id="retry">Retry the ${misses.length} I missed</button>` : '<p class="center">Perfect. Отли́чно!</p>'}</div>
-      <h2>Review</h2><div class="card">${rows.map(r => `<div class="review"><div lang="ru">${r.ok ? '✓' : '✗'} ${esc(r.it.q)}</div>
+      <h2>Review</h2><div class="card">${rows.map(r => `<div class="review"><div lang="ru"><span class="hand" style="color:var(--pen);font-size:22px">${r.ok ? '✓' : '✗'}</span> ${esc(r.it.q)}</div>
       <div>${r.ok ? '' : `You: <b>${esc(r.given)}</b> · `}Answer: <b class="ru" lang="ru">${esc(r.it.a.split('|')[0])}</b>${r.it._hinted ? ' <span class="hint">(used options)</span>' : ''}</div>
       ${r.ok ? '' : `<div class="hint">${esc(r.it.why || '')}</div><div class="hint" lang="ru">${esc(fillQ(r.it))}${r.it.en ? ' — ' + esc(r.it.en) : ''}</div>`}</div>`).join('')}</div>
       <div style="height:12px"></div><button class="btn block ghost" data-go="test">New test</button>`;
@@ -758,7 +912,7 @@ VIEWS.tutor = () => {
     const mic = app.querySelector('#mic');
     if (mic) mic.onclick = async () => {
       if (mic.dataset.on) { try { listen.current.stop(); } catch (e) {} return; }
-      mic.dataset.on = '1'; mic.style.background = 'var(--accent)'; mic.style.color = '#fff';
+      mic.dataset.on = '1'; mic.style.background = 'var(--pen)'; mic.style.color = '#fff';
       try { const r = await listen({ onPartial: t => txt.value = t }); txt.value = r.text; }
       catch (e) { toast(e.message === 'not-allowed' ? 'Microphone blocked in Settings' : 'Could not hear you'); }
       delete mic.dataset.on; mic.style.background = ''; mic.style.color = '';
@@ -851,8 +1005,7 @@ VIEWS.call = (arg) => {
     box.innerHTML = lines.slice(-8).map((l, k) => {
       const i = lines.length - Math.min(8, lines.length) + k;
       if (l.who === 'me') return `<div class="msg me" lang="ru">${esc(l.ru)}</div>`;
-      return `<div class="msg ai" lang="ru">${l.fix ? `<div class="fix">✓ ${esc(l.fix)}</div>` : ''}${esc(l.ru)}
-        ${l.en ? (l.showEn ? `<div class="hint" style="margin-top:4px">${esc(l.en)}</div>` : `<div class="tools"><button class="linkbtn" data-en="${i}">Translate</button> <button class="linkbtn" data-rep="${i}">🔊 Again</button></div>`) : ''}</div>`;
+      return `<div class="msg ai" lang="ru">${l.fix ? `<div class="fix">✓ ${esc(l.fix)}</div>` : ''}${esc(l.ru)}${l.en ? (l.showEn ? `<div class="hint" style="margin-top:4px">${esc(l.en)}</div>` : `<div class="tools"><button class="linkbtn" data-en="${i}">Translate</button> <button class="linkbtn" data-rep="${i}">🔊 Again</button></div>`) : ''}</div>`;
     }).join('');
     box.querySelectorAll('[data-en]').forEach(b => b.onclick = () => { lines[+b.dataset.en].showEn = true; renderCaps(); });
     box.querySelectorAll('[data-rep]').forEach(b => b.onclick = () => TTS.say(lines[+b.dataset.rep].ru, true));
