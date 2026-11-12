@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Говори — Russian practice</title>
+<meta name="theme-color" content="#F7F4EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161B" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Говори">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<style>
+:root{
+  --bg:#F7F4EF; --card:#FFFFFF; --ink:#1D2433; --muted:#6B6F7A; --line:#E6E0D6;
+  --accent:#C8372D; --accent-ink:#FFFFFF; --blue:#2F5D8A; --good:#2E7D4F; --bad:#B3261E;
+  --good-bg:#E6F3EB; --bad-bg:#FBE9E7; --soft:#EFEAE2; --shadow:0 1px 2px rgba(29,36,51,.06),0 4px 14px rgba(29,36,51,.06);
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#14161B; --card:#1E2128; --ink:#ECEAE6; --muted:#9A9DA6; --line:#2C3039;
+    --accent:#E2574C; --blue:#7FA7D1; --good:#5BBF85; --bad:#F2867D; --good-bg:#1D3227; --bad-bg:#3A2220; --soft:#262A32;
+    --shadow:0 1px 2px rgba(0,0,0,.3); }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font:16px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  min-height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:560px;margin:0 auto;padding:12px 16px 40px}
+header.top{display:flex;align-items:center;gap:10px;padding:6px 0 12px;position:sticky;top:0;background:var(--bg);z-index:5}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.02em}
+.brand span{color:var(--accent)}
+.spacer{flex:1}
+.iconbtn{border:1px solid var(--line);background:var(--card);border-radius:12px;min-width:44px;height:44px;display:inline-grid;place-items:center;padding:0 10px}
+.iconbtn svg{width:20px;height:20px}
+.back{font-weight:600}
+h1{font-size:24px;margin:4px 0 2px;letter-spacing:-.02em}
+h2{font-size:18px;margin:18px 0 8px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;min-height:38px}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mode{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:14px;min-height:96px;box-shadow:var(--shadow)}
+.mode b{font-size:16px}
+.mode .ru{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.01em}
+.mode small{color:var(--muted);font-size:13px;line-height:1.3}
+.mode.wide{grid-column:1/-1;min-height:auto;flex-direction:row;align-items:center;gap:12px}
+.stats{display:flex;gap:10px;margin:0 0 14px}
+.stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.stat b{display:block;font-size:22px}
+.stat span{font-size:12px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:14px;padding:14px 18px;font-weight:700;min-height:50px;background:var(--accent);color:var(--accent-ink)}
+.btn.block{width:100%}
+.btn.ghost{background:var(--soft);color:var(--ink)}
+.btn.good{background:var(--good);color:#fff}
+.btn.bad{background:var(--bad);color:#fff}
+.btn:disabled{opacity:.45}
+.row{display:flex;gap:10px}
+.row>*{flex:1}
+.progress{height:6px;background:var(--soft);border-radius:99px;overflow:hidden;margin:2px 0 14px}
+.progress i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .25s}
+.flash{min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;user-select:none}
+.big{font-size:32px;font-weight:700;letter-spacing:-.01em;line-height:1.2;word-break:break-word}
+.mid{font-size:22px;font-weight:600}
+.muted{color:var(--muted)}
+.hint{font-size:13px;color:var(--muted)}
+.speak{border:1px solid var(--line);background:var(--soft);border-radius:999px;height:44px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px}
+.speak svg{width:18px;height:18px}
+.q{font-size:20px;font-weight:600;line-height:1.35;margin:4px 0 14px;word-break:break-word}
+.q .blank{display:inline-block;min-width:56px;border-bottom:2px solid var(--accent);margin:0 2px}
+input.ans,textarea.ans{font-family:inherit;width:100%;font-size:20px;padding:14px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);outline:none}
+input.ans:focus,textarea.ans:focus{border-color:var(--blue)}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:14px 16px;font-size:18px;font-weight:600;min-height:54px}
+.opt.right{border-color:var(--good);background:var(--good-bg)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.fb{border-radius:14px;padding:12px 14px;margin:12px 0;font-size:15px}
+.fb.good{background:var(--good-bg);color:var(--ink);border:1px solid var(--good)}
+.fb.bad{background:var(--bad-bg);color:var(--ink);border:1px solid var(--bad)}
+.fb b.ru{font-size:18px}
+.linkbtn{background:none;border:none;color:var(--blue);font-weight:600;padding:8px 0;font-size:15px}
+.note{border-left:3px solid var(--accent);padding:2px 0 2px 12px;margin:12px 0}
+.note h3{margin:0 0 4px;font-size:16px}
+.note p{margin:0;font-size:15px}
+table.vt{width:100%;border-collapse:collapse;font-size:15px}
+table.vt td{padding:6px 4px;border-bottom:1px solid var(--line)}
+table.vt td:first-child{color:var(--muted);width:30%}
+details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin:8px 0;padding:0 14px}
+details summary{padding:14px 0;font-weight:700;list-style:none;cursor:pointer}
+details summary::-webkit-details-marker{display:none}
+details[open] summary{border-bottom:1px solid var(--line)}
+.chat{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.msg{max-width:88%;padding:10px 14px;border-radius:18px;font-size:16px;white-space:pre-wrap;word-break:break-word}
+.msg.me{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:6px}
+.msg.ai{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-bottom-left-radius:6px}
+.msg .tools{margin-top:6px}
+.composer{position:sticky;bottom:0;background:var(--bg);padding:8px 0 calc(8px + env(safe-area-inset-bottom));display:flex;gap:8px;align-items:flex-end}
+.composer textarea{flex:1;min-height:50px;max-height:140px;resize:none;font-size:17px}
+.meter{font-size:12px;color:var(--muted);text-align:right}
+.banner{background:var(--soft);border-radius:14px;padding:12px 14px;font-size:14px;margin:0 0 12px;display:flex;gap:10px;align-items:flex-start}
+.banner .x{margin-left:auto;background:none;border:none;font-size:18px;line-height:1;padding:0 4px;color:var(--muted)}
+label.f{display:block;font-weight:600;margin:14px 0 6px}
+.field{font-family:inherit;width:100%;font-size:16px;padding:12px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.toggle{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);gap:12px}
+.toggle:last-child{border-bottom:none}
+.switch{appearance:none;width:52px;height:32px;border-radius:99px;background:var(--line);position:relative;flex:none;transition:.2s;cursor:pointer}
+.switch:checked{background:var(--good)}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.switch:checked::after{left:23px}
+.score{font-size:56px;font-weight:800;text-align:center;letter-spacing:-.03em;margin:10px 0 0}
+.review{border-top:1px solid var(--line);padding:12px 0}
+.review:first-child{border-top:none}
+.mic{width:96px;height:96px;border-radius:50%;border:none;background:var(--accent);color:#fff;display:grid;place-items:center;margin:8px auto;box-shadow:0 6px 18px rgba(200,55,45,.35)}
+.mic.on{animation:pulse 1.2s infinite}
+.mic svg{width:40px;height:40px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(200,55,45,.5)}70%{box-shadow:0 0 0 22px rgba(200,55,45,0)}100%{box-shadow:0 0 0 0 rgba(200,55,45,0)}}
+.center{text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;z-index:50;max-width:90vw}
+.kbd{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:0 6px;font-size:13px;background:var(--soft)}
+.ru{font-weight:600}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><p class="muted" style="padding-top:40vh;text-align:center">Загрузка…</p></div>
+<script>
+'use strict';
+/* =========================================================
+   Говори — Russian practice PWA for RUSS 1110
+   Everything runs on the phone. AI tutor is optional and
+   only calls the Anthropic API with the key saved on-device.
+   ========================================================= */
+const APP_VERSION = '1.0.0';
+const MODEL = 'claude-haiku-5-5';
+const PRICE = { in: 0.10, out: 0.50, cacheRead: 0.01, cacheWrite: 0.125 }; // USD per million tokens
+const LS = 'govori.v1', LSKEY = 'govori.key';
+const DAY = 86400000;
+const BOX_DAYS = [0, 1, 2, 4, 8, 16];
+
+let C = null;            // course content
+let S = loadState();     // saved state
+const app = document.getElementById('app');
+
+/* ---------- tiny helpers ---------- */
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rnd = n => Math.floor(Math.random() * n);
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rnd(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const pick = a => a[rnd(a.length)];
+const noStress = s => String(s).normalize('NFD').replace(/́/g, '').normalize('NFC');
+const DIGITS = {'0':'ноль','1':'один','2':'два','3':'три','4':'четыре','5':'пять','6':'шесть','7':'семь','8':'восемь','9':'девять','10':'десять','11':'одиннадцать','12':'двенадцать'};
+function norm(s) {
+  let x = noStress(String(s).toLowerCase()).replace(/ё/g, 'е');
+  x = x.replace(/\b(1[0-2]|[0-9])\b/g, d => DIGITS[d] || d);
+  return x.replace(/[.,!?;:«»"“”()\-—–…]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+function lev(a, b) {
+  const m = a.length, n = b.length; if (!m) return n; if (!n) return m;
+  let prev = Array.from({length: n + 1}, (_, i) => i);
+  for (let i = 1; i <= m; i++) { const cur = [i];
+    for (let j = 1; j <= n; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur; }
+  return prev[n];
+}
+const similar = (a, b) => { a = norm(a); b = norm(b); const L = Math.max(a.length, b.length) || 1; return 1 - lev(a, b) / L; };
+const isRight = (given, answer) => String(answer).split('|').some(a => norm(a) === norm(given));
+const hasLatin = s => /[a-z]/i.test(s);
+function toast(msg, ms = 2200) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), ms); }
+const ICON = {
+  back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
+  gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
+  spk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>',
+  mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4"/></svg>',
+  send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>'
+};
+
+/* ---------- state ---------- */
+function defaults() {
+  return { units: null, srs: {}, miss: {}, log: {}, settings: { rate: 0.85, voice: '', typing: true, dailyCap: 0.25, kbTip: true, a2hsTip: true }, usage: { inTok: 0, outTok: 0, cost: 0, calls: 0, day: '', dayCost: 0 }, cache: {} };
+}
+function loadState() {
+  try { const s = JSON.parse(localStorage.getItem(LS)); if (s) { const d = defaults(); return { ...d, ...s, settings: { ...d.settings, ...(s.settings || {}) }, usage: { ...d.usage, ...(s.usage || {}) } }; } } catch (e) {}
+  return defaults();
+}
+function save() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) { toast('Could not save progress (storage full?)'); } }
+const getKey = () => { try { return localStorage.getItem(LSKEY) || ''; } catch (e) { return ''; } };
+const setKey = k => { try { k ? localStorage.setItem(LSKEY, k) : localStorage.removeItem(LSKEY); } catch (e) {} };
+const today = () => new Date().toISOString().slice(0, 10);
+function logActivity(mode, right) {
+  const d = today(); S.log[d] = S.log[d] || { n: 0, ok: 0 }; S.log[d].n++; if (right) S.log[d].ok++;
+  const keys = Object.keys(S.log).sort(); if (keys.length > 120) delete S.log[keys[0]];
+}
+function streak() {
+  let n = 0; const d = new Date();
+  for (;;) { const k = d.toISOString().slice(0, 10); if (S.log[k] && S.log[k].n) { n++; d.setDate(d.getDate() - 1); } else if (n === 0 && k === today()) { d.setDate(d.getDate() - 1); } else break; }
+  return n;
+}
+
+/* ---------- content helpers ---------- */
+const units = () => C.units;
+const selUnits = () => (S.units && S.units.length ? S.units : [C.currentUnit]);
+const unitById = id => C.units.find(u => u.id === id);
+function vocabPool(ids = selUnits()) {
+  const out = [];
+  ids.forEach(id => { const u = unitById(id); if (u) u.vocab.forEach(([ru, en]) => out.push({ id: id + ':' + ru, ru, en, unit: id })); });
+  return out;
+}
+const sayable = v => !v.ru.includes('/') && !v.ru.includes('…');
+
+/* ---------- speech: text-to-speech (built into iOS) ---------- */
+const TTS = {
+  voices: [], ok: 'speechSynthesis' in window,
+  load() { if (!this.ok) return; const set = () => { this.voices = speechSynthesis.getVoices().filter(v => /^ru/i.test(v.lang)); }; set(); speechSynthesis.onvoiceschanged = set; },
+  voice() { return this.voices.find(v => v.voiceURI === S.settings.voice) || this.voices.find(v => /ru-RU/i.test(v.lang)) || this.voices[0] || null; },
+  say(text, slow = false) {
+    if (!this.ok) { toast('This browser has no speech voice'); return Promise.resolve(); }
+    return new Promise(res => {
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(noStress(text).replace(/\//g, ','));
+      u.lang = 'ru-RU'; const v = this.voice(); if (v) u.voice = v;
+      u.rate = slow ? Math.max(0.5, S.settings.rate - 0.3) : S.settings.rate;
+      u.onend = u.onerror = () => res(); speechSynthesis.speak(u);
+    });
+  }
+};
+TTS.load();
+
+/* ---------- speech: recognition (iPhone dictation engine) ---------- */
+const SRClass = window.SpeechRecognition || window.webkitSpeechRecognition;
+function listen({ lang = 'ru-RU', onPartial } = {}) {
+  return new Promise((resolve, reject) => {
+    if (!SRClass) return reject(new Error('unsupported'));
+    const r = new SRClass(); r.lang = lang; r.interimResults = true; r.maxAlternatives = 3; r.continuous = false;
+    let finals = [], best = '';
+    r.onresult = e => {
+      let txt = '';
+      for (let i = 0; i < e.results.length; i++) { txt += e.results[i][0].transcript; if (e.results[i].isFinal) finals = Array.from(e.results[i]).map(a => a.transcript); }
+      best = txt; onPartial && onPartial(txt);
+    };
+    r.onerror = e => reject(new Error(e.error || 'error'));
+    r.onend = () => resolve({ text: best, alts: finals.length ? finals : [best] });
+    try { r.start(); } catch (e) { reject(e); }
+    listen.current = r;
+  });
+}
+
+/* ---------- AI tutor (Anthropic API, called straight from the phone) ---------- */
+function tutorSystem() {
+  const us = selUnits().map(id => unitById(id)).filter(Boolean);
+  const topics = us.map(u => `Unit ${u.id} (${u.en}): ${u.grammar.map(g => g.t).join('; ')}`).join('\n');
+  return `You are "Говори", a strict-but-encouraging Russian tutor for a first-semester US college student (RUSS 1110, textbook Golosa Book 1). The class has covered Units 0–${C.currentUnit}. Focus now:\n${topics}\n\nRules:\n- Keep every reply under 70 words. No long lists.\n- Use only grammar and vocabulary from Units 0–${C.currentUnit} unless the student asks for more.\n- Write Russian with stress marks (e.g. говорю́) and give a short English gloss in parentheses the first time a word appears.\n- When the student writes Russian: say if it is correct. If not, point to the exact mistake and give a hint, and let them try again before you give the answer.\n- Prefer making the student produce Russian. End each reply with one short question or task for them.\n- Use simple everyday examples. Mix Russian and English as needed.`;
+}
+function capOk() {
+  const d = today(); if (S.usage.day !== d) { S.usage.day = d; S.usage.dayCost = 0; }
+  return S.usage.dayCost < (S.settings.dailyCap || 0.25);
+}
+async function askClaude(messages, { maxTokens = 260, system = tutorSystem(), cacheKey = null } = {}) {
+  const key = getKey(); if (!key) throw new Error('nokey');
+  if (cacheKey && S.cache[cacheKey]) return S.cache[cacheKey];
+  if (!capOk()) throw new Error('cap');
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+    body: JSON.stringify({ model: MODEL, max_tokens: maxTokens, system: [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }], messages })
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) { const m = (data.error && data.error.message) || ('HTTP ' + res.status); const err = new Error(m); err.status = res.status; throw err; }
+  const u = data.usage || {};
+  const cost = ((u.input_tokens || 0) * PRICE.in + (u.output_tokens || 0) * PRICE.out + (u.cache_read_input_tokens || 0) * PRICE.cacheRead + (u.cache_creation_input_tokens || 0) * PRICE.cacheWrite) / 1e6;
+  S.usage.inTok += (u.input_tokens || 0) + (u.cache_read_input_tokens || 0) + (u.cache_creation_input_tokens || 0);
+  S.usage.outTok += u.output_tokens || 0; S.usage.cost += cost; S.usage.dayCost += cost; S.usage.calls++;
+  const text = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('').trim();
+  if (cacheKey && text) { S.cache[cacheKey] = text; const ks = Object.keys(S.cache); if (ks.length > 150) delete S.cache[ks[0]]; }
+  save();
+  return text;
+}
+function aiErrorText(e) {
+  if (e.message === 'nokey') return 'Add your Anthropic API key in Settings to use the tutor.';
+  if (e.message === 'cap') return `Today's AI spending cap ($${S.settings.dailyCap.toFixed(2)}) is reached. Change it in Settings if you want more.`;
+  if (e.status === 401) return 'The API key was rejected. Check it in Settings.';
+  if (e.status === 429) return 'Too many requests right now. Wait a minute and try again.';
+  if (e.status === 400 && /credit/i.test(e.message)) return 'Your Anthropic account is out of credits.';
+  if (e instanceof TypeError) return 'No internet connection (the AI needs to be online).';
+  return 'AI error: ' + e.message;
+}
+const money = n => n < 0.01 ? '<$0.01' : '$' + n.toFixed(2);
+
+/* ---------- drill generators ---------- */
+const NUM = ['ноль','оди́н','два','три','четы́ре','пять','шесть','семь','во́семь','де́вять','де́сять','оди́ннадцать','двена́дцать'];
+const hourWord = h => h === 1 ? 'час' : `${NUM[h]} ${h <= 4 ? 'часа́' : 'часо́в'}`;
+const DAYS = [['понеде́льник','в понеде́льник','Monday'],['вто́рник','во вто́рник','Tuesday'],['среда́','в сре́ду','Wednesday'],['четве́рг','в четве́рг','Thursday'],['пя́тница','в пя́тницу','Friday'],['суббо́та','в суббо́ту','Saturday'],['воскресе́нье','в воскресе́нье','Sunday']];
+const SUBJ = [['Я',0],['Ты',1],['Он',2],['Она́',2],['Ма́ша',2],['Мы',3],['Вы',4],['Они́',5],['Студе́нты',5]];
+function distinct3(answer, pool) {
+  const seen = new Set([norm(answer)]), out = [];
+  for (const p of shuffle(pool)) { const k = norm(p); if (!seen.has(k)) { seen.add(k); out.push(p); } if (out.length === 3) break; }
+  return out;
+}
+function genConj(v) {
+  const [subj, i] = pick(SUBJ);
+  return { q: `${subj} ___. (${v.inf} — ${v.en})`, a: v.pres[i], opts: distinct3(v.pres[i], v.pres), why: `${v.inf}: ${v.pres.join(', ')}`, gen: 'conj' };
+}
+function genPast(v) {
+  if (!v.past) return genConj(v);
+  const P = [['он', 0], ['Ива́н', 0], ['она́', 1], ['Ма́ша', 1], ['они́', 3], ['мы', 3], ['мои́ роди́тели', 3]];
+  const [subj, g] = pick(P);
+  return { q: `Ра́ньше ${subj} ___. (${v.inf}, past)`, a: v.past[g], opts: distinct3(v.past[g], v.past.concat(v.pres.slice(2, 3))), why: `Past of ${v.inf}: ${v.past.join(', ')} (-л he, -ла she, -ли they).`, gen: 'past' };
+}
+function genTime() {
+  const h = 1 + rnd(12), at = Math.random() < 0.5;
+  const a = hourWord(h);
+  const wrong = h === 1 ? ['оди́н часа́', 'оди́н часо́в', 'одна́ час'] : [`${NUM[h]} час`, `${NUM[h]} часа́`, `${NUM[h]} часо́в`].filter(x => norm(x) !== norm(a)).concat([`${NUM[h === 12 ? 11 : h + 1]} ${h + 1 <= 4 ? 'часа́' : 'часо́в'}`]);
+  if (at) return { q: `Ру́сский у меня́ ___. (at ${h}:00)`, a: 'в ' + a, opts: distinct3('в ' + a, wrong.map(w => 'в ' + w)), why: '1 → час, 2–4 → часа́, 5–12 → часо́в. “At” = в.', gen: 'time' };
+  return { q: `Ско́лько сейча́с вре́мени? — Сейча́с ___. (${h}:00)`, a, opts: distinct3(a, wrong), why: '1 → час, 2–4 → часа́, 5–12 → часо́в.', gen: 'time' };
+}
+function genDay() {
+  const i = rnd(7), [nom, on, en] = DAYS[i];
+  if (Math.random() < 0.35) return { q: `Како́й сего́дня день? — Сего́дня ___. (${en})`, a: nom, opts: distinct3(nom, [on, on.replace(/^во? /, ''), DAYS[(i + 1) % 7][0], DAYS[(i + 3) % 7][0]]), why: '“Today is…” uses the plain (nominative) form.', gen: 'day' };
+  const wrong = [nom, 'в ' + nom, i === 1 ? 'в вто́рник' : (i === 2 || i === 4 || i === 5) ? 'в ' + nom.replace(/а́?$/, 'е') : 'во ' + nom, DAYS[(i + 2) % 7][1]];
+  return { q: `___ у меня́ ру́сский. (on ${en})`, a: on, opts: distinct3(on, wrong), why: '“On [day]” = в + accusative: в сре́ду, в пя́тницу, в суббо́ту; во вто́рник.', gen: 'day' };
+}
+function drillPool(ids = selUnits(), n = 15) {
+  const stat = [];
+  ids.forEach(id => (unitById(id)?.drills || []).forEach((d, k) => stat.push({ ...d, id: `${id}:${k}`, unit: id })));
+  const maxU = Math.max(...ids);
+  const verbs = C.verbs.filter(v => ids.length === 1 ? v.unit === ids[0] : v.unit <= maxU);
+  const gens = [];
+  const nGen = Math.round(n * (stat.length ? 0.35 : 1));
+  for (let i = 0; i < nGen; i++) {
+    const r = Math.random();
+    if (ids.includes(5) && r < 0.3) gens.push(genTime());
+    else if (ids.includes(5) && r < 0.5) gens.push(genDay());
+    else if (verbs.length) gens.push(Math.random() < 0.7 ? genConj(pick(verbs)) : genPast(pick(verbs)));
+  }
+  // weight previously-missed items to the front ("hammer it in")
+  const scored = shuffle(stat).map(d => ({ d, w: (S.miss[d.id] || 0) * 2 + Math.random() * 1.5 })).sort((a, b) => b.w - a.w).map(x => x.d);
+  const nStat = Math.max(0, n - gens.length);
+  return shuffle(scored.slice(0, nStat).concat(gens)).slice(0, n);
+}
+
+/* ---------- routing ---------- */
+let cleanup = null;
+function go(view, arg) {
+  if (cleanup) { try { cleanup(); } catch (e) {} cleanup = null; }
+  try { speechSynthesis.cancel(); } catch (e) {}
+  try { listen.current && listen.current.abort(); } catch (e) {}
+  window.scrollTo(0, 0);
+  (VIEWS[view] || VIEWS.home)(arg);
+}
+function topbar(title, { backTo = 'home', right = '' } = {}) {
+  return `<header class="top">${backTo ? `<button class="iconbtn back" data-go="${backTo}" aria-label="Back">${ICON.back}</button>` : ''}<div class="brand">${title}</div><div class="spacer"></div>${right}</header>`;
+}
+app.addEventListener('click', e => {
+  const g = e.target.closest('[data-go]'); if (g) { go(g.dataset.go, g.dataset.arg); return; }
+  const s = e.target.closest('[data-say]'); if (s) { TTS.say(s.dataset.say, s.dataset.slow === '1'); }
+});
+
+/* ---------- views ---------- */
+const VIEWS = {};
+
+VIEWS.home = () => {
+  const due = vocabPool().filter(v => S.srs[v.id] && S.srs[v.id].due <= Date.now()).length;
+  const newC = vocabPool().filter(v => !S.srs[v.id]).length;
+  const d = S.log[today()] || { n: 0, ok: 0 };
+  const standalone = window.navigator.standalone || matchMedia('(display-mode: standalone)').matches;
+  app.innerHTML = `
+  ${topbar('Говори<span>!</span>', { backTo: '', right: `<button class="iconbtn" data-go="settings" aria-label="Settings">${ICON.gear}</button>` })}
+  ${!standalone && S.settings.a2hsTip ? `<div class="banner"><div>📲 <b>Install it:</b> in Safari tap <span class="kbd">Share</span> → <b>Add to Home Screen</b>. Then open it from the icon.</div><button class="x" data-tip="a2hsTip" aria-label="Dismiss">×</button></div>` : ''}
+  <p class="sub">${esc(C.course)} · class is on Unit ${C.currentUnit}</p>
+  <div class="chips" id="units">
+    ${units().map(u => `<button class="chip ${selUnits().includes(u.id) ? 'on' : ''}" data-u="${u.id}">${u.id === 0 ? 'Алфави́т' : 'Уро́к ' + u.id}</button>`).join('')}
+    <button class="chip" data-u="all">All (final)</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>${due}</b><span>cards due</span></div>
+    <div class="stat"><b>${d.n}</b><span>answered today</span></div>
+    <div class="stat"><b>${streak()}</b><span>day streak</span></div>
+  </div>
+  <div class="grid">
+    <button class="mode" data-go="flash"><span class="ru">Ка́рточки</span><b>Flashcards</b><small>${due} due · ${newC} new</small></button>
+    <button class="mode" data-go="drill"><span class="ru">Грамма́тика</span><b>Grammar drills</b><small>Fill-in-the-blank, test style</small></button>
+    <button class="mode" data-go="listen"><span class="ru">Слу́шать</span><b>Listening</b><small>Hear it, pick the meaning</small></button>
+    <button class="mode" data-go="dictation"><span class="ru">Дикта́нт</span><b>Dictation</b><small>Hear it, write it</small></button>
+    <button class="mode" data-go="speak"><span class="ru">Говори́ть</span><b>Speaking</b><small>Say it, the phone checks</small></button>
+    <button class="mode" data-go="test"><span class="ru">Тест</span><b>Friday test</b><small>20 questions, graded at the end</small></button>
+    <button class="mode" data-go="notes"><span class="ru">Шпарга́лка</span><b>Grammar notes</b><small>Rules + verb tables</small></button>
+    <button class="mode" data-go="tutor"><span class="ru">Учи́тель</span><b>AI tutor</b><small>${getKey() ? 'Chat in Russian' : 'Needs API key'}</small></button>
+  </div>
+  <p class="hint center" style="margin-top:18px">Content updated ${esc(C.version)} · app v${APP_VERSION}</p>`;
+  app.querySelector('#units').addEventListener('click', e => {
+    const b = e.target.closest('[data-u]'); if (!b) return;
+    if (b.dataset.u === 'all') S.units = units().map(u => u.id);
+    else { const id = +b.dataset.u; let cur = selUnits().slice(); cur = cur.includes(id) ? cur.filter(x => x !== id) : cur.concat(id); S.units = cur.length ? cur.sort() : [id]; }
+    save(); VIEWS.home();
+  });
+  app.querySelectorAll('[data-tip]').forEach(b => b.onclick = () => { S.settings[b.dataset.tip] = false; save(); VIEWS.home(); });
+};
+
+/* ----- Flashcards with spaced repetition ----- */
+VIEWS.flash = () => {
+  const pool = vocabPool();
+  const now = Date.now();
+  const due = shuffle(pool.filter(v => S.srs[v.id] && S.srs[v.id].due <= now));
+  const fresh = shuffle(pool.filter(v => !S.srs[v.id]));
+  let queue = due.concat(fresh.slice(0, Math.max(8, 20 - due.length))).slice(0, 20);
+  if (!queue.length) queue = shuffle(pool).slice(0, 15); // everything learned: free review
+  const total = queue.length; let done = 0, dir = S.settings.flashDir || 'ru';
+  let flipped = false, card = null;
+  function next() {
+    card = queue.shift(); flipped = false;
+    if (!card) return finish();
+    const showRu = dir === 'ru' || (dir === 'mix' && Math.random() < 0.5);
+    card._front = showRu ? 'ru' : 'en';
+    draw();
+    if (showRu) TTS.say(card.ru);
+  }
+  function draw() {
+    const front = card._front === 'ru'
+      ? `<div class="big" lang="ru">${esc(card.ru)}</div>`
+      : `<div class="mid">${esc(card.en)}</div>`;
+    const back = card._front === 'ru'
+      ? `<div class="mid">${esc(card.en)}</div>`
+      : `<div class="big" lang="ru">${esc(card.ru)}</div>`;
+    app.innerHTML = `${topbar('Ка́рточки')}
+      <div class="chips" id="dir">${[['ru','RU → EN'],['en','EN → RU'],['mix','Mixed']].map(([k,l]) => `<button class="chip ${dir===k?'on':''}" data-d="${k}">${l}</button>`).join('')}</div>
+      <div class="progress"><i style="width:${(done / total) * 100}%"></i></div>
+      <div class="card flash" id="fc">
+        ${front}
+        ${flipped ? `<hr style="width:60%;border:none;border-top:1px solid var(--line)">${back}` : '<div class="hint">Tap the card to flip</div>'}
+        <div class="row" style="flex:none;gap:8px"><button class="speak" data-say="${esc(card.ru)}">${ICON.spk} Hear</button><button class="speak" data-say="${esc(card.ru)}" data-slow="1">Slow</button></div>
+      </div>
+      <div style="height:12px"></div>
+      ${flipped ? `<div class="row"><button class="btn bad" id="again">Didn't know</button><button class="btn good" id="got">Knew it</button></div>`
+                : `<button class="btn block ghost" id="flip">Show answer</button>`}
+      <p class="hint center">${done} / ${total} · box ${(S.srs[card.id]?.box) || 0} of 5</p>`;
+    app.querySelector('#fc').onclick = e => { if (!e.target.closest('[data-say]') && !flipped) { flipped = true; draw(); if (card._front === 'en') TTS.say(card.ru); } };
+    const f = app.querySelector('#flip'); if (f) f.onclick = () => { flipped = true; draw(); if (card._front === 'en') TTS.say(card.ru); };
+    const a = app.querySelector('#again'); if (a) a.onclick = () => grade(false);
+    const g = app.querySelector('#got'); if (g) g.onclick = () => grade(true);
+    app.querySelector('#dir').onclick = e => { const b = e.target.closest('[data-d]'); if (!b) return; dir = S.settings.flashDir = b.dataset.d; save(); queue.unshift(card); next(); };
+  }
+  function grade(ok) {
+    const r = S.srs[card.id] || { box: 0, due: 0 };
+    if (ok) { r.box = Math.min(5, r.box + 1); r.due = Date.now() + BOX_DAYS[r.box] * DAY; done++; }
+    else { r.box = 1; r.due = Date.now(); queue.splice(Math.min(3, queue.length), 0, card); }
+    S.srs[card.id] = r; logActivity('flash', ok); save(); next();
+  }
+  function finish() {
+    app.innerHTML = `${topbar('Ка́рточки')}<div class="card center"><div class="score">✓</div><h2>Done for now</h2><p class="muted">Cards you missed came back until you got them. They'll show up again on the right day.</p><button class="btn block" data-go="flash">Another round</button><div style="height:8px"></div><button class="btn block ghost" data-go="home">Home</button></div>`;
+  }
+  next();
+};
+
+/* ----- Shared question engine (drills, test) ----- */
+function questionHTML(item, { typing, idx, total, title, showOpts }) {
+  const q = esc(item.q).replace('___', '<span class="blank">&nbsp;</span>');
+  return `${topbar(title)}
+    <div class="progress"><i style="width:${(idx / total) * 100}%"></i></div>
+    ${typing && S.settings.kbTip ? `<div class="banner"><div>⌨️ Add the Russian keyboard once: <b>Settings → General → Keyboard → Keyboards → Add New Keyboard → Russian</b>. Tap 🌐 to switch.</div><button class="x" id="kbx" aria-label="Dismiss">×</button></div>` : ''}
+    <div class="card">
+      <div class="hint">${idx + 1} / ${total}${item.unit != null ? ' · Уро́к ' + item.unit : ''}</div>
+      <div class="q" lang="ru">${q}</div>
+      ${typing && !showOpts
+        ? `<input class="ans" id="ans" lang="ru" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type in Russian…" enterkeyhint="done">
+           <div class="row" style="margin-top:10px"><button class="btn ghost" id="showopts">Show options</button><button class="btn" id="check">Check</button></div>`
+        : `<div class="opts" id="opts">${shuffle([item.a].concat(item.opts)).map(o => `<button class="opt" data-o="${esc(o)}" lang="ru">${esc(o)}</button>`).join('')}</div>`}
+      <div id="fb"></div>
+    </div>`;
+}
+function feedbackHTML(item, ok, given) {
+  return `<div class="fb ${ok ? 'good' : 'bad'}">${ok ? '✓ Right' : `✗ You wrote: <b>${esc(given || '—')}</b>`}<br>Answer: <b class="ru" lang="ru">${esc(item.a.split('|')[0])}</b>
+    <button class="linkbtn" data-say="${esc(item.a.split('|')[0])}" aria-label="Hear the answer">🔊</button><br><span>${esc(item.why || '')}</span>
+    ${!ok ? `<div><button class="linkbtn" id="explain">Explain this to me (AI)</button><div id="exp"></div></div>` : ''}</div>`;
+}
+async function explainMistake(item, given, box) {
+  box.innerHTML = '<p class="hint">Thinking…</p>';
+  const prompt = `Exercise: "${item.q}"\nCorrect answer: "${item.a}"\nStudent answered: "${given}"\nIn 2–3 short sentences, explain the rule behind the correct answer in simple English, and give one more example in Russian with stress marks.`;
+  try {
+    const t = await askClaude([{ role: 'user', content: prompt }], { maxTokens: 170, cacheKey: 'exp:' + norm(item.q) + '|' + norm(given) });
+    box.innerHTML = `<p style="white-space:pre-wrap;margin:6px 0 0">${esc(t)}</p>`;
+  } catch (e) { box.innerHTML = `<p class="hint">${esc(aiErrorText(e))}</p>`; }
+}
+
+/* ----- Grammar drills: instant feedback, misses come back ----- */
+VIEWS.drill = () => {
+  let items = drillPool(selUnits(), 15);
+  const total = items.length; let idx = 0, right = 0, answered = false, showOpts = false;
+  const typing = S.settings.typing;
+  function draw() {
+    const item = items[idx]; answered = false;
+    app.innerHTML = questionHTML(item, { typing, idx, total: items.length, title: 'Грамма́тика', showOpts });
+    bind(item);
+  }
+  function bind(item) {
+    const kbx = app.querySelector('#kbx'); if (kbx) kbx.onclick = () => { S.settings.kbTip = false; save(); kbx.parentElement.remove(); };
+    const inp = app.querySelector('#ans');
+    if (inp) { setTimeout(() => inp.focus(), 50); inp.onkeydown = e => { if (e.key === 'Enter') submit(inp.value); }; app.querySelector('#check').onclick = () => submit(inp.value);
+      app.querySelector('#showopts').onclick = () => { showOpts = true; draw(); showOpts = false; }; }
+    const opts = app.querySelector('#opts'); if (opts) opts.onclick = e => { const b = e.target.closest('[data-o]'); if (b) submit(b.dataset.o, b); };
+  }
+  function submit(given, btn) {
+    if (answered) return; const item = items[idx];
+    given = (given || '').trim(); if (!given) return;
+    if (hasLatin(given) && !hasLatin(item.a)) { toast('That looks like English letters — switch to the Russian keyboard 🌐'); return; }
+    answered = true; const ok = isRight(given, item.a);
+    if (ok) right++; logActivity('drill', ok);
+    if (item.id) { S.miss[item.id] = Math.max(0, (S.miss[item.id] || 0) + (ok ? -1 : 2)); }
+    if (!ok && items.filter(x => x === item).length < 2) items.splice(Math.min(idx + 4, items.length), 0, item); // hammer it in
+    save();
+    app.querySelectorAll('.opt').forEach(o => { if (isRight(o.dataset.o, item.a)) o.classList.add('right'); else if (o === btn) o.classList.add('wrong'); o.disabled = true; });
+    const inp = app.querySelector('#ans'); if (inp) inp.disabled = true;
+    const fb = app.querySelector('#fb');
+    fb.innerHTML = feedbackHTML(item, ok, given) + `<button class="btn block" id="next">${idx + 1 < items.length ? 'Next' : 'Finish'}</button>`;
+    const ex = fb.querySelector('#explain'); if (ex) ex.onclick = () => { ex.remove(); explainMistake(item, given, fb.querySelector('#exp')); };
+    fb.querySelector('#next').onclick = () => { idx++; idx < items.length ? draw() : finish(); };
+    ['#check', '#showopts'].forEach(s => { const b = app.querySelector(s); if (b) b.remove(); });
+    fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  function finish() {
+    app.innerHTML = `${topbar('Грамма́тика')}<div class="card center"><div class="score">${right}/${items.length}</div><p class="muted">Missed questions came back a few slots later. Ones you keep missing will show up first next time.</p>
+      <button class="btn block" data-go="drill">New set</button><div style="height:8px"></div><button class="btn block ghost" data-go="notes">Review the rules</button></div>`;
+  }
+  if (!items.length) { app.innerHTML = `${topbar('Грамма́тика')}<p>No drills for this selection.</p>`; return; }
+  draw();
+};
+
+/* ----- Friday test: no feedback until the end ----- */
+VIEWS.test = (arg) => {
+  if (!arg) {
+    app.innerHTML = `${topbar('Тест')}
+      <h1>Practice test</h1><p class="sub">20 questions, like a Friday test: no answers shown until you finish.</p>
+      <button class="mode wide" data-go="test" data-arg="week"><div><span class="ru">Э́та неде́ля</span><br><b>This week (Уро́к ${C.currentUnit})</b><br><small>Current unit only</small></div></button>
+      <div style="height:10px"></div>
+      <button class="mode wide" data-go="test" data-arg="final"><div><span class="ru">Экза́мен</span><br><b>Final review (all units)</b><br><small>Mixed questions from Units 0–${C.currentUnit}</small></div></button>
+      <div style="height:10px"></div>
+      <button class="mode wide" data-go="test" data-arg="sel"><div><span class="ru">Мой вы́бор</span><br><b>My selected units</b><br><small>${selUnits().map(u => 'Уро́к ' + u).join(', ')}</small></div></button>
+      <div class="toggle card" style="margin-top:14px;padding:4px 16px"><span>Type answers (like the real test)</span><input type="checkbox" class="switch" id="typ" ${S.settings.typing ? 'checked' : ''}></div>`;
+    app.querySelector('#typ').onchange = e => { S.settings.typing = e.target.checked; save(); };
+    return;
+  }
+  const ids = arg === 'week' ? [C.currentUnit] : arg === 'final' ? units().map(u => u.id).filter(i => i > 0) : selUnits();
+  const items = drillPool(ids, 20); const answers = []; let idx = 0;
+  const typing = S.settings.typing;
+  function draw(showOpts = false) {
+    const item = items[idx];
+    app.innerHTML = questionHTML(item, { typing, idx, total: items.length, title: 'Тест', showOpts });
+    const kbx = app.querySelector('#kbx'); if (kbx) kbx.onclick = () => { S.settings.kbTip = false; save(); kbx.parentElement.remove(); };
+    const inp = app.querySelector('#ans');
+    if (inp) { setTimeout(() => inp.focus(), 50); const go2 = () => record(inp.value); inp.onkeydown = e => { if (e.key === 'Enter') go2(); }; app.querySelector('#check').textContent = 'Next'; app.querySelector('#check').onclick = go2;
+      app.querySelector('#showopts').onclick = () => { item._hinted = true; draw(true); }; }
+    const opts = app.querySelector('#opts'); if (opts) opts.onclick = e => { const b = e.target.closest('[data-o]'); if (b) record(b.dataset.o); };
+  }
+  function record(given) {
+    given = (given || '').trim(); if (!given) return;
+    if (hasLatin(given) && !hasLatin(items[idx].a)) { toast('Switch to the Russian keyboard 🌐'); return; }
+    answers[idx] = given; idx++; idx < items.length ? draw() : finish();
+  }
+  function finish() {
+    let right = 0; const rows = items.map((it, i) => { const ok = isRight(answers[i], it.a); if (ok) right++; logActivity('test', ok); if (it.id) S.miss[it.id] = Math.max(0, (S.miss[it.id] || 0) + (ok ? -1 : 2)); return { it, ok, given: answers[i] }; });
+    save();
+    const pct = Math.round(right / items.length * 100);
+    const misses = rows.filter(r => !r.ok);
+    app.innerHTML = `${topbar('Тест')}<div class="card"><div class="score">${pct}%</div><p class="center muted">${right} of ${items.length} right</p>
+      ${misses.length ? `<button class="btn block" id="retry">Retry the ${misses.length} I missed</button>` : '<p class="center">Perfect. Отли́чно!</p>'}</div>
+      <h2>Review</h2><div class="card">${rows.map(r => `<div class="review"><div lang="ru">${r.ok ? '✓' : '✗'} ${esc(r.it.q)}</div>
+      <div>${r.ok ? '' : `You: <b>${esc(r.given)}</b> · `}Answer: <b class="ru" lang="ru">${esc(r.it.a.split('|')[0])}</b>${r.it._hinted ? ' <span class="hint">(used options)</span>' : ''}</div>
+      ${r.ok ? '' : `<div class="hint">${esc(r.it.why || '')}</div>`}</div>`).join('')}</div>
+      <div style="height:12px"></div><button class="btn block ghost" data-go="test">New test</button>`;
+    const rt = app.querySelector('#retry'); if (rt) rt.onclick = () => { items.splice(0, items.length, ...shuffle(misses.map(m => ({ ...m.it, _hinted: false })))); answers.length = 0; idx = 0; draw(); };
+  }
+  if (!items.length) { app.innerHTML = `${topbar('Тест')}<p>No questions for this selection.</p>`; return; }
+  draw();
+};
+
+/* ----- Listening: hear Russian, choose the meaning ----- */
+VIEWS.listen = () => {
+  const pool = vocabPool().filter(sayable);
+  const items = shuffle(pool).slice(0, 12); let idx = 0, right = 0;
+  if (items.length < 4) { app.innerHTML = `${topbar('Слу́шать')}<p>Pick more units on the home screen.</p>`; return; }
+  function draw() {
+    const it = items[idx];
+    const wrong = shuffle(pool.filter(p => p.en !== it.en)).slice(0, 3);
+    const opts = shuffle([it].concat(wrong));
+    app.innerHTML = `${topbar('Слу́шать')}<div class="progress"><i style="width:${idx / items.length * 100}%"></i></div>
+      <div class="card center"><p class="hint">${idx + 1} / ${items.length} · listen, then pick the meaning</p>
+      <div class="row" style="justify-content:center;margin:10px 0 16px"><button class="btn" id="play">${ICON.spk} Play</button><button class="btn ghost" id="slow">Slow</button></div>
+      <div class="opts" id="opts">${opts.map(o => `<button class="opt" data-id="${esc(o.id)}">${esc(o.en)}</button>`).join('')}</div><div id="fb"></div></div>`;
+    const play = () => TTS.say(it.ru); play();
+    app.querySelector('#play').onclick = play; app.querySelector('#slow').onclick = () => TTS.say(it.ru, true);
+    app.querySelector('#opts').onclick = e => {
+      const b = e.target.closest('[data-id]'); if (!b || b.disabled) return;
+      const ok = b.dataset.id === it.id; if (ok) right++; logActivity('listen', ok); save();
+      app.querySelectorAll('.opt').forEach(o => { o.disabled = true; if (o.dataset.id === it.id) o.classList.add('right'); else if (o === b) o.classList.add('wrong'); });
+      if (!ok) items.splice(Math.min(idx + 4, items.length), 0, it);
+      app.querySelector('#fb').innerHTML = `<div class="fb ${ok ? 'good' : 'bad'}">It was: <b class="ru" lang="ru">${esc(it.ru)}</b> — ${esc(it.en)}</div><button class="btn block" id="next">Next</button>`;
+      app.querySelector('#next').onclick = () => { idx++; idx < items.length ? draw() : done(); };
+    };
+  }
+  function done() { app.innerHTML = `${topbar('Слу́шать')}<div class="card center"><div class="score">${right}/${items.length}</div><p class="muted">Tip: play it, say it back out loud, then answer. Shadowing trains your ear faster.</p><button class="btn block" data-go="listen">Again</button></div>`; }
+  draw();
+};
+
+/* ----- Dictation: hear Russian, write it ----- */
+VIEWS.dictation = () => {
+  const ids = selUnits();
+  const fromDict = C.dictations.filter(d => ids.includes(d.unit)).flatMap(d => d.items.map(ru => ({ ru, en: d.title })));
+  const fromVocab = vocabPool().filter(v => sayable(v) && v.ru.length < 26).map(v => ({ ru: v.ru, en: v.en }));
+  const items = shuffle(fromDict).slice(0, 4).concat(shuffle(fromVocab)).slice(0, 10);
+  let idx = 0, right = 0;
+  function draw() {
+    const it = items[idx];
+    app.innerHTML = `${topbar('Дикта́нт')}<div class="progress"><i style="width:${idx / items.length * 100}%"></i></div>
+      ${S.settings.kbTip ? `<div class="banner"><div>⌨️ Needs the Russian keyboard: <b>Settings → General → Keyboard → Keyboards → Add New Keyboard → Russian</b>.</div><button class="x" id="kbx">×</button></div>` : ''}
+      <div class="card"><p class="hint">${idx + 1} / ${items.length} · write what you hear (stress marks not needed)</p>
+      <div class="row" style="margin:6px 0 14px"><button class="btn" id="play">${ICON.spk} Play</button><button class="btn ghost" id="slow">Slow</button></div>
+      <input class="ans" id="ans" lang="ru" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Пиши́те…" enterkeyhint="done">
+      <button class="btn block" id="check" style="margin-top:10px">Check</button><div id="fb"></div></div>`;
+    const kbx = app.querySelector('#kbx'); if (kbx) kbx.onclick = () => { S.settings.kbTip = false; save(); kbx.parentElement.remove(); };
+    const play = () => TTS.say(it.ru); play();
+    app.querySelector('#play').onclick = play; app.querySelector('#slow').onclick = () => TTS.say(it.ru, true);
+    const inp = app.querySelector('#ans'); const sub = () => check(inp.value);
+    inp.onkeydown = e => { if (e.key === 'Enter') sub(); }; app.querySelector('#check').onclick = sub;
+  }
+  function check(given) {
+    const it = items[idx]; given = (given || '').trim(); if (!given) return;
+    if (hasLatin(given)) { toast('Switch to the Russian keyboard 🌐'); return; }
+    const ok = norm(given) === norm(it.ru); const close = !ok && similar(given, it.ru) >= 0.8;
+    if (ok) right++; logActivity('dictation', ok); save();
+    app.querySelector('#check').remove(); app.querySelector('#ans').disabled = true;
+    app.querySelector('#fb').innerHTML = `<div class="fb ${ok ? 'good' : 'bad'}">${ok ? '✓ Right' : close ? 'Almost, check the spelling' : '✗ Not quite'}<br><b class="ru" lang="ru">${esc(it.ru)}</b> <span class="muted">${esc(it.en)}</span></div><button class="btn block" id="next">Next</button>`;
+    app.querySelector('#next').onclick = () => { idx++; idx < items.length ? draw() : done(); };
+  }
+  function done() { app.innerHTML = `${topbar('Дикта́нт')}<div class="card center"><div class="score">${right}/${items.length}</div><button class="btn block" data-go="dictation">Again</button></div>`; }
+  draw();
+};
+
+/* ----- Speaking: say it, phone transcribes, we compare ----- */
+VIEWS.speak = () => {
+  const pool = vocabPool().filter(sayable);
+  const phrases = pool.filter(v => v.ru.includes(' '));
+  const items = shuffle(phrases).slice(0, 6).concat(shuffle(pool.filter(v => !v.ru.includes(' ')))).slice(0, 10);
+  let idx = 0, right = 0, peek = false;
+  const can = !!SRClass;
+  function draw(result) {
+    const it = items[idx];
+    app.innerHTML = `${topbar('Говори́ть')}<div class="progress"><i style="width:${idx / items.length * 100}%"></i></div>
+      <div class="card center"><p class="hint">${idx + 1} / ${items.length} · say this in Russian</p>
+      <div class="mid" style="margin:8px 0">${esc(it.en)}</div>
+      ${peek || result ? `<div class="big" lang="ru">${esc(it.ru)}</div>` : `<button class="linkbtn" id="peek">Show the Russian</button>`}
+      ${can ? `<button class="mic" id="mic" aria-label="Hold to speak">${ICON.mic}</button><p class="hint" id="heard">${result ? '' : 'Tap the mic and speak'}</p>`
+            : `<p class="hint">This browser can't listen. Say it out loud, then tap “Hear it” and grade yourself.</p>`}
+      <div id="fb"></div>
+      <div class="row" style="margin-top:8px"><button class="speak" data-say="${esc(it.ru)}">${ICON.spk} Hear it</button><button class="speak" data-say="${esc(it.ru)}" data-slow="1">Slow</button></div>
+      </div>
+      ${!can || result ? `<div style="height:12px"></div><div class="row">${!can ? `<button class="btn bad" id="no">Didn't get it</button><button class="btn good" id="yes">Got it</button>` : `<button class="btn ghost" id="retry">Try again</button><button class="btn" id="next">Next</button>`}</div>` : ''}`;
+    const pk = app.querySelector('#peek'); if (pk) pk.onclick = () => { peek = true; draw(); };
+    const mic = app.querySelector('#mic');
+    if (mic) mic.onclick = async () => {
+      if (mic.classList.contains('on')) { try { listen.current.stop(); } catch (e) {} return; }
+      mic.classList.add('on'); const heard = app.querySelector('#heard'); heard.textContent = 'Listening…';
+      try {
+        const r = await listen({ onPartial: t => heard.textContent = t });
+        mic.classList.remove('on');
+        const best = (r.alts || [r.text]).map(a => ({ a, s: similar(a, it.ru) })).sort((x, y) => y.s - x.s)[0] || { a: '', s: 0 };
+        const ok = best.s >= 0.8; if (ok) right++; logActivity('speak', ok); save();
+        draw(true);
+        app.querySelector('#fb').innerHTML = `<div class="fb ${ok ? 'good' : 'bad'}">Heard: <b lang="ru">${esc(best.a || '(nothing)')}</b><br>${ok ? '✓ Sounds right' : best.s > 0.55 ? 'Close. Listen and try again' : '✗ Try again. Tap “Hear it” first'} · match ${Math.round(best.s * 100)}%</div>`;
+      } catch (e) {
+        mic.classList.remove('on');
+        heard.textContent = e.message === 'not-allowed' ? 'Microphone blocked. Allow it in Settings → Safari → Microphone.' : e.message === 'no-speech' ? "Didn't hear anything. Try again." : 'Speech recognition failed (' + e.message + ').';
+      }
+    };
+    const nx = app.querySelector('#next'); if (nx) nx.onclick = () => { idx++; peek = false; idx < items.length ? draw() : done(); };
+    const rt = app.querySelector('#retry'); if (rt) rt.onclick = () => draw();
+    const y = app.querySelector('#yes'); if (y) y.onclick = () => { right++; logActivity('speak', true); save(); idx++; peek = false; idx < items.length ? draw() : done(); };
+    const n = app.querySelector('#no'); if (n) n.onclick = () => { logActivity('speak', false); save(); items.splice(Math.min(idx + 4, items.length), 0, items[idx]); idx++; peek = false; draw(); };
+  }
+  function done() { app.innerHTML = `${topbar('Говори́ть')}<div class="card center"><div class="score">${right}/${items.length}</div><p class="muted">The phone's recognizer is picky about endings — that's good practice for the test.</p><button class="btn block" data-go="speak">Again</button></div>`; }
+  draw();
+};
+
+/* ----- Grammar notes + verb tables ----- */
+VIEWS.notes = () => {
+  const ids = selUnits();
+  const verbs = C.verbs.filter(v => ids.some(id => id >= v.unit));
+  const P = ['я', 'ты', 'он/она́', 'мы', 'вы', 'они́'];
+  app.innerHTML = `${topbar('Шпарга́лка')}<p class="sub">Showing ${ids.map(i => i === 0 ? 'Алфави́т' : 'Уро́к ' + i).join(', ')}. Change units on the home screen.</p>
+    ${ids.map(id => { const u = unitById(id); return `<h2>${esc(u.title)}</h2>${u.grammar.map(g => `<div class="note"><h3>${esc(g.t)}</h3><p>${g.b}</p></div>`).join('')}`; }).join('')}
+    <h2>Verb tables</h2>
+    ${verbs.map(v => `<details><summary lang="ru">${esc(v.inf)} <span class="muted" style="font-weight:400">— ${esc(v.en)}</span></summary>
+      <table class="vt">${v.pres.map((f, i) => `<tr><td>${P[i]}</td><td lang="ru"><b>${esc(f)}</b></td><td><button class="linkbtn" data-say="${esc(f)}">🔊</button></td></tr>`).join('')}
+      ${v.past ? `<tr><td>past</td><td colspan="2" lang="ru">${v.past.map(esc).join(', ')}</td></tr>` : ''}</table><div style="height:8px"></div></details>`).join('')}
+    <h2>Vocabulary</h2>
+    ${ids.map(id => { const u = unitById(id); return `<details><summary>${esc(u.title)} <span class="muted" style="font-weight:400">(${u.vocab.length})</span></summary><table class="vt">${u.vocab.map(([ru, en]) => `<tr><td lang="ru" style="color:var(--ink);width:50%"><b>${esc(ru)}</b></td><td>${esc(en)}</td><td><button class="linkbtn" data-say="${esc(ru)}">🔊</button></td></tr>`).join('')}</table><div style="height:8px"></div></details>`; }).join('')}`;
+};
+
+/* ----- AI tutor chat ----- */
+let chat = [];
+VIEWS.tutor = () => {
+  const key = getKey();
+  const starters = [
+    ['Quiz me', `Quiz me on Unit ${C.currentUnit}. One question at a time.`],
+    ['Talk about my day', 'Let\'s have a simple conversation in Russian about my daily routine. Ask me the first question.'],
+    ['Где vs куда́', 'Explain где vs куда́ with one simple example each, then give me one to try.'],
+    ['Check my sentence', 'I will write a Russian sentence. Check it.'],
+    ['Telling time', 'Practice telling time with me. Ask me what time it is with a time in numbers.']
+  ];
+  function draw() {
+    app.innerHTML = `${topbar('Учи́тель', { right: chat.length ? '<button class="iconbtn" id="clear" aria-label="New chat">New</button>' : '' })}
+      ${!key ? `<div class="card"><h2 style="margin-top:0">Add your API key</h2><p>The tutor runs on Claude Haiku 5.5 using your own Anthropic API key. Everything else in the app works without it.</p><button class="btn block" data-go="settings">Open Settings</button></div>` : ''}
+      <div class="meter">${esc(MODEL)} · spent ${money(S.usage.cost)} total · ${money(S.usage.day === today() ? S.usage.dayCost : 0)} today</div>
+      ${!chat.length ? `<p class="sub">Pick a starter or type anything (Russian or English).</p><div class="chips">${starters.map(([l, p], i) => `<button class="chip" data-s="${i}">${esc(l)}</button>`).join('')}</div>` : ''}
+      <div class="chat" id="chat">${chat.map((m, i) => `<div class="msg ${m.role === 'user' ? 'me' : 'ai'}" lang="ru">${esc(m.content)}${m.role === 'assistant' ? `<div class="tools"><button class="linkbtn" data-sayi="${i}">🔊 Read the Russian</button></div>` : ''}</div>`).join('')}</div>
+      <div class="composer">
+        ${SRClass ? `<button class="iconbtn" id="mic" aria-label="Speak (Russian)" title="Speak Russian">${ICON.mic}</button>` : ''}
+        <textarea class="ans" id="txt" rows="1" placeholder="Напиши́ по-ру́сски…" ${key ? '' : 'disabled'}></textarea>
+        <button class="iconbtn" id="send" aria-label="Send" ${key ? '' : 'disabled'}>${ICON.send}</button>
+      </div>`;
+    const c = app.querySelector('#clear'); if (c) c.onclick = () => { chat = []; draw(); };
+    app.querySelectorAll('[data-s]').forEach(b => b.onclick = () => send(starters[+b.dataset.s][1]));
+    app.querySelectorAll('[data-sayi]').forEach(b => b.onclick = () => { const t = chat[+b.dataset.sayi].content; const ru = (t.match(/[А-Яа-яЁё́][А-Яа-яЁё́\s,.!?—-]*/g) || []).join('. '); TTS.say(ru || t); });
+    const txt = app.querySelector('#txt'); const sendBtn = app.querySelector('#send');
+    if (txt) { txt.oninput = () => { txt.style.height = 'auto'; txt.style.height = Math.min(140, txt.scrollHeight) + 'px'; }; txt.onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(txt.value); } }; }
+    if (sendBtn) sendBtn.onclick = () => send(txt.value);
+    const mic = app.querySelector('#mic');
+    if (mic) mic.onclick = async () => {
+      if (mic.dataset.on) { try { listen.current.stop(); } catch (e) {} return; }
+      mic.dataset.on = '1'; mic.style.background = 'var(--accent)'; mic.style.color = '#fff';
+      try { const r = await listen({ onPartial: t => txt.value = t }); txt.value = r.text; }
+      catch (e) { toast(e.message === 'not-allowed' ? 'Microphone blocked in Settings' : 'Could not hear you'); }
+      delete mic.dataset.on; mic.style.background = ''; mic.style.color = '';
+    };
+    const last = app.querySelector('#chat .msg:last-child'); if (last) last.scrollIntoView({ block: 'end' });
+  }
+  async function send(text) {
+    text = (text || '').trim(); if (!text) return;
+    chat.push({ role: 'user', content: text }); chat.push({ role: 'assistant', content: '…' }); draw();
+    const history = chat.slice(0, -1).slice(-8); // only the last few turns are sent: keeps cost tiny
+    if (history[0] && history[0].role !== 'user') history.shift();
+    try { const t = await askClaude(history, { cacheKey: chat.length <= 2 ? 'chat1:' + norm(text) : null }); chat[chat.length - 1].content = t || '(no reply)'; }
+    catch (e) { chat[chat.length - 1].content = aiErrorText(e); }
+    draw();
+    const a = chat[chat.length - 1].content; const ru = (a.match(/[А-Яа-яЁё́][А-Яа-яЁё́\s,.!?—-]*/g) || []).join('. ');
+    if (ru && S.settings.autoRead) TTS.say(ru);
+  }
+  draw();
+};
+
+/* ----- Settings ----- */
+VIEWS.settings = () => {
+  const key = getKey();
+  const vOpts = TTS.voices.map(v => `<option value="${esc(v.voiceURI)}" ${v.voiceURI === S.settings.voice ? 'selected' : ''}>${esc(v.name)} (${esc(v.lang)})</option>`).join('');
+  app.innerHTML = `${topbar('Settings')}
+    <div class="card">
+      <h2 style="margin-top:0">AI tutor</h2>
+      <p class="hint">Get a key at <b>console.anthropic.com → API Keys → Create Key</b>. It starts with <span class="kbd">sk-ant-api</span>. It's saved only on this phone and only sent to Anthropic.</p>
+      <label class="f" for="key">Anthropic API key</label>
+      <input class="field" id="key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="sk-ant-api03-…" value="${esc(key)}">
+      <div class="row" style="margin-top:10px"><button class="btn ghost" id="test">Test key</button><button class="btn" id="savekey">Save</button></div>
+      <p class="hint" id="keymsg"></p>
+      <label class="f" for="cap">Daily spending cap (USD)</label>
+      <input class="field" id="cap" type="number" min="0.01" step="0.05" value="${S.settings.dailyCap}">
+      <p class="hint">Used so far: ${money(S.usage.cost)} over ${S.usage.calls} requests (${S.usage.inTok.toLocaleString()} in / ${S.usage.outTok.toLocaleString()} out tokens). Model: ${MODEL}.</p>
+      <div class="toggle"><span>Read tutor replies out loud</span><input type="checkbox" class="switch" id="autoread" ${S.settings.autoRead ? 'checked' : ''}></div>
+    </div>
+    <div style="height:12px"></div>
+    <div class="card">
+      <h2 style="margin-top:0">Voice</h2>
+      ${TTS.voices.length ? `<label class="f" for="voice">Russian voice</label><select class="field" id="voice"><option value="">Default</option>${vOpts}</select>` : `<p class="hint">No Russian voice found yet. On iPhone: Settings → Accessibility → Spoken Content → Voices → Russian → download “Milena” or “Yuri” (Enhanced sounds best).</p>`}
+      <label class="f" for="rate">Speed: <span id="ratev">${S.settings.rate.toFixed(2)}</span></label>
+      <input id="rate" type="range" min="0.5" max="1.2" step="0.05" value="${S.settings.rate}" style="width:100%">
+      <div class="row" style="margin-top:10px"><button class="btn ghost" data-say="Приве́т! Как дела́? Меня́ зову́т Говори.">${ICON.spk} Test voice</button><button class="btn ghost" id="testmic">${ICON.mic} Test mic</button></div>
+      <p class="hint" id="micmsg">${SRClass ? '' : 'Speech recognition is not available in this browser. Speaking mode will use self-grading.'}</p>
+    </div>
+    <div style="height:12px"></div>
+    <div class="card">
+      <h2 style="margin-top:0">Practice</h2>
+      <div class="toggle"><span>Type answers in drills (off = multiple choice)</span><input type="checkbox" class="switch" id="typing" ${S.settings.typing ? 'checked' : ''}></div>
+      <div class="toggle"><span>Show keyboard tip</span><input type="checkbox" class="switch" id="kbtip" ${S.settings.kbTip ? 'checked' : ''}></div>
+    </div>
+    <div style="height:12px"></div>
+    <div class="card">
+      <h2 style="margin-top:0">Progress backup</h2>
+      <p class="hint">Progress lives on this phone. If you clear Safari website data it's gone, so back it up now and then.</p>
+      <div class="row"><button class="btn ghost" id="export">Copy backup</button><button class="btn ghost" id="import">Restore</button></div>
+      <div style="height:8px"></div>
+      <button class="btn block ghost" id="update">Check for content updates</button>
+      <div style="height:8px"></div>
+      <button class="btn block bad" id="reset">Reset all progress</button>
+      <p class="hint center">App v${APP_VERSION} · content ${esc(C.version)}</p>
+    </div>`;
+  const msg = app.querySelector('#keymsg');
+  app.querySelector('#savekey').onclick = () => { const k = app.querySelector('#key').value.trim(); if (k && !/^sk-ant-api/.test(k)) { msg.textContent = 'That doesn\'t look like an API key (should start with sk-ant-api). Saved anyway.'; } else msg.textContent = k ? 'Saved on this phone.' : 'Key removed.'; setKey(k); };
+  app.querySelector('#test').onclick = async () => { setKey(app.querySelector('#key').value.trim()); msg.textContent = 'Testing…';
+    try { const t = await askClaude([{ role: 'user', content: 'Say "Привет!" and nothing else.' }], { maxTokens: 10, system: 'Reply with one word.' }); msg.textContent = '✓ Works: ' + t; } catch (e) { msg.textContent = aiErrorText(e); } };
+  app.querySelector('#cap').onchange = e => { const v = parseFloat(e.target.value); if (v > 0) { S.settings.dailyCap = v; save(); } };
+  app.querySelector('#autoread').onchange = e => { S.settings.autoRead = e.target.checked; save(); };
+  const vs = app.querySelector('#voice'); if (vs) vs.onchange = e => { S.settings.voice = e.target.value; save(); };
+  app.querySelector('#rate').oninput = e => { S.settings.rate = parseFloat(e.target.value); app.querySelector('#ratev').textContent = S.settings.rate.toFixed(2); save(); };
+  app.querySelector('#testmic').onclick = async () => { const m = app.querySelector('#micmsg'); if (!SRClass) return; m.textContent = 'Say “приве́т”…';
+    try { const r = await listen({ onPartial: t => m.textContent = 'Heard: ' + t }); m.textContent = 'Heard: ' + (r.text || '(nothing)') + (similar(r.text, 'привет') > 0.7 ? ' ✓' : ''); } catch (e) { m.textContent = 'Mic error: ' + e.message + (e.message === 'not-allowed' ? ' (allow the microphone for Safari)' : ''); } };
+  app.querySelector('#typing').onchange = e => { S.settings.typing = e.target.checked; save(); };
+  app.querySelector('#kbtip').onchange = e => { S.settings.kbTip = e.target.checked; save(); };
+  app.querySelector('#export').onclick = async () => { const data = JSON.stringify({ ...S, cache: {} }); try { await navigator.clipboard.writeText(data); toast('Backup copied. Paste it into Notes.'); } catch (e) { prompt('Copy this backup:', data); } };
+  app.querySelector('#import').onclick = () => { const t = prompt('Paste your backup:'); if (!t) return; try { const s = JSON.parse(t); if (!s.srs) throw 0; S = { ...defaults(), ...s, settings: { ...defaults().settings, ...s.settings } }; save(); toast('Restored'); go('home'); } catch (e) { toast('That backup could not be read'); } };
+  app.querySelector('#update').onclick = async () => { toast('Checking…'); try { const reg = await navigator.serviceWorker?.getRegistration(); await reg?.update(); } catch (e) {} await loadContent(true); toast('Content: ' + C.version); go('settings'); };
+  app.querySelector('#reset').onclick = () => { if (confirm('Erase all progress on this phone? (Your API key stays.)')) { S = defaults(); save(); go('home'); } };
+};
+
+/* ---------- boot ---------- */
+async function loadContent(fresh) {
+  const r = await fetch('content.json' + (fresh ? '?t=' + Date.now() : ''), { cache: 'no-cache' });
+  if (!r.ok) throw new Error('content ' + r.status);
+  C = await r.json();
+}
+(async () => {
+  try { await loadContent(); }
+  catch (e) { app.innerHTML = `<p style="padding:40px 0">Couldn't load the lessons. Connect to the internet once so the app can save them for offline use.</p>`; return; }
+  go('home');
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

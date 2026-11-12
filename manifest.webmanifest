@@ -1,0 +1,16 @@
+{
+  "name": "Говори — Russian practice",
+  "short_name": "Говори",
+  "description": "Practice for RUSS 1110: flashcards, listening, dictation, speaking, test-style drills and an AI tutor.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F7F4EF",
+  "theme_color": "#C8372D",
+  "lang": "ru",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
