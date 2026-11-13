@@ -253,7 +253,7 @@ label.f{display:block;font-weight:600;margin:14px 0 6px}
    Everything runs on the phone. AI tutor is optional and
    only calls the Anthropic API with the key saved on-device.
    ========================================================= */
-const APP_VERSION = '1.2.1';
+const APP_VERSION = '1.2.2';
 const MODEL = 'claude-haiku-5-5';
 const PRICE = { in: 0.10, out: 0.50, cacheRead: 0.01, cacheWrite: 0.125 }; // USD per million tokens
 const LS = 'govori.v1', LSKEY = 'govori.key';
@@ -364,20 +364,31 @@ TTS.load();
 
 /* ---------- speech: recognition (iPhone dictation engine) ---------- */
 const SRClass = window.SpeechRecognition || window.webkitSpeechRecognition;
-function listen({ lang = 'ru-RU', onPartial } = {}) {
+// iPhone Safari often keeps listening after you stop talking and never fires "end".
+// So we stop it ourselves: after a short silence, on a final result, or after a time limit,
+// and a watchdog resolves anyway if Safari never reports back.
+function listen({ lang = 'ru-RU', onPartial, silenceMs = 1600, maxMs = 15000 } = {}) {
   return new Promise((resolve, reject) => {
     if (!SRClass) return reject(new Error('unsupported'));
     const r = new SRClass(); r.lang = lang; r.interimResults = true; r.maxAlternatives = 3; r.continuous = false;
-    let finals = [], best = '';
-    r.onresult = e => {
-      let txt = '';
-      for (let i = 0; i < e.results.length; i++) { txt += e.results[i][0].transcript; if (e.results[i].isFinal) finals = Array.from(e.results[i]).map(a => a.transcript); }
-      best = txt; onPartial && onPartial(txt);
+    let finals = [], best = '', done = false, silenceT = null, maxT = null, dogT = null;
+    const finish = (err) => {
+      if (done) return; done = true; clearTimeout(silenceT); clearTimeout(maxT); clearTimeout(dogT);
+      if (err && !best) reject(err); else resolve({ text: best, alts: finals.length ? finals : [best] });
     };
-    r.onerror = e => reject(new Error(e.error || 'error'));
-    r.onend = () => resolve({ text: best, alts: finals.length ? finals : [best] });
-    try { r.start(); } catch (e) { reject(e); }
-    listen.current = r;
+    const stopNow = () => { try { r.stop(); } catch (e) {} clearTimeout(dogT); dogT = setTimeout(() => finish(), 1800); };
+    r.onresult = e => {
+      let txt = '', fin = false;
+      for (let i = 0; i < e.results.length; i++) { txt += e.results[i][0].transcript; if (e.results[i].isFinal) { fin = true; finals = Array.from(e.results[i]).map(a => a.transcript); } }
+      best = txt.trim(); onPartial && onPartial(best);
+      clearTimeout(silenceT);
+      if (fin) silenceT = setTimeout(stopNow, 350); else silenceT = setTimeout(stopNow, silenceMs);
+    };
+    r.onerror = e => finish(new Error(e.error || 'error'));
+    r.onend = () => finish();
+    try { r.start(); } catch (e) { done = true; return reject(e); }
+    maxT = setTimeout(stopNow, maxMs);
+    listen.current = { stop: stopNow, abort: () => { try { r.abort(); } catch (e) {} finish(new Error('aborted')); } };
   });
 }
 
@@ -977,6 +988,11 @@ VIEWS.call = (arg) => {
     $id('st').textContent = msg || { listening: 'Listening… speak now', thinking: 'А́ня is thinking…', speaking: 'А́ня is talking', tap: 'Tap the mic to talk', type: 'Type your reply below' }[s] || '';
     $id('talk').classList.toggle('on', s === 'listening');
   }
+  function showErr(msg) {
+    const box = $id('caps'); if (!box) return;
+    box.insertAdjacentHTML('beforeend', `<div class="fb bad" role="alert"><div class="head"><span class="dot" aria-hidden="true">!</span>Аня couldn't answer</div><p class="why">${esc(msg)}</p><button class="btn block ghost" data-go="settings" style="margin-top:8px">Open Settings</button></div>`);
+    box.scrollTop = box.scrollHeight;
+  }
   function renderCaps() {
     const box = $id('caps'); if (!box) return;
     box.innerHTML = lines.slice(-8).map((l, k) => {
@@ -1000,7 +1016,7 @@ VIEWS.call = (arg) => {
     hist = hist.slice(-12); while (hist.length && hist[0].role !== 'user') hist.shift();
     let r;
     try { r = parseCall(await askClaude(hist, { system: callSystem(sc), maxTokens: 230 })); }
-    catch (e) { hist.pop(); setState('tap', aiErrorText(e)); return; }
+    catch (e) { hist.pop(); showErr(aiErrorText(e)); setState('tap', 'Fix the problem above, then tap the mic to try again.'); return; }
     if (ended) return;
     const lastMe = lines.slice().reverse().find(l => l.who === 'me');
     if (r.fix && lastMe && norm(r.fix) === norm(lastMe.ru)) r.fix = ''; // it was already right
@@ -1021,7 +1037,7 @@ VIEWS.call = (arg) => {
       if (ended) return;
       const text = (r.text || '').trim();
       if (!text) { misses++; if (auto && misses < 2) return listenTurn(); setState('tap', "Didn't catch that. Tap the mic to talk."); return; }
-      misses = 0; lines.push({ who: 'me', ru: text }); renderCaps(); renderHints([]);
+      misses = 0; lines.push({ who: 'me', ru: text }); renderCaps(); renderHints([]); const st0 = $id('st'); if (st0) st0.textContent = 'Sending to А́ня…';
       const sent = lang === 'ru-RU' ? text : `(said in English) ${text}`;
       if (lang !== 'ru-RU') { lang = 'ru-RU'; $id('lang').textContent = 'RU'; }
       aiTurn(sent);
