@@ -1,7 +1,7 @@
 {
- "version": "2026-11-12c",
+ "version": "2026-11-19",
  "course": "RUSS 1110 · Golosa Book 1",
- "currentUnit": 5,
+ "currentUnit": 6,
  "units": [
   {
    "id": 0,
@@ -3435,6 +3435,1470 @@
      "en": "In summer we relax at the dacha."
     }
    ]
+  },
+  {
+   "id": 6,
+   "title": "Уро́к 6 · Дом, кварти́ра, общежи́тие",
+   "en": "Home, furniture & the genitive",
+   "vocab": [
+    [
+     "дом",
+     "house"
+    ],
+    [
+     "кварти́ра",
+     "apartment"
+    ],
+    [
+     "общежи́тие",
+     "dorm"
+    ],
+    [
+     "в общежи́тии",
+     "in a dorm"
+    ],
+    [
+     "ко́мната",
+     "room"
+    ],
+    [
+     "Каки́е ко́мнаты в ва́шем до́ме?",
+     "What rooms are in your house?"
+    ],
+    [
+     "гости́ная",
+     "living room"
+    ],
+    [
+     "столо́вая",
+     "dining room"
+    ],
+    [
+     "спа́льня",
+     "bedroom"
+    ],
+    [
+     "кабине́т",
+     "study, office"
+    ],
+    [
+     "ку́хня",
+     "kitchen"
+    ],
+    [
+     "на ку́хне",
+     "in the kitchen"
+    ],
+    [
+     "ва́нная",
+     "bathroom (bath/shower, no toilet)"
+    ],
+    [
+     "туале́т",
+     "toilet, restroom"
+    ],
+    [
+     "эта́ж",
+     "floor, story"
+    ],
+    [
+     "оди́н эта́ж, два этажа́",
+     "one story, two stories"
+    ],
+    [
+     "коммуна́льная кварти́ра",
+     "communal apartment (shared kitchen and bath)"
+    ],
+    [
+     "евроремо́нт",
+     "modern European-style renovation"
+    ],
+    [
+     "ме́бель",
+     "furniture (always singular)"
+    ],
+    [
+     "Кака́я у вас ме́бель до́ма?",
+     "What furniture do you have at home?"
+    ],
+    [
+     "дива́н",
+     "sofa, couch"
+    ],
+    [
+     "кре́сло",
+     "armchair"
+    ],
+    [
+     "журна́льный сто́лик",
+     "coffee table"
+    ],
+    [
+     "стол",
+     "table"
+    ],
+    [
+     "стул / сту́лья",
+     "chair / chairs"
+    ],
+    [
+     "пи́сьменный стол",
+     "desk"
+    ],
+    [
+     "ла́мпа",
+     "lamp"
+    ],
+    [
+     "торше́р",
+     "floor lamp"
+    ],
+    [
+     "карти́на",
+     "painting, picture"
+    ],
+    [
+     "фотогра́фия",
+     "photograph"
+    ],
+    [
+     "ико́на",
+     "icon (religious painting)"
+    ],
+    [
+     "ва́за",
+     "vase"
+    ],
+    [
+     "цветы́",
+     "flowers"
+    ],
+    [
+     "крова́ть",
+     "bed"
+    ],
+    [
+     "шкаф",
+     "wardrobe, cabinet"
+    ],
+    [
+     "зе́ркало",
+     "mirror"
+    ],
+    [
+     "ту́мбочка",
+     "nightstand"
+    ],
+    [
+     "комо́д",
+     "dresser, chest of drawers"
+    ],
+    [
+     "кни́жная по́лка",
+     "bookshelf"
+    ],
+    [
+     "холоди́льник",
+     "refrigerator"
+    ],
+    [
+     "плита́",
+     "stove"
+    ],
+    [
+     "ковёр / ковры́",
+     "rug, carpet / rugs"
+    ],
+    [
+     "окно́",
+     "window"
+    ],
+    [
+     "стена́",
+     "wall"
+    ],
+    [
+     "пол",
+     "floor (of a room)"
+    ],
+    [
+     "стои́т / стоя́т",
+     "is / are standing (upright things)"
+    ],
+    [
+     "виси́т / вися́т",
+     "is / are hanging"
+    ],
+    [
+     "лежи́т / лежа́т",
+     "is / are lying (flat things)"
+    ],
+    [
+     "на стене́",
+     "on the wall"
+    ],
+    [
+     "на полу́",
+     "on the floor"
+    ],
+    [
+     "на столе́",
+     "on the table"
+    ],
+    [
+     "сле́ва",
+     "on the left"
+    ],
+    [
+     "спра́ва",
+     "on the right"
+    ],
+    [
+     "ря́дом",
+     "nearby, next to it"
+    ],
+    [
+     "да́льше",
+     "farther on"
+    ],
+    [
+     "Како́го цве́та…?",
+     "What color is…?"
+    ],
+    [
+     "кра́сный",
+     "red"
+    ],
+    [
+     "жёлтый",
+     "yellow"
+    ],
+    [
+     "зелёный",
+     "green"
+    ],
+    [
+     "голубо́й",
+     "light blue"
+    ],
+    [
+     "си́ний",
+     "dark blue"
+    ],
+    [
+     "фиоле́товый",
+     "purple"
+    ],
+    [
+     "ро́зовый",
+     "pink"
+    ],
+    [
+     "чёрный",
+     "black"
+    ],
+    [
+     "бе́лый",
+     "white"
+    ],
+    [
+     "се́рый",
+     "gray"
+    ],
+    [
+     "кори́чневый",
+     "brown"
+    ],
+    [
+     "бе́жевый",
+     "beige"
+    ],
+    [
+     "ора́нжевый",
+     "orange"
+    ],
+    [
+     "хоте́ть",
+     "to want"
+    ],
+    [
+     "Я хочу́ жить в Москве́.",
+     "I want to live in Moscow."
+    ],
+    [
+     "В како́м го́роде вы хоти́те жить?",
+     "What city do you want to live in?"
+    ],
+    [
+     "У меня́ есть…",
+     "I have…"
+    ],
+    [
+     "У меня́ нет…",
+     "I don't have…"
+    ],
+    [
+     "у тебя́ / у него́ / у неё",
+     "you have / he has / she has"
+    ],
+    [
+     "у нас / у вас / у них",
+     "we have / you have / they have"
+    ],
+    [
+     "У кого́?",
+     "Who has…?"
+    ],
+    [
+     "— У вас есть маши́на? — Да, есть.",
+     "— Do you have a car? — Yes, I do."
+    ],
+    [
+     "— Нет, маши́ны нет.",
+     "— No, I don't have a car."
+    ],
+    [
+     "Его́ нет. / Её нет.",
+     "He's (it's) not here. / She's not here."
+    ],
+    [
+     "Их нет.",
+     "They're not here."
+    ],
+    [
+     "Здесь нет кни́ги.",
+     "There's no book here."
+    ],
+    [
+     "из",
+     "from (+ genitive)"
+    ],
+    [
+     "Я из Миссиси́пи.",
+     "I'm from Mississippi."
+    ],
+    [
+     "Са́ша из Москвы́.",
+     "Sasha is from Moscow."
+    ],
+    [
+     "напро́тив",
+     "opposite, across from (+ genitive)"
+    ],
+    [
+     "кот",
+     "cat (male)"
+    ],
+    [
+     "соба́ка",
+     "dog"
+    ],
+    [
+     "два кота́",
+     "two cats"
+    ],
+    [
+     "четы́ре соба́ки",
+     "four dogs"
+    ]
+   ],
+   "grammar": [
+    {
+     "t": "хоте́ть (to want): irregular",
+     "b": "Singular looks 1st-conjugation with <b>ч</b>, plural looks 2nd-conjugation with <b>т</b>: я <b>хочу́</b>, ты <b>хо́чешь</b>, он <b>хо́чет</b> / мы <b>хоти́м</b>, вы <b>хоти́те</b>, они́ <b>хотя́т</b>. Past: хоте́л, хоте́ла, хоте́ли. Use it with a noun in the <b>accusative</b> (Я хочу́ <b>э́ту кни́гу</b>) or with an <b>infinitive</b> (Я хочу́ <b>чита́ть</b> э́ту кни́гу)."
+    },
+    {
+     "t": "Rooms that are really adjectives",
+     "b": "<b>гости́ная, столо́вая, ва́нная</b> are feminine adjectives with the word ко́мната dropped. So they take adjective endings: в гости́н<b>ой</b>, в столо́в<b>ой</b>, в ва́нн<b>ой</b> (not “в гости́не”). Regular nouns work normally: в спа́льн<b>е</b>, в кабине́т<b>е</b>, на ку́хн<b>е</b> (kitchen takes на)."
+    },
+    {
+     "t": "стои́т, виси́т, лежи́т (where things are)",
+     "b": "Russian says how a thing is positioned. <b>стои́т</b> = standing upright (дива́н, шкаф, ла́мпа on a table). <b>виси́т</b> = hanging (карти́на, фотогра́фия, ико́на on the wall). <b>лежи́т</b> = lying flat (ковёр on the floor, a book on the table). All 2nd conjugation, and you mostly need он/они́: стои́т/стоя́т, виси́т/вися́т, лежи́т/лежа́т. Two or more things → plural: На столе́ <b>стоя́т</b> ла́мпа и компью́тер. A rug <i>on the wall</i> (old Soviet style) <b>виси́т</b>."
+    },
+    {
+     "t": "на полу́, на стене́; сле́ва, спра́ва",
+     "b": "пол has a special ending: <b>на полу́</b> (not “на поле”). стена́ → <b>на стене́</b>. Placing things: <b>Сле́ва</b> стои́т ту́мбочка (on the left). <b>Спра́ва</b> пи́сьменный стол (on the right). <b>Ря́дом</b> стои́т стул (next to it). <b>Да́льше</b>… (farther on)."
+    },
+    {
+     "t": "Genitive: when to use it",
+     "b": "1) The <b>owner</b> after у: <b>У меня́</b> есть кот. 2) <b>Absence</b> after нет: У меня́ нет <b>кота́</b>. 3) <b>Quantity</b>: 2, 3, 4 + genitive singular (два <b>кота́</b>, четы́ре <b>соба́ки</b>, три <b>этажа́</b>, just like два <b>часа́</b>); 5+ takes genitive plural (later). 4) After certain prepositions: <b>у, из, напро́тив</b>: Мы из <b>Москвы́</b>. Соба́ка сиди́т напро́тив <b>кота́</b>."
+    },
+    {
+     "t": "У меня́ есть: the owner pronouns",
+     "b": "Russian has no verb “to have.” You say “by me there is”: я → <b>у меня́</b>, ты → <b>у тебя́</b>, он → <b>у него́</b>, она́ → <b>у неё</b>, мы → <b>у нас</b>, вы → <b>у вас</b>, они́ → <b>у них</b>, кто → <b>у кого́</b>. Watch the <b>н-</b>: after a preposition it's у <b>н</b>его́, у <b>н</b>её, у <b>н</b>их. Without one, его́/её/их mean his/her/their: Это <b>его́</b> маши́на (his car) vs <b>У него́</b> есть маши́на (he has a car)."
+    },
+    {
+     "t": "есть + nominative, нет + genitive",
+     "b": "The thing you <b>have</b> stays nominative: У меня́ есть <b>кот</b>. The thing you <b>don't have</b> goes genitive: У меня́ нет <b>кота́</b>. Short answers: — У вас есть маши́на? — Да, <b>есть</b>. / — Нет, маши́ны <b>нет</b> (or just Нет, нет). Drop есть when you're describing what kind, not whether it exists: У него́ <b>краси́вая</b> кварти́ра. У мое́й до́чери краси́вая ме́бель."
+    },
+    {
+     "t": "Genitive endings: nouns",
+     "b": "Masc./neuter: hard <b>-а</b> (стол → стола́, окно́ → окна́, брат → бра́та), soft <b>-я</b> (слова́рь → словаря́, музе́й → музе́я, пла́тье → пла́тья). Feminine: <b>-ы</b> (газе́та → газе́ты), soft <b>-и</b> (неде́ля → неде́ли, крова́ть → крова́ти). <b>7-letter rule</b>: after к г х ж ш щ ч write -и, not -ы: кни́га → кни́г<b>и</b>, америка́нка → америка́нк<b>и</b>. Watch: оте́ц → <b>отца́</b>, америка́нец → америка́нца, ковёр → <b>ковра́</b> (vowel drops); мать → <b>ма́тери</b>, дочь → <b>до́чери</b>; па́па → <b>па́пы</b>, Ди́ма → Ди́мы (men's names in -а take feminine endings)."
+    },
+    {
+     "t": "Genitive endings: adjectives and my/your/this",
+     "b": "Masc./neuter: <b>-ого / -его</b> (но́вого, большо́го, си́него, хоро́шего); say -ого as “-ова.” Feminine: <b>-ой / -ей</b> (но́вой, большо́й, си́ней, хоро́шей). Special words: мой → <b>моего́ / мое́й</b>, твой → твоего́ / твое́й, наш → <b>на́шего / на́шей</b>, ваш → ва́шего / ва́шей, э́тот → <b>э́того / э́той</b>. <b>его́, её, их</b> (his/her/their) never change: У <b>его́</b> бра́та есть маши́на. In a phrase like айфо́н 16 or миллио́н до́лларов, only the first word changes: нет <b>айфо́на</b> 16, нет <b>миллио́на</b> до́лларов."
+    },
+    {
+     "t": "Его́ нет: someone or something isn't there",
+     "b": "Absence takes genitive too: — Где Ива́н? — <b>Его́</b> нет. — Где А́нна? — <b>Её</b> нет. — Где роди́тели? — <b>Их</b> нет. No н- here because there's no preposition. With nouns: Ти́гра нет. Лиси́цы нет. Здесь нет общежи́тия."
+    },
+    {
+     "t": "Како́го цве́та…? (colors)",
+     "b": "Како́го цве́та = “of what color” (genitive). The answer matches the noun: Дом <b>бе́лый</b>. Крова́ть <b>кори́чневая</b>. Кре́сло <b>кра́сное</b>. Two blues: <b>голубо́й</b> (light) and <b>си́ний</b> (dark). си́ний is soft: си́ний, си́няя, си́нее, си́ние."
+    },
+    {
+     "t": "Read it: Ко́мната А́ни",
+     "b": "А́ня живёт в общежи́тии. Э́то её ко́мната. В ко́мнате больша́я крова́ть, шкаф и пи́сьменный стол. Спра́ва пи́сьменный стол и стул. На столе́ стоя́т ла́мпа и компью́тер. Сле́ва ту́мбочка. На стене́ виси́т карти́на. А́ня лю́бит э́ту ко́мнату.<br><i>Anya lives in a dorm. This is her room. In the room there's a big bed, a wardrobe and a desk. On the right are the desk and a chair. On the desk are a lamp and a computer. On the left is a nightstand. A painting hangs on the wall. Anya loves this room.</i>"
+    }
+   ],
+   "drills": [
+    {
+     "q": "Я ___ жить в Москве́.",
+     "a": "хочу́",
+     "opts": [
+      "хо́чет",
+      "хоти́м",
+      "хо́чешь"
+     ],
+     "why": "я → хочу́.",
+     "en": "I want to live in Moscow."
+    },
+    {
+     "q": "Ты ___ чай?",
+     "a": "хо́чешь",
+     "opts": [
+      "хо́чет",
+      "хочу́",
+      "хоти́шь"
+     ],
+     "why": "ты → хо́чешь (singular has ч).",
+     "en": "Do you want tea?"
+    },
+    {
+     "q": "Мы ___ жить в до́ме.",
+     "a": "хоти́м",
+     "opts": [
+      "хо́чем",
+      "хотя́т",
+      "хоти́те"
+     ],
+     "why": "Plural switches to т: мы хоти́м.",
+     "en": "We want to live in a house."
+    },
+    {
+     "q": "Они́ ___ жить в Росси́и.",
+     "a": "хотя́т",
+     "opts": [
+      "хо́чут",
+      "хоти́т",
+      "хо́чет"
+     ],
+     "why": "они́ → хотя́т (not хо́чут).",
+     "en": "They want to live in Russia."
+    },
+    {
+     "q": "Вы ___ жить в кварти́ре и́ли в общежи́тии?",
+     "a": "хоти́те",
+     "opts": [
+      "хо́чете",
+      "хотя́т",
+      "хоти́м"
+     ],
+     "why": "вы → хоти́те.",
+     "en": "Do you want to live in an apartment or a dorm?"
+    },
+    {
+     "q": "Ра́ньше она́ ___ жить в Калифо́рнии.",
+     "a": "хоте́ла",
+     "opts": [
+      "хоте́л",
+      "хо́чет",
+      "хоте́ли"
+     ],
+     "why": "Past, she → хоте́ла.",
+     "en": "She used to want to live in California."
+    },
+    {
+     "q": "Я хочу́ ___ э́ту кни́гу. (to read)",
+     "a": "чита́ть",
+     "opts": [
+      "чита́ю",
+      "чита́ет",
+      "чита́л"
+     ],
+     "why": "After хоте́ть the second verb stays in the infinitive.",
+     "en": "I want to read this book."
+    },
+    {
+     "q": "Я хочу́ ___. (this book)",
+     "a": "э́ту кни́гу",
+     "opts": [
+      "э́та кни́га",
+      "э́той кни́ги",
+      "э́той кни́ге"
+     ],
+     "why": "хоте́ть + accusative: -а → -у.",
+     "en": "I want this book."
+    },
+    {
+     "q": "Дива́н стои́т в ___. (гости́ная)",
+     "a": "гости́ной",
+     "opts": [
+      "гости́ная",
+      "гости́ную",
+      "гости́не"
+     ],
+     "why": "гости́ная is an adjective, so prepositional is -ой.",
+     "en": "The sofa is in the living room."
+    },
+    {
+     "q": "Мы обе́даем в ___. (столо́вая)",
+     "a": "столо́вой",
+     "opts": [
+      "столо́вая",
+      "столо́ве",
+      "столо́вую"
+     ],
+     "why": "Adjective-noun → -ой.",
+     "en": "We eat lunch in the dining room."
+    },
+    {
+     "q": "Холоди́льник стои́т на ___. (ку́хня)",
+     "a": "ку́хне",
+     "opts": [
+      "ку́хня",
+      "ку́хню",
+      "ку́хни"
+     ],
+     "why": "Location → prepositional; kitchen takes на: на ку́хне.",
+     "en": "The fridge is in the kitchen."
+    },
+    {
+     "q": "Крова́ть стои́т в ___. (спа́льня)",
+     "a": "спа́льне",
+     "opts": [
+      "спа́льня",
+      "спа́льню",
+      "спа́льни"
+     ],
+     "why": "Regular noun, location → -е.",
+     "en": "The bed is in the bedroom."
+    },
+    {
+     "q": "The room where you sleep: ___",
+     "a": "спа́льня",
+     "opts": [
+      "гости́ная",
+      "столо́вая",
+      "кабине́т"
+     ],
+     "why": "спать = to sleep → спа́льня.",
+     "en": "bedroom"
+    },
+    {
+     "q": "The room with a desk and bookshelves where you work: ___",
+     "a": "кабине́т",
+     "opts": [
+      "спа́льня",
+      "ва́нная",
+      "столо́вая"
+     ],
+     "why": "Study / office = кабине́т.",
+     "en": "study, office"
+    },
+    {
+     "q": "The room with the bathtub or shower: ___",
+     "a": "ва́нная",
+     "opts": [
+      "ку́хня",
+      "спа́льня",
+      "гости́ная"
+     ],
+     "why": "ва́нна = bathtub → ва́нная.",
+     "en": "bathroom"
+    },
+    {
+     "q": "В на́шем до́ме три ___. (эта́ж)",
+     "a": "этажа́",
+     "opts": [
+      "эта́ж",
+      "этаже́й",
+      "этаже́"
+     ],
+     "why": "2, 3, 4 + genitive singular: три этажа́ (like три часа́).",
+     "en": "Our house has three floors."
+    },
+    {
+     "q": "Карти́на ___ на стене́.",
+     "a": "виси́т",
+     "opts": [
+      "стои́т",
+      "лежи́т",
+      "вися́т"
+     ],
+     "why": "On the wall → hanging → виси́т.",
+     "en": "The painting hangs on the wall."
+    },
+    {
+     "q": "Дива́н ___ на полу́.",
+     "a": "стои́т",
+     "opts": [
+      "виси́т",
+      "лежи́т",
+      "стоя́т"
+     ],
+     "why": "Furniture on legs stands → стои́т.",
+     "en": "The sofa is on the floor."
+    },
+    {
+     "q": "Ковёр ___ на полу́.",
+     "a": "лежи́т",
+     "opts": [
+      "стои́т",
+      "виси́т",
+      "лежа́т"
+     ],
+     "why": "Flat on the floor → лежи́т.",
+     "en": "The rug is lying on the floor."
+    },
+    {
+     "q": "На столе́ ___ ла́мпа и компью́тер.",
+     "a": "стоя́т",
+     "opts": [
+      "стои́т",
+      "лежа́т",
+      "вися́т"
+     ],
+     "why": "Two upright things → plural стоя́т.",
+     "en": "A lamp and a computer are on the desk."
+    },
+    {
+     "q": "На стене́ ___ фотогра́фии.",
+     "a": "вися́т",
+     "opts": [
+      "виси́т",
+      "стоя́т",
+      "лежа́т"
+     ],
+     "why": "Several photos on the wall → plural вися́т.",
+     "en": "Photos hang on the wall."
+    },
+    {
+     "q": "Кни́ги ___ на столе́. (flat)",
+     "a": "лежа́т",
+     "opts": [
+      "лежи́т",
+      "стоя́т",
+      "вися́т"
+     ],
+     "why": "Lying flat, plural → лежа́т.",
+     "en": "The books are lying on the table."
+    },
+    {
+     "q": "Шкаф ___ спра́ва.",
+     "a": "стои́т",
+     "opts": [
+      "виси́т",
+      "лежи́т",
+      "стоя́т"
+     ],
+     "why": "Upright furniture, one thing → стои́т.",
+     "en": "The wardrobe is on the right."
+    },
+    {
+     "q": "На стене́ ___ ковёр.",
+     "a": "виси́т",
+     "opts": [
+      "лежи́т",
+      "стои́т",
+      "вися́т"
+     ],
+     "why": "A rug ON THE WALL hangs → виси́т.",
+     "en": "A rug hangs on the wall."
+    },
+    {
+     "q": "Ковёр лежи́т на ___. (пол)",
+     "a": "полу́",
+     "opts": [
+      "по́ле",
+      "пол",
+      "по́ла"
+     ],
+     "why": "пол has a special ending: на полу́.",
+     "en": "The rug is on the floor."
+    },
+    {
+     "q": "Карти́на виси́т на ___. (стена́)",
+     "a": "стене́",
+     "opts": [
+      "сте́ну",
+      "стена́",
+      "стены́"
+     ],
+     "why": "Location → prepositional -е: на стене́.",
+     "en": "The painting hangs on the wall."
+    },
+    {
+     "q": "___ пи́сьменный стол и стул. (on the right)",
+     "a": "Спра́ва",
+     "opts": [
+      "Сле́ва",
+      "Ря́дом",
+      "Да́льше"
+     ],
+     "why": "on the right = спра́ва.",
+     "en": "On the right are a desk and a chair."
+    },
+    {
+     "q": "___ ту́мбочка. (on the left)",
+     "a": "Сле́ва",
+     "opts": [
+      "Спра́ва",
+      "Ря́дом",
+      "Да́льше"
+     ],
+     "why": "on the left = сле́ва.",
+     "en": "On the left is a nightstand."
+    },
+    {
+     "q": "А́ня живёт в ___. (общежи́тие)",
+     "a": "общежи́тии",
+     "opts": [
+      "общежи́тие",
+      "общежи́тия",
+      "общежи́тию"
+     ],
+     "why": "Location → prepositional; -ие → -ии.",
+     "en": "Anya lives in a dorm."
+    },
+    {
+     "q": "___ есть маши́на. (I have)",
+     "a": "У меня́",
+     "opts": [
+      "Я",
+      "У мне",
+      "Меня́"
+     ],
+     "why": "I have = у меня́ (есть).",
+     "en": "I have a car."
+    },
+    {
+     "q": "___ есть соба́ка? (ты)",
+     "a": "У тебя́",
+     "opts": [
+      "Ты",
+      "У ты",
+      "У тебе́"
+     ],
+     "why": "ты → у тебя́.",
+     "en": "Do you have a dog?"
+    },
+    {
+     "q": "___ есть кот. (he has)",
+     "a": "У него́",
+     "opts": [
+      "У его́",
+      "Он",
+      "У ним"
+     ],
+     "why": "After у, его́ gets н-: у него́.",
+     "en": "He has a cat."
+    },
+    {
+     "q": "___ есть да́ча. (she has)",
+     "a": "У неё",
+     "opts": [
+      "У её",
+      "Она́",
+      "У ней"
+     ],
+     "why": "After у, её gets н-: у неё.",
+     "en": "She has a dacha."
+    },
+    {
+     "q": "___ есть компью́тер. (we have)",
+     "a": "У нас",
+     "opts": [
+      "Мы",
+      "У нам",
+      "У наш"
+     ],
+     "why": "мы → у нас.",
+     "en": "We have a computer."
+    },
+    {
+     "q": "___ есть те́хника? (вы)",
+     "a": "У вас",
+     "opts": [
+      "Вы",
+      "У ваш",
+      "У вам"
+     ],
+     "why": "вы → у вас.",
+     "en": "Do you have electronics?"
+    },
+    {
+     "q": "___ есть но́вая маши́на. (they have)",
+     "a": "У них",
+     "opts": [
+      "У их",
+      "Они́",
+      "У ним"
+     ],
+     "why": "After у, их gets н-: у них.",
+     "en": "They have a new car."
+    },
+    {
+     "q": "Э́то Анто́н. ___ есть маши́на.",
+     "a": "У него́",
+     "opts": [
+      "У неё",
+      "У них",
+      "Его́"
+     ],
+     "why": "Анто́н = он → у него́.",
+     "en": "This is Anton. He has a car."
+    },
+    {
+     "q": "Э́то ___ кварти́ра. (his)",
+     "a": "его́",
+     "opts": [
+      "у него́",
+      "него́",
+      "у его́"
+     ],
+     "why": "“His” has no н- and no у. н- only comes after a preposition.",
+     "en": "This is his apartment."
+    },
+    {
+     "q": "___ есть компью́тер? (who has)",
+     "a": "У кого́",
+     "opts": [
+      "Кто",
+      "У кто",
+      "Кого́"
+     ],
+     "why": "кто → у кого́.",
+     "en": "Who has a computer?"
+    },
+    {
+     "q": "У меня́ есть ___. (кот)",
+     "a": "кот",
+     "opts": [
+      "кота́",
+      "коту́",
+      "ко́те"
+     ],
+     "why": "The thing you HAVE stays nominative. Only the owner is genitive.",
+     "en": "I have a cat."
+    },
+    {
+     "q": "У неё есть ___. (соба́ка)",
+     "a": "соба́ка",
+     "opts": [
+      "соба́ки",
+      "соба́ку",
+      "соба́ке"
+     ],
+     "why": "есть + nominative.",
+     "en": "She has a dog."
+    },
+    {
+     "q": "У меня́ нет ___. (кот)",
+     "a": "кота́",
+     "opts": [
+      "кот",
+      "коту́",
+      "ко́те"
+     ],
+     "why": "нет + genitive: masculine -а.",
+     "en": "I don't have a cat."
+    },
+    {
+     "q": "У меня́ нет ___. (маши́на)",
+     "a": "маши́ны",
+     "opts": [
+      "маши́на",
+      "маши́ну",
+      "маши́не"
+     ],
+     "why": "нет + genitive: -а → -ы.",
+     "en": "I don't have a car."
+    },
+    {
+     "q": "— У А́ни есть кот? — Да, ___.",
+     "a": "есть",
+     "opts": [
+      "нет",
+      "да",
+      "у неё"
+     ],
+     "why": "Short yes answer: Да, есть.",
+     "en": "— Does Anya have a cat? — Yes, she does."
+    },
+    {
+     "q": "— У вас есть маши́на? — Нет, маши́ны ___.",
+     "a": "нет",
+     "opts": [
+      "есть",
+      "не",
+      "не есть"
+     ],
+     "why": "Short no answer: маши́ны нет.",
+     "en": "— Do you have a car? — No, I don't."
+    },
+    {
+     "q": "— У вас есть при́нтер? — Нет, у меня́ нет ___.",
+     "a": "при́нтера",
+     "opts": [
+      "при́нтер",
+      "при́нтеру",
+      "при́нтере"
+     ],
+     "why": "нет + genitive: -а.",
+     "en": "— Do you have a printer? — No, I don't have a printer."
+    },
+    {
+     "q": "— У тебя́ есть айфо́н 16? — Нет, у меня́ нет ___.",
+     "a": "айфо́на 16",
+     "opts": [
+      "айфо́н 16",
+      "айфо́ну 16",
+      "айфо́не 16"
+     ],
+     "why": "Only the first word changes: айфо́на 16.",
+     "en": "— Do you have an iPhone 16? — No, I don't."
+    },
+    {
+     "q": "У меня́ нет ___ до́лларов. (миллио́н)",
+     "a": "миллио́на",
+     "opts": [
+      "миллио́н",
+      "миллио́ну",
+      "миллио́не"
+     ],
+     "why": "Only the first word changes; до́лларов stays.",
+     "en": "I don't have a million dollars."
+    },
+    {
+     "q": "Здесь нет ___. (кни́га)",
+     "a": "кни́ги",
+     "opts": [
+      "кни́гы",
+      "кни́га",
+      "кни́гу"
+     ],
+     "why": "7-letter rule: after г write -и, never -ы.",
+     "en": "There's no book here."
+    },
+    {
+     "q": "У него́ нет ___. (слова́рь)",
+     "a": "словаря́",
+     "opts": [
+      "слова́рь",
+      "словаре́",
+      "словари́"
+     ],
+     "why": "Soft masculine (-ь) → -я, stress moves to the end.",
+     "en": "He doesn't have a dictionary."
+    },
+    {
+     "q": "Нет ___. (крова́ть)",
+     "a": "крова́ти",
+     "opts": [
+      "крова́ты",
+      "крова́тя",
+      "крова́ть"
+     ],
+     "why": "Feminine -ь → -и.",
+     "en": "There's no bed."
+    },
+    {
+     "q": "Нет ___. (кре́сло)",
+     "a": "кре́сла",
+     "opts": [
+      "кре́сло",
+      "кре́слы",
+      "кре́сле"
+     ],
+     "why": "Neuter -о → -а.",
+     "en": "There's no armchair."
+    },
+    {
+     "q": "Нет ___. (пла́тье)",
+     "a": "пла́тья",
+     "opts": [
+      "пла́тье",
+      "пла́тьи",
+      "пла́тьа"
+     ],
+     "why": "Neuter -е → -я.",
+     "en": "There's no dress."
+    },
+    {
+     "q": "Нет ___. (музе́й)",
+     "a": "музе́я",
+     "opts": [
+      "музе́и",
+      "музе́й",
+      "музе́а"
+     ],
+     "why": "-й → -я.",
+     "en": "There's no museum."
+    },
+    {
+     "q": "Нет ___. (ку́хня)",
+     "a": "ку́хни",
+     "opts": [
+      "ку́хня",
+      "ку́хны",
+      "ку́хню"
+     ],
+     "why": "Feminine -я → -и.",
+     "en": "There's no kitchen."
+    },
+    {
+     "q": "Нет ___. (ковёр)",
+     "a": "ковра́",
+     "opts": [
+      "ковёра",
+      "ковёр",
+      "ковры́"
+     ],
+     "why": "The ё drops out: ковёр → ковра́.",
+     "en": "There's no rug."
+    },
+    {
+     "q": "Нет ___. (холоди́льник)",
+     "a": "холоди́льника",
+     "opts": [
+      "холоди́льник",
+      "холоди́льнику",
+      "холоди́льнике"
+     ],
+     "why": "Masculine → -а.",
+     "en": "There's no refrigerator."
+    },
+    {
+     "q": "Нет ___. (плита́)",
+     "a": "плиты́",
+     "opts": [
+      "плита́",
+      "плиту́",
+      "плите́"
+     ],
+     "why": "Feminine -а → -ы.",
+     "en": "There's no stove."
+    },
+    {
+     "q": "У ___ есть маши́на. (оте́ц)",
+     "a": "отца́",
+     "opts": [
+      "оте́ца",
+      "оте́ц",
+      "отцу́"
+     ],
+     "why": "The е drops out: оте́ц → отца́.",
+     "en": "Father has a car."
+    },
+    {
+     "q": "У ___ есть дом. (мать)",
+     "a": "ма́тери",
+     "opts": [
+      "ма́ти",
+      "мать",
+      "ма́тере"
+     ],
+     "why": "мать and дочь grow -ер-: ма́тери, до́чери.",
+     "en": "Mother has a house."
+    },
+    {
+     "q": "У ___ есть компью́тер. (па́па)",
+     "a": "па́пы",
+     "opts": [
+      "па́па",
+      "па́пу",
+      "па́пе"
+     ],
+     "why": "па́па ends in -а, so it takes feminine-type endings: па́пы.",
+     "en": "Dad has a computer."
+    },
+    {
+     "q": "У ___ есть кот? (А́ня)",
+     "a": "А́ни",
+     "opts": [
+      "А́ны",
+      "А́ня",
+      "А́ню"
+     ],
+     "why": "-я → -и.",
+     "en": "Does Anya have a cat?"
+    },
+    {
+     "q": "У ___ есть соба́ка. (Ви́ктор)",
+     "a": "Ви́ктора",
+     "opts": [
+      "Ви́ктор",
+      "Ви́ктору",
+      "Ви́кторе"
+     ],
+     "why": "Masculine → -а.",
+     "en": "Viktor has a dog."
+    },
+    {
+     "q": "У ___ есть да́ча. (Ива́н)",
+     "a": "Ива́на",
+     "opts": [
+      "Ива́н",
+      "Ива́ну",
+      "Ива́не"
+     ],
+     "why": "Masculine → -а.",
+     "en": "Ivan has a dacha."
+    },
+    {
+     "q": "У ___ есть да́ча. (америка́нка)",
+     "a": "америка́нки",
+     "opts": [
+      "америка́нкы",
+      "америка́нка",
+      "америка́нку"
+     ],
+     "why": "7-letter rule: after к write -и.",
+     "en": "The American woman has a dacha."
+    },
+    {
+     "q": "У меня́ нет ___ маши́ны. (но́вая)",
+     "a": "но́вой",
+     "opts": [
+      "но́вая",
+      "но́вого",
+      "но́вую"
+     ],
+     "why": "Feminine adjective → -ой.",
+     "en": "I don't have a new car."
+    },
+    {
+     "q": "У нас нет ___ шка́фа. (большо́й)",
+     "a": "большо́го",
+     "opts": [
+      "большо́й",
+      "большу́ю",
+      "больша́я"
+     ],
+     "why": "Masculine adjective → -ого.",
+     "en": "We don't have a big wardrobe."
+    },
+    {
+     "q": "Нет ___ журна́ла. (ру́сский)",
+     "a": "ру́сского",
+     "opts": [
+      "ру́сский",
+      "ру́сской",
+      "ру́сскую"
+     ],
+     "why": "Masculine → -ого (said “-ова”).",
+     "en": "There's no Russian magazine."
+    },
+    {
+     "q": "Нет ___ газе́ты. (ру́сская)",
+     "a": "ру́сской",
+     "opts": [
+      "ру́сская",
+      "ру́сского",
+      "ру́сскую"
+     ],
+     "why": "Feminine → -ой.",
+     "en": "There's no Russian newspaper."
+    },
+    {
+     "q": "Нет ___ пла́тья. (кра́сное)",
+     "a": "кра́сного",
+     "opts": [
+      "кра́сное",
+      "кра́сной",
+      "кра́сную"
+     ],
+     "why": "Neuter works like masculine → -ого.",
+     "en": "There's no red dress."
+    },
+    {
+     "q": "Нет ___ общежи́тия. (большо́е)",
+     "a": "большо́го",
+     "opts": [
+      "большо́е",
+      "большо́й",
+      "большу́ю"
+     ],
+     "why": "Neuter → -ого.",
+     "en": "There's no big dorm."
+    },
+    {
+     "q": "Нет ___ ла́мпы. (ма́ленькая)",
+     "a": "ма́ленькой",
+     "opts": [
+      "ма́ленькая",
+      "ма́ленького",
+      "ма́ленькую"
+     ],
+     "why": "Feminine → -ой.",
+     "en": "There's no small lamp."
+    },
+    {
+     "q": "Нет ___ стола́. (пи́сьменный)",
+     "a": "пи́сьменного",
+     "opts": [
+      "пи́сьменный",
+      "пи́сьменной",
+      "пи́сьменную"
+     ],
+     "why": "Masculine → -ого.",
+     "en": "There's no desk."
+    },
+    {
+     "q": "У ___ отца́ есть маши́на. (наш)",
+     "a": "на́шего",
+     "opts": [
+      "наш",
+      "на́шей",
+      "на́ши"
+     ],
+     "why": "наш → на́шего (masculine genitive).",
+     "en": "Our father has a car."
+    },
+    {
+     "q": "У ___ ма́тери есть дом. (моя́)",
+     "a": "мое́й",
+     "opts": [
+      "моя́",
+      "моего́",
+      "мою́"
+     ],
+     "why": "моя́ → мое́й (feminine genitive).",
+     "en": "My mother has a house."
+    },
+    {
+     "q": "У ___ сосе́да есть компью́тер? (ваш)",
+     "a": "ва́шего",
+     "opts": [
+      "ваш",
+      "ва́шей",
+      "ва́ши"
+     ],
+     "why": "ваш → ва́шего.",
+     "en": "Does your neighbor have a computer?"
+    },
+    {
+     "q": "У ___ америка́нки есть да́ча. (э́та)",
+     "a": "э́той",
+     "opts": [
+      "э́та",
+      "э́того",
+      "э́ту"
+     ],
+     "why": "э́та → э́той.",
+     "en": "This American woman has a dacha."
+    },
+    {
+     "q": "У ___ бра́та есть маши́на. (his)",
+     "a": "его́",
+     "opts": [
+      "него́",
+      "ему́",
+      "её"
+     ],
+     "why": "его́/её/их (his/her/their) never change, and no н- since его́ belongs to брат.",
+     "en": "His brother has a car."
+    },
+    {
+     "q": "У ___ студе́нта есть ру́сские кни́ги. (э́тот)",
+     "a": "э́того",
+     "opts": [
+      "э́тот",
+      "э́той",
+      "э́ту"
+     ],
+     "why": "э́тот → э́того.",
+     "en": "This student has Russian books."
+    },
+    {
+     "q": "— Где Ива́н? — ___ нет.",
+     "a": "Его́",
+     "opts": [
+      "Него́",
+      "Он",
+      "Ему́"
+     ],
+     "why": "Absent person → genitive: он → его́. No н- (no preposition).",
+     "en": "— Where's Ivan? — He's not here."
+    },
+    {
+     "q": "— Где А́нна? — ___ нет.",
+     "a": "Её",
+     "opts": [
+      "Неё",
+      "Она́",
+      "Ей"
+     ],
+     "why": "она́ → её.",
+     "en": "— Where's Anna? — She's not here."
+    },
+    {
+     "q": "— Где Ма́ша и Ми́ша? — ___ нет.",
+     "a": "Их",
+     "opts": [
+      "Них",
+      "Они́",
+      "Им"
+     ],
+     "why": "они́ → их.",
+     "en": "— Where are Masha and Misha? — They're not here."
+    },
+    {
+     "q": "— Где тигр? — ___ нет.",
+     "a": "Ти́гра",
+     "opts": [
+      "Тигр",
+      "Ти́гру",
+      "Ти́гре"
+     ],
+     "why": "нет + genitive: masculine -а.",
+     "en": "— Where's the tiger? — There's no tiger."
+    },
+    {
+     "q": "— Где лиси́ца? — ___ нет.",
+     "a": "Лиси́цы",
+     "opts": [
+      "Лиси́ца",
+      "Лиси́цу",
+      "Лиси́це"
+     ],
+     "why": "Feminine -а → -ы.",
+     "en": "— Where's the fox? — There's no fox."
+    },
+    {
+     "q": "Са́ша из ___. (Москва́)",
+     "a": "Москвы́",
+     "opts": [
+      "Москва́",
+      "Москве́",
+      "Москву́"
+     ],
+     "why": "из + genitive: -а → -ы.",
+     "en": "Sasha is from Moscow."
+    },
+    {
+     "q": "Ка́тя из ___. (Ки́ев)",
+     "a": "Ки́ева",
+     "opts": [
+      "Ки́ев",
+      "Ки́еве",
+      "Ки́еву"
+     ],
+     "why": "из + genitive: masculine -а.",
+     "en": "Katya is from Kyiv."
+    },
+    {
+     "q": "Майкл из ___. (Миссиси́пи)",
+     "a": "Миссиси́пи",
+     "opts": [
+      "Миссиси́па",
+      "Миссиси́пы",
+      "Миссиси́пе"
+     ],
+     "why": "Foreign names ending in -и never change.",
+     "en": "Michael is from Mississippi."
+    },
+    {
+     "q": "Соба́ка сиди́т напро́тив ___. (кот)",
+     "a": "кота́",
+     "opts": [
+      "кот",
+      "коту́",
+      "ко́те"
+     ],
+     "why": "напро́тив + genitive.",
+     "en": "The dog is sitting across from the cat."
+    },
+    {
+     "q": "У меня́ два ___. (кот)",
+     "a": "кота́",
+     "opts": [
+      "кот",
+      "коты́",
+      "ко́тов"
+     ],
+     "why": "2, 3, 4 + genitive singular.",
+     "en": "I have two cats."
+    },
+    {
+     "q": "У неё четы́ре ___. (соба́ка)",
+     "a": "соба́ки",
+     "opts": [
+      "соба́к",
+      "соба́ка",
+      "соба́ку"
+     ],
+     "why": "2, 3, 4 + genitive singular.",
+     "en": "She has four dogs."
+    },
+    {
+     "q": "Како́го цве́та ваш дом? — Он ___. (white)",
+     "a": "бе́лый",
+     "opts": [
+      "бе́лая",
+      "бе́лое",
+      "бе́лые"
+     ],
+     "why": "дом is masculine → бе́лый.",
+     "en": "What color is your house? — It's white."
+    },
+    {
+     "q": "Како́го цве́та ва́ша крова́ть? — Она́ ___. (brown)",
+     "a": "кори́чневая",
+     "opts": [
+      "кори́чневый",
+      "кори́чневое",
+      "кори́чневые"
+     ],
+     "why": "крова́ть is feminine → -ая.",
+     "en": "What color is your bed? — It's brown."
+    },
+    {
+     "q": "Како́го цве́та ва́ше кре́сло? — Оно́ ___. (red)",
+     "a": "кра́сное",
+     "opts": [
+      "кра́сный",
+      "кра́сная",
+      "кра́сные"
+     ],
+     "why": "кре́сло is neuter → -ое.",
+     "en": "What color is your armchair? — It's red."
+    },
+    {
+     "q": "light blue = ___",
+     "a": "голубо́й",
+     "opts": [
+      "си́ний",
+      "зелёный",
+      "се́рый"
+     ],
+     "why": "Two blues: голубо́й = light, си́ний = dark.",
+     "en": "light blue"
+    },
+    {
+     "q": "Мой дива́н ___. (dark blue)",
+     "a": "си́ний",
+     "opts": [
+      "си́ный",
+      "си́няя",
+      "голубо́й"
+     ],
+     "why": "си́ний is a soft adjective: си́ний, си́няя, си́нее.",
+     "en": "My sofa is dark blue."
+    }
+   ]
   }
  ],
  "verbs": [
@@ -4079,6 +5543,94 @@
    "eb": "ask",
    "e3": "asks",
    "ep": "asked"
+  },
+  {
+   "inf": "хоте́ть",
+   "en": "to want",
+   "unit": 6,
+   "pres": [
+    "хочу́",
+    "хо́чешь",
+    "хо́чет",
+    "хоти́м",
+    "хоти́те",
+    "хотя́т"
+   ],
+   "past": [
+    "хоте́л",
+    "хоте́ла",
+    "хоте́ло",
+    "хоте́ли"
+   ],
+   "eb": "want",
+   "e3": "wants",
+   "ep": "wanted"
+  },
+  {
+   "inf": "стоя́ть",
+   "en": "to stand (be standing)",
+   "unit": 6,
+   "pres": [
+    "стою́",
+    "стои́шь",
+    "стои́т",
+    "стои́м",
+    "стои́те",
+    "стоя́т"
+   ],
+   "past": [
+    "стоя́л",
+    "стоя́ла",
+    "стоя́ло",
+    "стоя́ли"
+   ],
+   "eb": "stand",
+   "e3": "stands",
+   "ep": "stood"
+  },
+  {
+   "inf": "висе́ть",
+   "en": "to hang (be hanging)",
+   "unit": 6,
+   "pres": [
+    "вишу́",
+    "виси́шь",
+    "виси́т",
+    "виси́м",
+    "виси́те",
+    "вися́т"
+   ],
+   "past": [
+    "висе́л",
+    "висе́ла",
+    "висе́ло",
+    "висе́ли"
+   ],
+   "eb": "hang",
+   "e3": "hangs",
+   "ep": "hung"
+  },
+  {
+   "inf": "лежа́ть",
+   "en": "to lie (be lying)",
+   "unit": 6,
+   "pres": [
+    "лежу́",
+    "лежи́шь",
+    "лежи́т",
+    "лежи́м",
+    "лежи́те",
+    "лежа́т"
+   ],
+   "past": [
+    "лежа́л",
+    "лежа́ла",
+    "лежа́ло",
+    "лежа́ли"
+   ],
+   "eb": "lie",
+   "e3": "lies",
+   "ep": "lay"
   }
  ],
  "dictations": [
@@ -4129,6 +5681,39 @@
     "ту́фли",
     "сапоги́",
     "плащ"
+   ]
+  },
+  {
+   "unit": 6,
+   "title": "Furniture & rooms",
+   "items": [
+    "дива́н",
+    "кре́сло",
+    "крова́ть",
+    "шкаф",
+    "холоди́льник",
+    "пи́сьменный стол",
+    "ковёр",
+    "зе́ркало",
+    "ла́мпа",
+    "карти́на",
+    "гости́ная",
+    "спа́льня"
+   ]
+  },
+  {
+   "unit": 6,
+   "title": "Empty apartment (нет + genitive)",
+   "items": [
+    "нет телеви́зора",
+    "нет ма́ленькой ла́мпы",
+    "нет кре́сла",
+    "нет большо́го шка́фа",
+    "нет крова́ти",
+    "нет холоди́льника",
+    "нет пи́сьменного стола́",
+    "нет плиты́",
+    "нет ковра́"
    ]
   }
  ]
